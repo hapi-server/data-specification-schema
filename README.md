@@ -4,7 +4,7 @@ JSON Schema for HAPI JSON Responses
 
 ## Using www.jsonschemavalidator.net
 
-Copy a [schema file](schemas) into the left entry area at https://www.jsonschemavalidator.net/. Copy a HAPI JSON file into the right entry area.
+Copy a schema file into the left entry area at https://www.jsonschemavalidator.net/. Copy a HAPI JSON file into the right entry area.
 
 ## Using Node.js
 
