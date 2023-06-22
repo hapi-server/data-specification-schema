@@ -328,8 +328,8 @@
                                         "description": "A brief comment explaining what the bins represent",
                                         "type": "string"
                                     },
-                                    "units": {"$ref": "/UnitsAndLabel"},
-                                    "label": {"$ref": "/UnitsAndLabel"},
+                                    "units": {"type": "string"},
+                                    "label": {"type": "string"},
                                     "centers": {
                                         "description": "The centers of each bin.",
                                         "oneOf": [{
