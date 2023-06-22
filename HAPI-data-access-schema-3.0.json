@@ -284,28 +284,28 @@
                         },
                         "type": {
                             "description": "Parameter type",
-                            "type": "string",
+                            "type": ["string","object"],
                             "enum": ["string","double","integer","isotime"]
                         },
                         "units": {"$ref": "/UnitsAndLabel"},
                         "label": {"$ref": "/UnitsAndLabel"},
                         "length": {
                             "description": "Number of characters in parameter (isotime and string parameters only)",
-                            "type": "integer"
+                            "type": ["integer","object"]
                         },
                         "size": {
                             "description": "Parameter size",
-                            "type": "array",
+                            "type": ["array","object"],
                             "items": {"type": "integer"},
                             "minItems": 1,
                             "minimum": 1
                         },
                         "fill": {
-                            "type": ["string","null"]
+                            "type": ["string","null","object"]
                         },
                         "description": {
                             "description": "a brief description of the parameter",
-                            "type": "string"
+                            "type": ["string","object"]
                         },
                         "bins": {
                             "description": "Bins for components of a with a size having at least one element greater than 1",
@@ -315,7 +315,8 @@
                                 "anyOf": [
                                             {"required": ["name","units","centers"]},
                                             {"required": ["name","units","ranges"]},
-                                            {"required": ["name","units","centers","ranges"]}
+                                            {"required": ["name","units","centers","ranges"]},
+                                            {"required": ["$ref"]}
                                         ],
                                 "patternProperties": {"x_.*": {}},
                                 "additionalProperties": false,
@@ -326,36 +327,39 @@
                                     },
                                     "description": {
                                         "description": "A brief comment explaining what the bins represent",
-                                        "type": "string"
+                                        "type": ["string","object"]
                                     },
-                                    "units": {"type": "string"},
-                                    "label": {"type": "string"},
+                                    "units": {"type": ["string","object"]},
+                                    "label": {"type": ["string","object"]},
                                     "centers": {
                                         "description": "The centers of each bin.",
                                         "oneOf": [{
                                                 "type": "array",
                                                 "items": {
-                                                    "type": ["number","null","array"],
+                                                    "type": ["number","object"],
                                                     "minItems": 1
                                                 }
                                             },
                                             {
+                                                "description": "The name of parameter with components that correspond the bin centers; use for time-varying centers",
                                                 "type": "string"
                                             },
                                             {
+                                                "description": "Any dimension not representing binned data should indicate this by using 'centers': null and not including the 'ranges' attribute.",
                                                 "type": "null"
-                                            }                                        ]
+                                            }]
                                     },
                                     "ranges": {
                                         "description": "The boundaries for each bin",
                                         "oneOf": [{
                                             "type": "array",
                                             "items": {
-                                                "type": ["number","null","array"],
-                                                "minItems": 2
+                                                "type": ["array","object"],
+                                                "minItems": 1
                                             }
                                         },
                                         {
+                                            "description": "The name of parameter with components that correspond to the bin ranges; This parameter must have size=[2,N], where N = size[i], where i is the dimension associated with the bin; use for time-varying bin ranges.",
                                             "type": "string"
                                         }
                                     ]
