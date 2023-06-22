@@ -88,7 +88,7 @@
         "title": "about",
         "description": "Server /about response",
         "type": "object",
-        "required": ["HAPI","id","title","contact"],
+        "required": ["HAPI","status","id","title","contact"],
         "patternProperties": {"x_.*": {}},
         "additionalProperties": false,
         "properties": {
@@ -124,7 +124,7 @@
         "title": "capabilities",
         "description": "Server /capabilities response",
         "type": "object",
-        "required": ["HAPI","outputFormats","status"],
+        "required": ["HAPI","status","outputFormats","status"],
         "patternProperties": {"x_.*": {}},
         "additionalProperties": false,
         "properties": { 
