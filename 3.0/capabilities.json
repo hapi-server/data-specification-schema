@@ -71,7 +71,7 @@
       "$ref": "/HAPIStatus"
     },
     "outputFormats": {
-      "description": "Output formats",
+      "description": "Output formats, which must include csv.",
       "type": "array",
       "items": {
         "type": "string",
