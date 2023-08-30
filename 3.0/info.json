@@ -4,7 +4,59 @@
       "id": "/HAPI",
       "description": "HAPI Version",
       "type": "string",
-      "pattern": "^3.0$"
+      "pattern": "^3\\.0$"
+    },
+    "HAPIStatus": {
+      "id": "/HAPIStatus",
+      "title": "info",
+      "description": "Request status",
+      "type": "object",
+      "properties": {
+        "HAPI": {
+          "$ref": "/HAPI"
+        },
+        "status": {
+          "description": "Request status",
+          "type": "object",
+          "required": [
+            "code",
+            "message"
+          ],
+          "patternProperties": {
+            "x_.*": {}
+          },
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "description": "HAPI request status code",
+              "type": "integer",
+              "enum": [
+                1200,
+                1201,
+                1400,
+                1401,
+                1402,
+                1403,
+                1404,
+                1405,
+                1406,
+                1407,
+                1408,
+                1409,
+                1410,
+                1411,
+                1412,
+                1500,
+                1501
+              ]
+            },
+            "message": {
+              "description": "HAPI request status message",
+              "type": "string"
+            }
+          }
+        }
+      }
     },
     "HAPIDateTime": {
       "id": "/HAPIDateTime",
@@ -75,58 +127,6 @@
           "pattern": "^(1971|197[3-9]|1987|1989|1990|1995|1998|2005)-365T23:59:60(\\.[0-9]{0,9})?Z"
         }
       ]
-    },
-    "HAPIStatus": {
-      "id": "/HAPIStatus",
-      "title": "info",
-      "description": "Request status",
-      "type": "object",
-      "properties": {
-        "HAPI": {
-          "$ref": "/HAPI"
-        },
-        "status": {
-          "description": "Request status",
-          "type": "object",
-          "required": [
-            "code",
-            "message"
-          ],
-          "patternProperties": {
-            "x_.*": {}
-          },
-          "additionalProperties": false,
-          "properties": {
-            "code": {
-              "description": "HAPI request status code",
-              "type": "integer",
-              "enum": [
-                1200,
-                1201,
-                1400,
-                1401,
-                1402,
-                1403,
-                1404,
-                1405,
-                1406,
-                1407,
-                1408,
-                1409,
-                1410,
-                1411,
-                1412,
-                1500,
-                1501
-              ]
-            },
-            "message": {
-              "description": "HAPI request status message",
-              "type": "string"
-            }
-          }
-        }
-      }
     },
     "UnitsAndLabel": {
       "id": "/UnitsAndLabel",
