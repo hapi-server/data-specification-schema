@@ -1,0 +1,7 @@
+things that require code checking:
+1. In the capabilities endpoint, the JSON schema requires at least one item for outputFormats,
+but the schema cannot enforce that this item be the "csv" item.
+
+2. general issue:  duplicate keys in JSON objects are not detected by all parsers - "the last
+one wins" is usually what parses do if they don't throw an error, so we should try and detect
+duplicate entries within an object and point this out as an error
