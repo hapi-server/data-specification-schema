@@ -1,0 +1,48 @@
+from java.io import File
+from org.das2.util import FileUtil
+from org.json import JSONObject
+
+setScriptDescription('''Combine separate JSON schemas for HAPI responses into 
+the one-file JSON schema Bob's code uses.  https://www.jsondiff.com/ was used to
+verify this output.''')
+
+ff= getParam( 'dir', '/home/jbf/ct/hapi/git/data-specification-schema/', 'git clone of data-specification-schema' )
+dd= getParam( 'vers', '3.1', 'HAPI version used to create the file names', [ '3.0', '3.1' ] )
+
+jsonall= JSONObject()
+
+allSrc= FileUtil.readFileToString( File( ff+'HAPI-data-access-schema-'+dd+'.json'  ) )
+jsonall= JSONObject( allSrc )
+
+try:
+    d= jsonall.get('definitions')
+except:
+    print 'definitions are not in their own block'
+    d= JSONObject()
+    d.put( 'HAPI', jsonall.get('HAPI') )
+    d.put( 'HAPIDateTime', jsonall.get('HAPIDateTime') )
+    d.put( 'HAPIStatus', jsonall.get('HAPIStatus') )
+    d.put( 'UnitsAndLabel', jsonall.get('UnitsAndLabel') )
+    d.put( 'Refs', jsonall.get('Refs') )
+    
+try:
+    aboutJson= jsonall.get('about')
+except:
+    aboutJson= JSONObject()
+aboutJson.put( 'definitions', d )
+
+capabilitiesJson= jsonall.get('capabilities')
+capabilitiesJson.put( 'definitions', d )
+
+catalogJson= jsonall.get('catalog')
+catalogJson.put( 'definitions', d )
+
+infoJson= jsonall.get('info')
+infoJson.put( 'definitions', d )
+
+FileUtil.writeStringToFile( File(ff+dd+'/about.json'), infoJson.toString(4) )
+FileUtil.writeStringToFile( File(ff+dd+'/capabilities.json'), capabilitiesJson.toString(4) )
+FileUtil.writeStringToFile( File(ff+dd+'/catalog.json'), catalogJson.toString(4) )
+FileUtil.writeStringToFile( File(ff+dd+'/info.json'), infoJson.toString(4) )
+
+
