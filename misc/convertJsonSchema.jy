@@ -1,0 +1,51 @@
+from java.io import File
+from org.das2.util import FileUtil
+from org.json import JSONObject
+
+setScriptDescription('''Combine separate JSON schemas for HAPI responses into 
+the one-file JSON schema Bob's code uses.  https://www.jsondiff.com/ was used to
+verify this output.''')
+
+ff= getParam( 'dir', '/home/jbf/ct/hapi/git/data-specification-schema/', 'git clone of data-specification-schema' )
+dd= getParam( 'vers', '3.0', 'HAPI version used to create the file names', [ '3.0', '3.1' ] )
+
+jsonall= JSONObject()
+
+aboutSrc= FileUtil.readFileToString( File(ff+dd+'/about.json') )
+aboutJson= JSONObject(aboutSrc)
+
+capabilitiesSrc= FileUtil.readFileToString( File(ff+dd+'/capabilities.json') )
+capabilitiesJson= JSONObject(capabilitiesSrc)
+
+catalogSrc= FileUtil.readFileToString( File(ff+dd+'/catalog.json') )
+catalogJson= JSONObject(catalogSrc)
+
+infoSrc= FileUtil.readFileToString( File(ff+dd+'/info.json') )
+infoJson= JSONObject(infoSrc)
+
+d= infoJson.get('definitions')
+jsonall.put( 'HAPI', d.get('HAPI') )
+jsonall.put( 'HAPIDateTime', d.get('HAPIDateTime') )
+jsonall.put( 'HAPIStatus', d.get('HAPIStatus') )
+jsonall.put( 'UnitsAndLabel', d.get('UnitsAndLabel') )
+jsonall.put( 'Refs', d.get('Refs') )
+
+aboutJson.remove('definitions')
+capabilitiesJson.remove('definitions')
+catalogJson.remove('definitions')
+infoJson.remove('definitions')
+
+aboutJson.remove('$schema')
+capabilitiesJson.remove('$schema')
+catalogJson.remove('$schema')
+infoJson.remove('$schema')
+
+jsonall.put( 'about', aboutJson )
+jsonall.put( 'capabilities', capabilitiesJson )
+jsonall.put( 'catalog', catalogJson )
+jsonall.put( 'info', infoJson )
+
+FileUtil.writeStringToFile( File( ff+'HAPI-data-access-schema-'+dd+'.json' ), jsonall.toString(4) )
+
+
+
