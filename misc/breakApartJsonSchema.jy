@@ -2,9 +2,8 @@ from java.io import File
 from org.das2.util import FileUtil
 from org.json import JSONObject
 
-setScriptDescription('''Combine separate JSON schemas for HAPI responses into 
-the one-file JSON schema Bob's code uses.  https://www.jsondiff.com/ was used to
-verify this output.''')
+setScriptDescription('''Break apart Bob's JSON schema into separate schemas for each response.  This will
+also add nodes as needed.''')
 
 ff= getParam( 'dir', '/home/jbf/ct/hapi/git/data-specification-schema/', 'git clone of data-specification-schema' )
 dd= getParam( 'vers', '3.1', 'HAPI version used to create the file names', [ '3.0', '3.1' ] )
