@@ -1,9 +1,8 @@
 {
     "additionalProperties": false,
-    "definitions": {
+    "$defs": {
         "HAPI": {
             "description": "HAPI Version",
-            "id": "/HAPI",
             "pattern": "^3.1$",
             "type": "string"
         },
@@ -75,13 +74,10 @@
                 }
             ],
             "description": "Regular expressions to handle some basic allowed HAPI date/time formats (a subset of ISO 8601). All times should pass this basic test. Additional tests for valid DOY and DOM are done in code.",
-            "id": "/HAPIDateTime"
         },
         "HAPIStatus": {
             "description": "Request status",
-            "id": "/HAPIStatus",
             "properties": {
-                "HAPI": {"$ref": "/HAPI"},
                 "status": {
                     "additionalProperties": false,
                     "description": "Request status",
@@ -122,16 +118,8 @@
             "title": "info",
             "type": "object"
         },
-        "Refs": {
-            "additionalProperties": false,
-            "description": "Units or label schema",
-            "id": "/Refs",
-            "properties": {"$ref": {"type": "string"}},
-            "type": "object"
-        },
         "UnitsAndLabel": {
             "description": "Units or label schema",
-            "id": "/UnitsAndLabel",
             "oneOf": [
                 {"type": [
                     "string",
@@ -157,7 +145,7 @@
     "description": "Server /info response",
     "patternProperties": {"x_.*": {}},
     "properties": {
-        "HAPI": {"$ref": "/HAPI"},
+        "HAPI": {"$ref": "#/$defs/HAPI"},
         "additionalMetadata": {
             "description": "A way to include a block of other (non-HAPI) metadata. See below for a description of the object, which can directly contain the metadata or point to it via a URL.",
             "oneOf": [
@@ -233,7 +221,7 @@
             "type": "string"
         },
         "creationDate": {
-            "$ref": "/HAPIDateTime",
+            "$ref": "#/$defs/HAPIDateTime",
             "description": "the date and time when this dataset was created"
         },
         "definitions": {"type": "object"},
@@ -254,7 +242,7 @@
             "type": "string"
         },
         "modificationDate": {
-            "$ref": "/HAPIDateTime",
+            "$ref": "#/$defs/HAPIDateTime",
             "description": "the date and time when this dataset was last modified"
         },
         "parameters": {
@@ -302,7 +290,7 @@
                                     "description": "A brief comment explaining what the bins represent",
                                     "type": "string"
                                 },
-                                "label": {"$ref": "/UnitsAndLabel"},
+                                "label": {"$ref": "#/$defs/UnitsAndLabel"},
                                 "name": {
                                     "description": "Name for the dimension (e.g., 'Frequency')",
                                     "type": "string"
@@ -321,7 +309,7 @@
                                     "minItems": 1,
                                     "type": "array"
                                 },
-                                "units": {"$ref": "/UnitsAndLabel"}
+                                "units": {"$ref": "#/$defs/UnitsAndLabel"}
                             },
                             "type": "object"
                         },
@@ -340,7 +328,7 @@
                         "null",
                         "object"
                     ]},
-                    "label": {"$ref": "/UnitsAndLabel"},
+                    "label": {"$ref": "#/$defs/UnitsAndLabel"},
                     "length": {
                         "description": "Number of characters in parameter (isotime and string parameters only)",
                         "type": "integer"
@@ -366,7 +354,7 @@
                         ],
                         "type": "string"
                     },
-                    "units": {"$ref": "/UnitsAndLabel"},
+                    "units": {"$ref": "#/$defs/UnitsAndLabel"},
                     "vectorComponents": {
                         "description": "The name or list of names of the vector components present in a directional or positional quanitity. For a scalar parameter, only a single string indicating the component type is allowed. For an array parameter, an array of corresponding component names is expected. If not provided, the default value for vectorComponents is ['x','y','z'], which assumes the parameter is an array of length 3.",
                         "oneOf": [
@@ -414,17 +402,17 @@
             "type": "string"
         },
         "sampleStartDate": {
-            "$ref": "/HAPIDateTime",
+            "$ref": "#/$defs/HAPIDateTime",
             "description": "start of a sample time period for a dataset, where the time period should contain a manageable, representative example of valid, non-fill data"
         },
         "sampleStopDate": {
-            "$ref": "/HAPIDateTime",
+            "$ref": "#/$defs/HAPIDateTime",
             "description": "stop date/time associated with sampleStartDate"
         },
-        "startDate": {"$ref": "/HAPIDateTime"},
-        "status": {"$ref": "/HAPIStatus"},
+        "startDate": {"$ref": "#/$defs/HAPIDateTime"},
+        "status": {"$ref": "#/$defs/HAPIStatus"},
         "stopDate": {
-            "$ref": "/HAPIDateTime",
+            "$ref": "#/$defs/HAPIDateTime",
             "description": "start date/time of parameter data"
         },
         "timeStampLocation": {
