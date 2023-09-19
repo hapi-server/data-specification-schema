@@ -24,11 +24,16 @@ infoSrc= FileUtil.readFileToString( File(ff+dd+'/info.json') )
 infoJson= JSONObject(infoSrc)
 
 d= infoJson.get('definitions')
-jsonall.put( 'HAPI', d.get('HAPI') )
-jsonall.put( 'HAPIDateTime', d.get('HAPIDateTime') )
-jsonall.put( 'HAPIStatus', d.get('HAPIStatus') )
-jsonall.put( 'UnitsAndLabel', d.get('UnitsAndLabel') )
-jsonall.put( 'Refs', d.get('Refs') )
+
+def moveDef( jsonall, definitions, name ):
+    x= definitions.get(name)
+    x.put( 'id', '/'+name )
+    jsonall.put( name, x )
+    
+moveDef( jsonall, d, "HAPI" )
+moveDef( jsonall, d, 'HAPIDateTime') 
+moveDef( jsonall, d, 'HAPIStatus' )
+moveDef( jsonall, d, 'UnitsAndLabel' )
 
 aboutJson.remove('definitions')
 capabilitiesJson.remove('definitions')
@@ -46,6 +51,5 @@ jsonall.put( 'catalog', catalogJson )
 jsonall.put( 'info', infoJson )
 
 FileUtil.writeStringToFile( File( ff+'HAPI-data-access-schema-'+dd+'.json' ), jsonall.toString(4) )
-
-
+print  File( ff+'HAPI-data-access-schema-'+dd+'.json' )
 
