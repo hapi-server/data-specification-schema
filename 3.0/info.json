@@ -161,17 +161,6 @@
           "minItems": 1
         }
       ]
-    },
-    "Refs": {
-      "id": "/Refs",
-      "description": "Units or label schema",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "$ref": {
-          "type": "string"
-        }
-      }
     }
   },
   "title": "info",
@@ -471,6 +460,12 @@
                       "description": "The name of parameter with components that correspond to the bin ranges; This parameter must have size=[2,N], where N = size[i], where i is the dimension associated with the bin; use for time-varying bin ranges.",
                       "type": "string"
                     }
+                  ]
+                },
+                "$ref": {
+                  "description": "references may be made to the definitions area to avoid repetition",
+                  "type": [
+                    "string"
                   ]
                 }
               }
