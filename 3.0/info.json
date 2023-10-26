@@ -2,20 +2,17 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "HAPI": {
-      "id": "/HAPI",
+      "id": "#/definitions/HAPI",
       "description": "HAPI Version",
       "type": "string",
       "pattern": "^3\\.0$"
     },
     "HAPIStatus": {
-      "id": "/HAPIStatus",
+      "id": "#/definitions/HAPIStatus",
       "title": "info",
       "description": "Request status",
       "type": "object",
       "properties": {
-        "HAPI": {
-          "$ref": "/HAPI"
-        },
         "status": {
           "description": "Request status",
           "type": "object",
@@ -60,7 +57,7 @@
       }
     },
     "HAPIDateTime": {
-      "id": "/HAPIDateTime",
+      "id": "#/definitions/HAPIDateTime",
       "description": "Regular expressions to handle some basic allowed HAPI date/time formats (a subset of ISO 8601). All times should pass this basic test. Additional tests for valid DOY and DOM are done in code.",
       "anyOf": [
         {
@@ -130,7 +127,7 @@
       ]
     },
     "UnitsAndLabel": {
-      "id": "/UnitsAndLabel",
+      "id": "#/definitions/UnitsAndLabel",
       "description": "Units or label schema",
       "oneOf": [
         {
@@ -187,11 +184,15 @@
     ]
   },
   "properties": {
+    "$schema": {
+      "description": "schema declaration is sometimes found in response.",
+      "type": "string"
+    },    
     "HAPI": {
-      "$ref": "/HAPI"
+      "$ref": "#/definitions/HAPI"
     },
     "status": {
-      "$ref": "/HAPIStatus"
+      "$ref": "#/definitions/HAPIStatus"
     },
     "format": {
       "type": "string",
@@ -203,11 +204,11 @@
     },
     "startDate": {
       "description": "start date/time of parameter data (inclusive)",
-      "$ref": "/HAPIDateTime"
+      "$ref": "#/definitions/HAPIDateTime"
     },
     "stopDate": {
       "description": "stop date/time of parameter data (exclusive)",
-      "$ref": "/HAPIDateTime"
+      "$ref": "#/definitions/HAPIDateTime"
     },
     "timeStampLocation": {
       "description": "Indicates the positioning of the time stamp within the measurement window.",
@@ -221,11 +222,11 @@
     },
     "sampleStartDate": {
       "description": "start of a sample time period for a dataset (inclusive), where the time period should contain a manageable, representative example of valid, non-fill data",
-      "$ref": "/HAPIDateTime"
+      "$ref": "#/definitions/HAPIDateTime"
     },
     "sampleStopDate": {
       "description": "stop date/time associated with sampleStartDate (exclusive)",
-      "$ref": "/HAPIDateTime"
+      "$ref": "#/definitions/HAPIDateTime"
     },
     "cadence": {
       "description": "Time difference between records as an ISO 8601 duration. This is meant as a guide to the nominal cadence of the data and not necessarily a precise statement about the time between measurements.",
@@ -245,11 +246,11 @@
     },
     "creationDate": {
       "description": "the date and time when this dataset was created",
-      "$ref": "/HAPIDateTime"
+      "$ref": "#/definitions/HAPIDateTime"
     },
     "modificationDate": {
       "description": "the date and time when this dataset was last modified",
-      "$ref": "/HAPIDateTime"
+      "$ref": "#/definitions/HAPIDateTime"
     },
     "contact": {
       "description": "the name of a person to contact for more information about the dataset",
@@ -321,10 +322,10 @@
             ]
           },
           "units": {
-            "$ref": "/UnitsAndLabel"
+            "$ref": "#/definitions/UnitsAndLabel"
           },
           "label": {
-            "$ref": "/UnitsAndLabel"
+            "$ref": "#/definitions/UnitsAndLabel"
           },
           "length": {
             "description": "Number of characters in parameter (isotime and string parameters only)",

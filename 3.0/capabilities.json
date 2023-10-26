@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "capabilities",
   "description": "Server /capabilities response",
   "type": "object",
@@ -10,13 +10,13 @@
   ],
   "definitions": {
     "HAPI": {
-      "id": "/HAPI",
+      "id": "#/definitions/HAPI",
       "description": "HAPI Version",
       "type": "string",
       "pattern": "^3\\.0$"
     },
     "HAPIStatus": {
-      "id": "/HAPIStatus",
+      "id": "#/definitions/HAPIStatus",
         "title": "",
       "description": "Request status",
       "type": "object",
@@ -64,11 +64,15 @@
   },
   "additionalProperties": false,
   "properties": {
+    "$schema": {
+      "description": "schema declaration is sometimes found in response.",
+      "type": "string"
+    },    
     "HAPI": {
-      "$ref": "/HAPI"
+      "$ref": "#/definitions/HAPI"
     },
     "status": {
-      "$ref": "/HAPIStatus"
+      "$ref": "#/definitions/HAPIStatus"
     },
     "outputFormats": {
       "description": "Output formats, which must include csv.",
