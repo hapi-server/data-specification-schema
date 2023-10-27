@@ -203,7 +203,7 @@
             "type": "object"
         },
         "description": {
-            "description": "A brief description of the dataset",
+            "description": "a brief description of the dataset",
             "type": "string"
         },
         "format": {
