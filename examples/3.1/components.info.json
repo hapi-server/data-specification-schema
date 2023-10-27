@@ -1,5 +1,5 @@
 {
-  "$schema": "file:/home/jbf/ct/hapi/git/data-specification-schema/3.1/info.json",
+  "$schema": "https://raw.githubusercontent.com/hapi-server/data-specification-schema/jon-jeremy-mess-3.0/3.1/info.json",
   "startDate": "1997-08-25T17:48:00.000Z",
   "stopDate": "2023-12-11T23:48:00.000Z",
   "cadence": "PT720S",
