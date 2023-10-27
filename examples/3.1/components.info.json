@@ -1,0 +1,75 @@
+{
+  "$schema": "file:/home/jbf/ct/hapi/git/data-specification-schema/3.1/info.json",
+  "startDate": "1997-08-25T17:48:00.000Z",
+  "stopDate": "2023-12-11T23:48:00.000Z",
+  "cadence": "PT720S",
+  "description": "ACE ephemeris",
+  "resourceURL": "https://sscweb.gsfc.nasa.gov/",
+  "coordinateSystemSchema": "spase2.4.1",
+  "parameters": [
+    {
+      "name": "Time",
+      "type": "isotime",
+      "units": "UTC",
+      "fill": null,
+      "length": 18
+    },
+    {
+      "name": "X_GSE",
+      "description": "X Position in the Geocentric Solar Ecliptic coordinate system",
+      "units": "R_E",
+      "fill": "1e31",
+      "type": "double",
+      "coordinateSystemName": "GSE",
+      "vectorComponents": [ "x" ]
+    },
+    {
+      "name": "Y_GSE",
+      "description": "Y Position in the Geocentric Solar Ecliptic coordinate system",
+      "units": "R_E",
+      "fill": "1e31",
+      "type": "double",
+      "coordinateSystemName": "GSE",
+      "vectorComponents": [ "y" ]
+    },
+    {
+      "name": "Z_GSE",
+      "description": "Z Position in the Geocentric Solar Ecliptic coordinate system",
+      "units": "R_E",
+      "fill": "1e31",
+      "type": "double",
+      "coordinateSystemName": "GSE",
+      "vectorComponents": [ "z" ]
+    },
+    {
+      "name": "Lat_GSE",
+      "description": "Lat Position in the Geocentric Solar Ecliptic coordinate system",
+      "units": "deg",
+      "fill": "1e31",
+      "type": "double",
+      "coordinateSystemName": "GSE",
+      "vectorComponents": ["latitude" ]
+    },
+    {
+      "name": "Lon_GSE",
+      "description": "Lon Position in the Geocentric Solar Ecliptic coordinate system",
+      "units": "deg",
+      "fill": "1e31",
+      "type": "double",
+      "coordinateSystemName": "GSE",
+      "vectorComponents": ["longitude"]
+    },
+    {
+      "name": "DipL-V",
+      "description": "Dipole L-value at location of spacecraft. Magnetic field model: Internal: IGRF, External Tsyganenko 89C Kp = 3-, 3, 3+.",
+      "units": "dimensionless",
+      "fill": "1e31",
+      "type": "double"
+    }
+  ],
+  "HAPI": "3.1",
+  "status": {
+    "code": 1200,
+    "message": "OK"
+  }
+}
