@@ -1,9 +1,11 @@
 {
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
-    "$defs": {
+    "definitions": {
         "HAPI": {
             "description": "HAPI Version",
-            "pattern": "^3.1$",
+            "id": "#/definitions/HAPI",
+            "pattern": "^3\\.1$",
             "type": "string"
         },
         "HAPIDateTime": {
@@ -74,9 +76,11 @@
                 }
             ],
             "description": "Regular expressions to handle some basic allowed HAPI date/time formats (a subset of ISO 8601). All times should pass this basic test. Additional tests for valid DOY and DOM are done in code.",
+            "id": "#/definitions/HAPIDateTime"
         },
         "HAPIStatus": {
             "description": "Request status",
+            "id": "#/definitions/HAPIStatus",            
             "properties": {
                 "status": {
                     "additionalProperties": false,
@@ -87,6 +91,7 @@
                             "description": "HAPI request status code",
                             "enum": [
                                 1200,
+                                1201,
                                 1400,
                                 1401,
                                 1402,
@@ -98,6 +103,8 @@
                                 1408,
                                 1409,
                                 1410,
+                                1411,
+                                1412,
                                 1500,
                                 1501
                             ],
@@ -120,6 +127,7 @@
         },
         "UnitsAndLabel": {
             "description": "Units or label schema",
+            "id": "#/definitions/UnitsAndLabel",
             "oneOf": [
                 {"type": [
                     "string",
@@ -145,7 +153,11 @@
     "description": "Server /info response",
     "patternProperties": {"x_.*": {}},
     "properties": {
-        "HAPI": {"$ref": "#/$defs/HAPI"},
+        "$schema": {
+            "description": "schema declaration is sometimes found in response.",
+            "type": "string"
+        },
+        "HAPI": {"$ref": "#/definitions/HAPI"},
         "additionalMetadata": {
             "description": "A way to include a block of other (non-HAPI) metadata. See below for a description of the object, which can directly contain the metadata or point to it via a URL.",
             "oneOf": [
@@ -221,7 +233,7 @@
             "type": "string"
         },
         "creationDate": {
-            "$ref": "#/$defs/HAPIDateTime",
+            "$ref": "#/definitions/HAPIDateTime",
             "description": "the date and time when this dataset was created"
         },
         "definitions": {"type": "object"},
@@ -242,7 +254,7 @@
             "type": "string"
         },
         "modificationDate": {
-            "$ref": "#/$defs/HAPIDateTime",
+            "$ref": "#/definitions/HAPIDateTime",
             "description": "the date and time when this dataset was last modified"
         },
         "parameters": {
@@ -272,10 +284,16 @@
                                     "units",
                                     "centers",
                                     "ranges"
-                                ]}
+                                ]},
+                                {"required": ["$ref"]}
                             ],
                             "patternProperties": {"x_.*": {}},
                             "properties": {
+                                "$ref": {
+                                    "description": "references may be made to the definitions area to avoid repetition",
+                                    "pattern": "\\#\\/definitions\\/.*",
+                                    "type": "string"
+                                },
                                 "centers": {
                                     "description": "The centers of each bin",
                                     "items": {"type": [
@@ -290,7 +308,7 @@
                                     "description": "A brief comment explaining what the bins represent",
                                     "type": "string"
                                 },
-                                "label": {"$ref": "#/$defs/UnitsAndLabel"},
+                                "label": {"$ref": "#/definitions/UnitsAndLabel"},
                                 "name": {
                                     "description": "Name for the dimension (e.g., 'Frequency')",
                                     "type": "string"
@@ -309,7 +327,7 @@
                                     "minItems": 1,
                                     "type": "array"
                                 },
-                                "units": {"$ref": "#/$defs/UnitsAndLabel"}
+                                "units": {"$ref": "#/definitions/UnitsAndLabel"}
                             },
                             "type": "object"
                         },
@@ -328,7 +346,7 @@
                         "null",
                         "object"
                     ]},
-                    "label": {"$ref": "#/$defs/UnitsAndLabel"},
+                    "label": {"$ref": "#/definitions/UnitsAndLabel"},
                     "length": {
                         "description": "Number of characters in parameter (isotime and string parameters only)",
                         "type": "integer"
@@ -354,7 +372,7 @@
                         ],
                         "type": "string"
                     },
-                    "units": {"$ref": "#/$defs/UnitsAndLabel"},
+                    "units": {"$ref": "#/definitions/UnitsAndLabel"},
                     "vectorComponents": {
                         "description": "The name or list of names of the vector components present in a directional or positional quanitity. For a scalar parameter, only a single string indicating the component type is allowed. For an array parameter, an array of corresponding component names is expected. If not provided, the default value for vectorComponents is ['x','y','z'], which assumes the parameter is an array of length 3.",
                         "oneOf": [
@@ -402,18 +420,21 @@
             "type": "string"
         },
         "sampleStartDate": {
-            "$ref": "#/$defs/HAPIDateTime",
-            "description": "start of a sample time period for a dataset, where the time period should contain a manageable, representative example of valid, non-fill data"
+            "$ref": "#/definitions/HAPIDateTime",
+            "description": "start of a sample time period for a dataset (inclusive), where the time period should contain a manageable, representative example of valid, non-fill data"
         },
         "sampleStopDate": {
-            "$ref": "#/$defs/HAPIDateTime",
-            "description": "stop date/time associated with sampleStartDate"
+            "$ref": "#/definitions/HAPIDateTime",
+            "description": "stop date/time associated with sampleStartDate (exclusive)"
         },
-        "startDate": {"$ref": "#/$defs/HAPIDateTime"},
-        "status": {"$ref": "#/$defs/HAPIStatus"},
+        "startDate": {
+            "$ref": "#/definitions/HAPIDateTime",
+            "description": "start date/time of parameter data (inclusive)"
+        },
+        "status": {"$ref": "#/definitions/HAPIStatus"},
         "stopDate": {
-            "$ref": "#/$defs/HAPIDateTime",
-            "description": "start date/time of parameter data"
+            "$ref": "#/definitions/HAPIDateTime",
+            "description": "stop date/time of parameter data (exclusive)"
         },
         "timeStampLocation": {
             "description": "Indicates the positioning of the time stamp within the measurement window.",
