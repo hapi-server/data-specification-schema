@@ -81,45 +81,49 @@
         "HAPIStatus": {
             "description": "Request status",
             "id": "#/definitions/HAPIStatus",
-            "properties": {"status": {
-                "additionalProperties": false,
-                "description": "Request status",
-                "patternProperties": {"x_.*": {}},
-                "properties": {
-                    "code": {
-                        "description": "HAPI request status code",
-                        "enum": [
-                            1200,
-                            1201,
-                            1400,
-                            1401,
-                            1402,
-                            1403,
-                            1404,
-                            1405,
-                            1406,
-                            1407,
-                            1408,
-                            1409,
-                            1410,
-                            1411,
-                            1412,
-                            1500,
-                            1501
-                        ],
-                        "type": "integer"
+            "properties": {
+                "status": {
+                    "additionalProperties": false,
+                    "description": "Request status",
+                    "patternProperties": {
+                        "x_.*": {}
                     },
-                    "message": {
-                        "description": "HAPI request status message",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "code",
-                    "message"
-                ],
-                "type": "object"
-            }},
+                    "properties": {
+                        "code": {
+                            "description": "HAPI request status code",
+                            "enum": [
+                                1200,
+                                1201,
+                                1400,
+                                1401,
+                                1402,
+                                1403,
+                                1404,
+                                1405,
+                                1406,
+                                1407,
+                                1408,
+                                1409,
+                                1410,
+                                1411,
+                                1412,
+                                1500,
+                                1501
+                            ],
+                            "type": "integer"
+                        },
+                        "message": {
+                            "description": "HAPI request status message",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "code",
+                        "message"
+                    ],
+                    "type": "object"
+                }
+            },
             "title": "info",
             "type": "object"
         },
@@ -127,17 +131,23 @@
             "description": "Units or label schema",
             "id": "#/definitions/UnitsAndLabel",
             "oneOf": [
-                {"type": [
-                    "string",
-                    "null"
-                ]},
                 {
-                    "items": [{"type": "string"}],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                {
+                    "items": [{
+                            "type": "string"
+                        }],
                     "minItems": 1,
                     "type": ["array"]
                 },
                 {
-                    "items": [{"type": "array"}],
+                    "items": [{
+                            "type": "array"
+                        }],
                     "minItems": 1,
                     "type": ["array"]
                 }
@@ -149,13 +159,17 @@
         "sampleStopDate": ["sampleStartDate"]
     },
     "description": "Server /info response",
-    "patternProperties": {"x_.*": {}},
+    "patternProperties": {
+        "x_.*": {}
+    },
     "properties": {
         "$schema": {
             "description": "schema declaration is sometimes found in response.",
             "type": "string"
         },
-        "HAPI": {"$ref": "#/definitions/HAPI"},
+        "HAPI": {
+            "$ref": "#/definitions/HAPI"
+        },
         "cadence": {
             "description": "Time difference between records as an ISO 8601 duration. This is meant as a guide to the nominal cadence of the data and not necessarily a precise statement about the time between measurements.",
             "type": "string"
@@ -185,7 +199,9 @@
             "$ref": "#/definitions/HAPIDateTime",
             "description": "the date and time when this dataset was created"
         },
-        "definitions": {"type": "object"},
+        "definitions": {
+            "type": "object"
+        },
         "description": {
             "description": "A brief description of the dataset",
             "type": "string"
@@ -207,32 +223,44 @@
             "description": "Parameters in dataset",
             "items": {
                 "additionalProperties": false,
-                "patternProperties": {"x_.*": {}},
+                "patternProperties": {
+                    "x_.*": {}
+                },
                 "properties": {
                     "bins": {
                         "description": "Bins for components of a with a size having at least one element greater than 1",
                         "items": {
                             "additionalProperties": false,
                             "anyOf": [
-                                {"required": [
-                                    "name",
-                                    "units",
-                                    "centers"
-                                ]},
-                                {"required": [
-                                    "name",
-                                    "units",
-                                    "ranges"
-                                ]},
-                                {"required": [
-                                    "name",
-                                    "units",
-                                    "centers",
-                                    "ranges"
-                                ]},
-                                {"required": ["$ref"]}
+                                {
+                                    "required": [
+                                        "name",
+                                        "units",
+                                        "centers"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "name",
+                                        "units",
+                                        "ranges"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "name",
+                                        "units",
+                                        "centers",
+                                        "ranges"
+                                    ]
+                                },
+                                {
+                                    "required": ["$ref"]
+                                }
                             ],
-                            "patternProperties": {"x_.*": {}},
+                            "patternProperties": {
+                                "x_.*": {}
+                            },
                             "properties": {
                                 "$ref": {
                                     "description": "references may be made to the definitions area to avoid repetition",
@@ -269,10 +297,12 @@
                                         "object"
                                     ]
                                 },
-                                "label": {"type": [
-                                    "string",
-                                    "object"
-                                ]},
+                                "label": {
+                                    "type": [
+                                        "string",
+                                        "object"
+                                    ]
+                                },
                                 "name": {
                                     "description": "Name for the dimension (e.g., 'Frequency')",
                                     "type": "string"
@@ -296,10 +326,12 @@
                                         }
                                     ]
                                 },
-                                "units": {"type": [
-                                    "string",
-                                    "object"
-                                ]}
+                                "units": {
+                                    "type": [
+                                        "string",
+                                        "object"
+                                    ]
+                                }
                             },
                             "type": "object"
                         },
@@ -312,12 +344,16 @@
                             "object"
                         ]
                     },
-                    "fill": {"type": [
-                        "string",
-                        "null",
-                        "object"
-                    ]},
-                    "label": {"$ref": "#/definitions/UnitsAndLabel"},
+                    "fill": {
+                        "type": [
+                            "string",
+                            "null",
+                            "object"
+                        ]
+                    },
+                    "label": {
+                        "$ref": "#/definitions/UnitsAndLabel"
+                    },
                     "length": {
                         "description": "Number of characters in parameter (isotime and string parameters only)",
                         "type": [
@@ -331,7 +367,9 @@
                     },
                     "size": {
                         "description": "Parameter size",
-                        "items": {"type": "integer"},
+                        "items": {
+                            "type": "integer"
+                        },
                         "minItems": 1,
                         "minimum": 1,
                         "type": [
@@ -352,7 +390,9 @@
                             "object"
                         ]
                     },
-                    "units": {"$ref": "#/definitions/UnitsAndLabel"}
+                    "units": {
+                        "$ref": "#/definitions/UnitsAndLabel"
+                    }
                 },
                 "required": [
                     "name",
@@ -386,7 +426,9 @@
             "$ref": "#/definitions/HAPIDateTime",
             "description": "start date/time of parameter data (inclusive)"
         },
-        "status": {"$ref": "#/definitions/HAPIStatus"},
+        "status": {
+            "$ref": "#/definitions/HAPIStatus"
+        },
         "stopDate": {
             "$ref": "#/definitions/HAPIDateTime",
             "description": "stop date/time of parameter data (exclusive)"
