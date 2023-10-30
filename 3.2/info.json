@@ -5,7 +5,7 @@
         "HAPI": {
             "description": "HAPI Version",
             "id": "#/definitions/HAPI",
-            "pattern": "^3\\.1$",
+            "pattern": "^3\\.2$",
             "type": "string"
         },
         "HAPIDateTime": {
@@ -422,17 +422,22 @@
                             {
                                 "type": "object",
                                 "properties": {
-                                    "mediaType": {
-                                        "type":"string",
-                                        "description": " indicates content type behind the URI (also referred to as MIME type)"
-                                    },
-                                    "scheme": {
-                                        "type":"string",
-                                        "description": "the access protocol for the URI (https,etc)"
-                                    },
-                                    "base": {
-                                        "type":"string",
-                                        "description": "allows each URI string value to be relative to a base URI"
+                                    "uri" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "mediaType": {
+                                                "type":"string",
+                                                "description": " indicates content type behind the URI (also referred to as MIME type)"
+                                            },
+                                            "scheme": {
+                                                "type":"string",
+                                                "description": "the access protocol for the URI (https,etc)"
+                                            },
+                                            "base": {
+                                                "type":"string",
+                                                "description": "allows each URI string value to be relative to a base URI"
+                                            }
+                                        }
                                     }
                                 }
                             }
