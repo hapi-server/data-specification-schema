@@ -15,7 +15,7 @@
       "id": "#/definitions/HAPI",
       "description": "HAPI Version",
       "type": "string",
-      "pattern": "^3\\.1$"
+      "pattern": "^3\\.2$"
     },
     "HAPIStatus": {
       "id": "#/definitions/HAPIStatus",
