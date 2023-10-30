@@ -1,0 +1,39 @@
+{
+    "$schema": "file:/home/jbf/ct/hapi/git/data-specification-schema/3.2/info.json",
+    "HAPI": "3.2",
+    "x_createdAt": "2017-02-21T17:27Z",
+    "modificationDate": "2023-01-01T00:00Z",
+    "parameters": [
+        {
+            "length": 20,
+            "name": "Time",
+            "type": "isotime",
+            "x_format": "$Y-$m-$d_$H:$M:$S",
+            "fill": null,
+            "units": "UTC"
+        },
+        {
+            "description": "Picture of the creek, unmodified",
+            "fill": null,
+            "name": "picture",
+            "length": 26,
+            "type": "string",
+            "units": null,
+            "stringType": {
+                "uri": {
+                    "base": "https://cottagesystems.com/data/hapi/pics/",
+                    "mediaType": "image/jpeg"
+                }
+            }
+        }
+    ],
+    "sampleStartDate": "2023-01-01T00:00Z",
+    "sampleStopDate": "2023-02-01T00:00Z",
+    "startDate": "2022-11-01T00:00Z",
+    "stopDate": "2023-10-30T00:00Z",
+    "cadence": "PT10M",
+    "status": {
+        "code": 1200,
+        "message": "OK request successful"
+    }
+}
