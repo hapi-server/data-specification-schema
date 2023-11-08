@@ -262,7 +262,7 @@
          },
          "properties" : {
             "HAPI" : {
-               "$ref" : "/HAPI"
+               "$ref" : "#/definitions/HAPI"
             },
             "catalog" : {
                "additionalItems" : true,
@@ -294,7 +294,7 @@
                "uniqueItems" : true
             },
             "status" : {
-               "$ref" : "/HAPIStatus"
+               "$ref" : "#/definitions/HAPIStatus"
             }
          },
          "required" : [
