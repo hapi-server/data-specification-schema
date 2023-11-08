@@ -1,0 +1,13 @@
+{
+    "$schema": "file:/home/jbf/ct/hapi/git/branch/data-specification-schema/3.2/hapi.json",
+    "HAPI": "3.2",
+    "id": "Java-Demo-Server",
+    "title": "Demo Server",
+    "contact": "Jeremy Faden <faden@cottagesystems.com>",
+    "description": "This HAPI server is based on the Java server at https://github.com/hapi-server/server-java.",
+    "status": {
+        "code": 1200,
+        "message": "OK request successful"
+    },
+    "x_hapi_home": "/home/tomcat/hapi-ct/"
+}
