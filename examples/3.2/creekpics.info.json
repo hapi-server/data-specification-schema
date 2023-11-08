@@ -1,5 +1,5 @@
 {
-    "$schema": "file:/home/jbf/ct/hapi/git/data-specification-schema/3.2/info.json",
+    "$schema": "https://raw.githubusercontent.com/hapi-server/data-specification-schema/jon-jeremy-mess-3.0/3.2/info.json",
     "HAPI": "3.2",
     "x_createdAt": "2017-02-21T17:27Z",
     "modificationDate": "2023-01-01T00:00Z",
