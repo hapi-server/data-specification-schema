@@ -161,14 +161,15 @@
       }
     ]
   },
-  "Refs": {
-    "id": "/Refs",
-    "description": "Units or label schema",
+  "Ref": {
+    "id": "/Ref",
+    "description": "JSON reference",
     "type": "object",
     "additionalProperties": false,
     "properties": {
       "$ref": {
-        "type": "string"
+        "type": "string",
+        "pattern" : "\\#\\/definitions\\/.*"
       }
     }
   },
@@ -455,15 +456,22 @@
             },
             "type": {
               "description": "Parameter type",
-              "type": [
-                "string",
-                "object"
-              ],
-              "enum": [
-                "string",
-                "double",
-                "integer",
-                "isotime"
+              "oneOf": [
+                {
+                  "type": [
+                    "string",
+                    "object"
+                  ],
+                  "enum": [
+                    "string",
+                    "double",
+                    "integer",
+                    "isotime"
+                  ]
+                },
+                {
+                  "$ref": "/Ref"
+                }
               ]
             },
             "units": {
