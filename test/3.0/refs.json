@@ -13,6 +13,7 @@
   "definitions": {
     "fill": "1e-31",
     "units": "m",
+    "label": "power spectra",
     "type": "double",
     "frequency_centers": [
       1,
@@ -100,6 +101,7 @@
       "name": "spectra",
       "type": {"$ref": "#/definitions/type"},
       "units": {"$ref": "#/definitions/units"},
+      "label": {"$ref": "#/definitions/label"},
       "fill": {"$ref": "#/definitions/frequency_centers"},
       "size": [
         10

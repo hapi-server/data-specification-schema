@@ -158,6 +158,9 @@
           }
         ],
         "minItems": 1
+      },
+      {
+        "$ref": "/Ref  "
       }
     ]
   },
@@ -169,7 +172,7 @@
     "properties": {
       "$ref": {
         "type": "string",
-        "pattern" : "\\#\\/definitions\\/.*"
+        "pattern": "\\#\\/definitions\\/.*"
       }
     }
   },
