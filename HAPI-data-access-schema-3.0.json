@@ -333,10 +333,11 @@
                                     "label": {"type": ["string","object"]},
                                     "centers": {
                                         "description": "The centers of each bin.",
-                                        "oneOf": [{
+                                        "oneOf": [
+                                            {
                                                 "type": "array",
                                                 "items": {
-                                                    "type": ["number","object"],
+                                                    "type": "number",
                                                     "minItems": 1
                                                 }
                                             },
@@ -347,20 +348,29 @@
                                             {
                                                 "description": "Any dimension not representing binned data should indicate this by using 'centers': null and not including the 'ranges' attribute.",
                                                 "type": "null"
-                                            }]
+                                            },
+                                            {
+                                                "description": "A JSON reference",
+                                                "type": "object"
+                                            }
+                                        ]
                                     },
                                     "ranges": {
                                         "description": "The boundaries for each bin",
                                         "oneOf": [{
                                             "type": "array",
                                             "items": {
-                                                "type": ["array","object"],
+                                                "type": "array",
                                                 "minItems": 1
                                             }
                                         },
                                         {
                                             "description": "The name of parameter with components that correspond to the bin ranges; This parameter must have size=[2,N], where N = size[i], where i is the dimension associated with the bin; use for time-varying bin ranges.",
                                             "type": "string"
+                                        },
+                                        {
+                                            "description": "A JSON reference",
+                                            "type": "object"
                                         }
                                     ]
                                 }
