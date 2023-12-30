@@ -11,82 +11,68 @@
   "cadence": "PT1S",
   "unitsSchema": "udunits2",
   "definitions": {
+    "description": "A 10-element spectrum with time-independent bins",
     "fill": "1e-31",
     "units": "m",
     "label": "power spectra",
+    "length": 10,
     "type": "double",
-    "frequency_centers": [
-      1,
-      3,
-      5,
-      7,
-      9,
-      11,
-      13,
-      15,
-      17,
-      19
-    ],
-    "frequency_ranges": [
-      [
-        0,
-        2
-      ],
-      [
-        2,
-        4
-      ],
-      [
-        4,
-        6
-      ],
-      [
-        6,
-        8
-      ],
-      [
-        8,
-        10
-      ],
-      [
-        10,
-        12
-      ],
-      [
-        12,
-        14
-      ],
-      [
-        14,
-        16
-      ],
-      [
-        16,
-        18
-      ],
-      [
-        18,
-        20
-      ]
-    ],
-    "pitch_angle_centers": [
-      11.25,
-      45,
-      78.75
-    ],
-    "pitch_angle_ranges": [
-      [
-        0,
-        22.5
-      ],
-      [
-        22.5,
-        67.5
-      ],
-      [
-        67.5,
-        90
-      ]
+    "size": [10],
+    "bins": [
+      {
+        "name": "frequency",
+        "units": "Hz",
+        "centers": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19
+        ],
+        "ranges": [
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            12,
+            14
+          ],
+          [
+            14,
+            16
+          ],
+          [
+            16,
+            18
+          ],
+          [
+            18,
+            20
+          ]
+        ]
+      }
     ]
   },
   "parameters": [
@@ -95,30 +81,44 @@
       "type": "isotime",
       "units": "UTC",
       "fill": null,
-      "length": 24
+      "length": {"$ref": "#/definitions/length"}
     },
     {
-      "name": "spectra",
+      "name": "spectra1",
+      "description": {"$ref": "#/definitions/description"},
       "type": {"$ref": "#/definitions/type"},
       "units": {"$ref": "#/definitions/units"},
       "label": {"$ref": "#/definitions/label"},
       "fill": {"$ref": "#/definitions/frequency_centers"},
-      "size": [
-        10
-      ],
-      "description": "A 10-element spectra with time-independent bins",
+      "size": {"$ref": "#/definitions/size"},
+      "bins": {"$ref": "#/definitions/bins"}
+    },
+    {
+      "name": "spectra2",
+      "description": "same as spectra1, but bins specified differently",
+      "type": {"$ref": "#/definitions/type"},
+      "units": {"$ref": "#/definitions/units"},
+      "label": {"$ref": "#/definitions/label"},
+      "fill": {"$ref": "#/definitions/frequency_centers"},
+      "size": {"$ref": "#/definitions/size"},
       "bins": [
         {
           "name": "frequency",
           "units": "Hz",
-          "centers": {
-            "$ref": "#/definitions/frequency_centers"
-          },
-          "ranges": {
-            "$ref": "#/definitions/frequency_ranges"
-          }
+          "centers": {"$ref": "#/definitions/bins/0/centers"},
+          "ranges": {"$ref": "#/definitions/bins/0/ranges"}
         }
       ]
+    },
+    {
+      "name": "spectra3",
+      "description": "same as spectra1, but bins specified differently",
+      "type": {"$ref": "#/definitions/type"},
+      "units": {"$ref": "#/definitions/units"},
+      "label": {"$ref": "#/definitions/label"},
+      "fill": {"$ref": "#/definitions/frequency_centers"},
+      "size": {"$ref": "#/definitions/size"},
+      "bins": [{"$ref": "#/definitions/bins/0"}]
     }
   ]
 }
