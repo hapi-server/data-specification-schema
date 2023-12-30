@@ -1,0 +1,25 @@
+{
+  "name": "hapi-schema-validator",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engine-strict": true,
+  "engines": {
+    "node": ">=8"
+  },
+  "people": {
+    "name": "Bob Weigel",
+    "email": "rweigel@gmu.edu",
+    "url": "http://github.com/rweigel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hapi-server/data-specification-schema.git"
+  },
+  "dependencies": {
+    "hapi-server-verifier": "github:hapi-server/verifier-nodejs"
+  },
+  "scripts": {
+    "postinstall": "cd node_modules/hapi-server-verifier && rm -rf data-specification-schema && ln -s ../../../../data-specification-schema",
+    "test": "cd 3.0; bash test.sh"
+  }
+}

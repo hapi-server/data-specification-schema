@@ -2,14 +2,26 @@ JSON Schema for HAPI JSON Responses
 
 # Testing
 
-## Using www.jsonschemavalidator.net
+```
+cd test;
+npm install;
+npm test
+```
 
-Copy a schema file into the left entry area at https://www.jsonschemavalidator.net/. Copy a HAPI JSON file into the right entry area.
+The schema files in this repository (`../HAPI-data-access-schema-*`) will be used for testing.
 
-## Using Node.js
+# Formatting
 
-See [Schema Validation](https://github.com/hapi-server/verifier-nodejs/blob/master/README.md).
+Prior to committing, execute
+
+```
+node util/reformat.js FILENAME.js
+```
 
 # Contact
 
 Submit questions, bug reports, and feature requests to the [issue tracker](https://github.com/hapi-server/data-specification-schema/issues).
+
+# Pull Requests
+
+Please post an issue prior to creating a pull request. Pull request must have an associated unit test.
