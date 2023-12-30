@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "HAPI": {
     "id": "/HAPI",
     "description": "HAPI Version",
@@ -537,133 +538,133 @@
             "bins": {
               "description": "Bins for components of a with a size having at least one element greater than 1",
               "oneOf": [
+                {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "anyOf": [
+                      {
+                        "required": [
+                          "name",
+                          "units",
+                          "centers"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "name",
+                          "units",
+                          "ranges"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "name",
+                          "units",
+                          "centers",
+                          "ranges"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "$ref"
+                        ]
+                      }
+                    ],
+                    "patternProperties": {
+                      "x_.*": {}
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "description": "Name for the dimension (e.g., 'Frequency')",
+                        "type": "string"
+                      },
+                      "$ref": {
+                        "description": "JSON reference",
+                        "type": "string"
+                      },
+                      "description": {
+                        "description": "A brief comment explaining what the bins represent",
+                        "oneOf": [
                           {
-                            "type": "array",
-                            "minItems": 1,
-                            "items": {
-                              "type": "object",
-                              "anyOf": [
-                                {
-                                  "required": [
-                                    "name",
-                                    "units",
-                                    "centers"
-                                  ]
-                                },
-                                {
-                                  "required": [
-                                    "name",
-                                    "units",
-                                    "ranges"
-                                  ]
-                                },
-                                {
-                                  "required": [
-                                    "name",
-                                    "units",
-                                    "centers",
-                                    "ranges"
-                                  ]
-                                },
-                                {
-                                  "required": [
-                                    "$ref"
-                                  ]
-                                }
-                              ],
-                              "patternProperties": {
-                                "x_.*": {}
-                              },
-                              "additionalProperties": false,
-                              "properties": {
-                                "name": {
-                                  "description": "Name for the dimension (e.g., 'Frequency')",
-                                  "type": "string"
-                                },
-                                "$ref": {
-                                  "description": "JSON reference",
-                                  "type": "string"
-                                },
-                                "description": {
-                                  "description": "A brief comment explaining what the bins represent",
-                                  "oneOf": [
-                                    {
-                                      "type": "string"
-                                    },
-                                    {
-                                      "$ref": "/Ref"
-                                    }
-                                  ]
-                                },
-                                "units": {
-                                  "oneOf": [
-                                    {
-                                      "type": "string"
-                                    },
-                                    {
-                                      "$ref": "/Ref"
-                                    }
-                                  ]
-                                },
-                                "label": {
-                                  "oneOf": [
-                                    {
-                                      "type": "string"
-                                    },
-                                    {
-                                      "$ref": "/Ref"
-                                    }
-                                  ]
-                                },
-                                "centers": {
-                                  "description": "The centers of each bin.",
-                                  "oneOf": [
-                                    {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "number",
-                                        "minItems": 1
-                                      }
-                                    },
-                                    {
-                                      "description": "The name of parameter with components that correspond the bin centers; use for time-varying centers",
-                                      "type": "string"
-                                    },
-                                    {
-                                      "description": "Any dimension not representing binned data should indicate this by using 'centers': null and not including the 'ranges' attribute.",
-                                      "type": "null"
-                                    },
-                                    {
-                                      "$ref": "/Ref"
-                                    }
-                                  ]
-                                },
-                                "ranges": {
-                                  "description": "The boundaries for each bin",
-                                  "oneOf": [
-                                    {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "array",
-                                        "minItems": 1
-                                      }
-                                    },
-                                    {
-                                      "description": "The name of parameter with components that correspond to the bin ranges; This parameter must have size=[2,N], where N = size[i], where i is the dimension associated with the bin; use for time-varying bin ranges.",
-                                      "type": "string"
-                                    },
-                                    {
-                                      "$ref": "/Ref"
-                                    }
-                                  ]
-                                }
-                              }
-                            }
+                            "type": "string"
                           },
                           {
                             "$ref": "/Ref"
                           }
                         ]
+                      },
+                      "units": {
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "$ref": "/Ref"
+                          }
+                        ]
+                      },
+                      "label": {
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "$ref": "/Ref"
+                          }
+                        ]
+                      },
+                      "centers": {
+                        "description": "The centers of each bin.",
+                        "oneOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "number",
+                              "minItems": 1
+                            }
+                          },
+                          {
+                            "description": "The name of parameter with components that correspond the bin centers; use for time-varying centers",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Any dimension not representing binned data should indicate this by using 'centers': null and not including the 'ranges' attribute.",
+                            "type": "null"
+                          },
+                          {
+                            "$ref": "/Ref"
+                          }
+                        ]
+                      },
+                      "ranges": {
+                        "description": "The boundaries for each bin",
+                        "oneOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "minItems": 1
+                            }
+                          },
+                          {
+                            "description": "The name of parameter with components that correspond to the bin ranges; This parameter must have size=[2,N], where N = size[i], where i is the dimension associated with the bin; use for time-varying bin ranges.",
+                            "type": "string"
+                          },
+                          {
+                            "$ref": "/Ref"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "$ref": "/Ref"
+                }
+              ]
             }
           }
         }
