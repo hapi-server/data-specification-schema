@@ -301,6 +301,17 @@
                               {
                                  "description" : "Any dimension not representing binned data should indicate this by using 'centers': null and not including the 'ranges' attribute.",
                                  "type" : "null"
+                              },
+                              {
+                                 "description" : "Reference to shared bins in definitions",
+                                 "type" : "object",
+                                 "properties": {
+                                    "$ref" : {
+                                       "description" : "references may be made to the definitions area to avoid repetition",
+                                       "pattern" : "\\#\\/definitions\\/.*",
+                                       "type" : "string"
+                                    }
+                                 }
                               }
                            ]
                         },
@@ -337,6 +348,17 @@
                               {
                                  "description" : "The name of parameter with components that correspond to the bin ranges; This parameter must have size=[2,N], where N = size[i], where i is the dimension associated with the bin; use for time-varying bin ranges.",
                                  "type" : "string"
+                              },
+                              {
+                                 "description" : "Reference to shared ranges in definitions",
+                                 "type" : "object",
+                                 "properties": {
+                                    "$ref" : {
+                                       "description" : "references may be made to the definitions area to avoid repetition",
+                                       "pattern" : "\\#\\/definitions\\/.*",
+                                       "type" : "string"
+                                    }
+                                 }
                               }
                            ]
                         },
