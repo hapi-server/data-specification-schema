@@ -10,6 +10,7 @@
     "id": "/HAPIDateTime",
     "description": "Regular expressions to handle some basic allowed HAPI date/time formats (a subset of ISO 8601). All times should pass this basic test. Additional tests for valid DOY and DOM are done in code.",
     "anyOf": [
+      {"$ref": "/RefOrString"},
       {
         "type": "string",
         "pattern": "^[0-9]{4}Z$"
@@ -78,15 +79,9 @@
   },
   "HAPIStatus": {
     "id": "/HAPIStatus",
-    "title": "info",
     "description": "Request status",
-    "type": "object",
-    "properties": {
-      "HAPI": {
-        "$ref": "/HAPI"
-      },
-      "status": {
-        "description": "Request status",
+    "oneOf": [
+      {
         "type": "object",
         "required": [
           "code",
@@ -125,8 +120,11 @@
             "type": "string"
           }
         }
+      },
+      {
+        "$ref": "/Ref"
       }
-    }
+    ]
   },
   "UnitsAndLabel": {
     "id": "/UnitsAndLabel",
@@ -163,6 +161,14 @@
       {
         "$ref": "/Ref"
       }
+    ]
+  },
+  "RefOrString": {
+    "id": "/RefOrString",
+    "description": "JSON reference",
+    "oneOf": [
+      {"type": "string"},
+      {"$ref": "/Ref"}
     ]
   },
   "Ref": {
@@ -345,12 +351,20 @@
         "$ref": "/HAPIStatus"
       },
       "format": {
-        "type": "string",
-        "enum": [
-          "csv",
-          "binary",
-          "json"
-        ]
+        "description": "Output format",
+        "oneOf": [
+                    {
+                    "type": "string",
+                    "enum": [
+                      "csv",
+                      "binary",
+                      "json"
+                    ]
+                  },
+                  {
+                    "$ref": "/Ref"
+                  }
+                ]
       },
       "startDate": {
         "description": "start date/time of parameter data (inclusive)",
@@ -362,13 +376,17 @@
       },
       "timeStampLocation": {
         "description": "Indicates the positioning of the time stamp within the measurement window.",
+        "oneOf": [{
         "type": "string",
         "enum": [
           "begin",
           "center",
           "end",
           "other"
-        ]
+        ]},
+        {
+          "$ref": "/Ref"
+        }]
       },
       "sampleStartDate": {
         "description": "start of a sample time period for a dataset (inclusive), where the time period should contain a manageable, representative example of valid, non-fill data",
@@ -380,19 +398,19 @@
       },
       "cadence": {
         "description": "Time difference between records as an ISO 8601 duration. This is meant as a guide to the nominal cadence of the data and not necessarily a precise statement about the time between measurements.",
-        "type": "string"
+        "$ref": "/RefOrString"
       },
       "description": {
         "description": "A brief description of the dataset",
-        "type": "string"
+        "$ref": "/RefOrString"
       },
       "resourceURL": {
         "description": "a link to more information about the dataset",
-        "type": "string"
+        "$ref": "/RefOrString"
       },
       "resourceID": {
         "description": "an external identifier by which other datasets might know this dataset, such as a DOI or SPASE ID",
-        "type": "string"
+        "$ref": "/RefOrString"
       },
       "creationDate": {
         "description": "the date and time when this dataset was created",
@@ -404,11 +422,11 @@
       },
       "contact": {
         "description": "the name of a person to contact for more information about the dataset",
-        "type": "string"
+        "$ref": "/RefOrString"
       },
       "contactID": {
         "description": "the identifier for the contact person in an external data system",
-        "type": "string"
+        "$ref": "/RefOrString"
       },
       "unitsSchema": {
         "description": "a string identifying the units convention",
@@ -430,7 +448,7 @@
       },
       "citation": {
         "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
-        "type": "string"
+        "$ref": "/RefOrString"
       },
       "definitions": {
         "type": "object"
@@ -526,14 +544,7 @@
             },
             "description": {
               "description": "a brief description of the parameter",
-              "oneOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "$ref": "/Ref"
-                }
-              ]
+              "$ref": "/RefOrString"
             },
             "bins": {
               "description": "Bins for components of a with a size having at least one element greater than 1",

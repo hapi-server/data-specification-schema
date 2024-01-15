@@ -1,17 +1,26 @@
 {
   "HAPI": "3.0",
-  "status": {
-    "code": 1200,
-    "message": "OK"
-  },
-  "startDate": "1970-01-01Z",
-  "stopDate": "2016-12-31Z",
-  "sampleStartDate": "1970-01-01Z",
-  "sampleStopDate": "1970-01-01T00:01:11Z",
-  "cadence": "PT1S",
-  "unitsSchema": "udunits2",
   "definitions": {
+    "status": {
+      "code": 1200,
+      "message": "OK"
+    },
+    "format": ["csv","binary"],
     "description": "A 10-element spectrum with time-independent bins",
+    "startDate": "1970-01-01Z",
+    "stopDate": "2016-12-31Z",
+    "sampleStartDate": "1970-01-01Z",
+    "sampleStopDate": "1970-01-01T00:01:11Z",
+    "cadence": "PT1S",
+    "timeStampLocation": "center",
+    "datasetDescription": "A test dataset with HAPI 3.0 features",
+    "resourceURL": "https://hapi-server.org/",
+    "resourceID": "https://doi.org/10.1029/2021JA029534",
+    "creationDate": "2016-12-31Z",
+    "modificationDate": "2016-12-31Z",
+    "contact": "Bob Weigel",
+    "contactID": "https://orcid.org/0000-0002-9521-5228",
+    "citation": "https://doi.org/10.1029/2021JA029534",
     "fill": "1e-31",
     "units": "m",
     "label": "power spectra",
@@ -75,6 +84,23 @@
       }
     ]
   },
+  "status": {"$ref": "#/definitions/status"},
+  "startDate": {"$ref": "#/definitions/startDate"},
+  "stopDate": {"$ref": "#/definitions/stopDate"},
+  "sampleStartDate": {"$ref": "#/definitions/sampleStartDate"},
+  "sampleStopDate": {"$ref": "#/definitions/sampleStopDate"},
+  "cadence": {"$ref": "#/definitions/cadence"},
+  "timeStampLocation": {"$ref": "#/definitions/timeStampLocation"},
+  "description": {"$ref": "#/definitions/datasetDescription"},
+  "resourceURL": {"$ref": "#/definitions/resourceURL"},
+  "resourceID": {"$ref": "#/definitions/resourceID"},
+  "creationDate": {"$ref": "#/definitions/creationDate"},
+  "modificationDate": {"$ref": "#/definitions/modificationDate"},
+  "contact": {"$ref": "#/definitions/contact"},
+  "contactID": {"$ref": "#/definitions/contactID"},
+  "citation": {"$ref": "#/definitions/citation"},
+  "format": {"$ref": "#/definitions/format"},
+  "unitsSchema": "udunits2",
   "parameters": [
     {
       "name": "Time",
