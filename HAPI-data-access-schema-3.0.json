@@ -430,12 +430,17 @@
       },
       "unitsSchema": {
         "description": "a string identifying the units convention",
-        "type": "string",
-        "enum": [
-          "udunits2",
-          "astropy3",
-          "cdf-cluster"
-        ]
+        "oneOf": [
+                  {"$ref": "/Ref"},
+                  {
+                    "type": "string",
+                      "enum": [
+                      "udunits2",
+                      "astropy3",
+                      "cdf-cluster"
+                    ]
+                  }
+                ]
       },
       "citation": {
         "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",

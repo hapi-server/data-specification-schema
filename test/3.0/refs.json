@@ -12,6 +12,7 @@
     "sampleStartDate": "1970-01-01Z",
     "sampleStopDate": "1970-01-01T00:01:11Z",
     "cadence": "PT1S",
+    "unitsSchema": "udunits",
     "timeStampLocation": "center",
     "datasetDescription": "A test dataset with HAPI 3.0 features",
     "resourceURL": "https://hapi-server.org/",
@@ -100,7 +101,7 @@
   "contactID": {"$ref": "#/definitions/contactID"},
   "citation": {"$ref": "#/definitions/citation"},
   "format": {"$ref": "#/definitions/format"},
-  "unitsSchema": "udunits2",
+  "unitsSchema": {"$ref": "#/definitions/unitsSchema"},
   "parameters": [
     {
       "name": "Time",
