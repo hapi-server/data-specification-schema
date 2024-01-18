@@ -1,0 +1,76 @@
+{
+  "startDate": "1970-01-01Z",
+  "stopDate": "2016-12-31Z",
+  "sampleStartDate": "1970-01-01Z",
+  "sampleStopDate": "1970-01-01T00:00:11Z",
+  "cadence": "PT1S",
+  "parameters": [
+    {
+      "name": "Time",
+      "type": "isotime",
+      "units": "UTC",
+      "fill": null,
+      "length": 24
+    },
+    {
+      "name": "unicodescalar-1-byte (Z)",
+      "type": "string",
+      "units": null,
+      "size": [
+        1
+      ],
+      "length": 1,
+      "fill": null,
+      "description": "A scalar string where strings are Unicode"
+    },
+    {
+      "name": "unicodescalar-2-byte (α)",
+      "type": "string",
+      "units": null,
+      "size": [
+        1
+      ],
+      "length": 2,
+      "fill": null,
+      "description": "A scalar string where strings are Unicode"
+    },
+    {
+      "name": "unicodescalar-3-byte (☃)",
+      "type": "string",
+      "units": null,
+      "size": [
+        1
+      ],
+      "length": 3,
+      "fill": null,
+      "description": "A scalar string where strings are Unicode"
+    },
+    {
+      "name": "unicodescalar-4-byte (👍)",
+      "type": "string",
+      "units": null,
+      "size": [
+        1
+      ],
+      "length": 4,
+      "fill": null,
+      "description": "A scalar string where strings are Unicode"
+    },
+    {
+      "name": "unicodevector (Z;α;☃;👍)",
+      "type": "string",
+      "units": null,
+      "size": [
+        4
+      ],
+      "length": 4,
+      "fill": null,
+      "description": "A vector string where strings are Unicode"
+    }
+  ],
+  "HAPI": "3.1",
+  "status": {
+    "code": 1200,
+    "message": "OK"
+  }
+}
