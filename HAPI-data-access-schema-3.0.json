@@ -437,15 +437,6 @@
           "cdf-cluster"
         ]
       },
-      "coordinateSystemSchema": {
-        "description": "The name of the schema or convention that contains a list of coordinate system names and definitions. If this keyword is provided, any coordinateSystemName keyword given in a parameter definition should follow this schema.",
-        "type": "string",
-        "enum": [
-          "udunits2",
-          "astropy3",
-          "cdf-cluster"
-        ]
-      },
       "citation": {
         "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
         "$ref": "/RefOrString"
