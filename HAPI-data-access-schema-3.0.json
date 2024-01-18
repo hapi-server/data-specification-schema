@@ -10,7 +10,9 @@
     "id": "/HAPIDateTime",
     "description": "Regular expressions to handle some basic allowed HAPI date/time formats (a subset of ISO 8601). All times should pass this basic test. Additional tests for valid DOY and DOM are done in code.",
     "anyOf": [
-      {"$ref": "/RefOrString"},
+      {
+        "$ref": "/RefOrString"
+      },
       {
         "type": "string",
         "pattern": "^[0-9]{4}Z$"
@@ -167,8 +169,12 @@
     "id": "/RefOrString",
     "description": "JSON reference",
     "oneOf": [
-      {"type": "string"},
-      {"$ref": "/Ref"}
+      {
+        "type": "string"
+      },
+      {
+        "$ref": "/Ref"
+      }
     ]
   },
   "Ref": {
@@ -353,18 +359,18 @@
       "format": {
         "description": "Output format",
         "oneOf": [
-                    {
-                    "type": "string",
-                    "enum": [
-                      "csv",
-                      "binary",
-                      "json"
-                    ]
-                  },
-                  {
-                    "$ref": "/Ref"
-                  }
-                ]
+          {
+            "type": "string",
+            "enum": [
+              "csv",
+              "binary",
+              "json"
+            ]
+          },
+          {
+            "$ref": "/Ref"
+          }
+        ]
       },
       "startDate": {
         "description": "start date/time of parameter data (inclusive)",
@@ -376,17 +382,20 @@
       },
       "timeStampLocation": {
         "description": "Indicates the positioning of the time stamp within the measurement window.",
-        "oneOf": [{
-        "type": "string",
-        "enum": [
-          "begin",
-          "center",
-          "end",
-          "other"
-        ]},
-        {
-          "$ref": "/Ref"
-        }]
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "begin",
+              "center",
+              "end",
+              "other"
+            ]
+          },
+          {
+            "$ref": "/Ref"
+          }
+        ]
       },
       "sampleStartDate": {
         "description": "start of a sample time period for a dataset (inclusive), where the time period should contain a manageable, representative example of valid, non-fill data",
@@ -431,16 +440,18 @@
       "unitsSchema": {
         "description": "a string identifying the units convention",
         "oneOf": [
-                  {"$ref": "/Ref"},
-                  {
-                    "type": "string",
-                      "enum": [
-                      "udunits2",
-                      "astropy3",
-                      "cdf-cluster"
-                    ]
-                  }
-                ]
+          {
+            "$ref": "/Ref"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "udunits2",
+              "astropy3",
+              "cdf-cluster"
+            ]
+          }
+        ]
       },
       "citation": {
         "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
