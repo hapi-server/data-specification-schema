@@ -1,0 +1,7 @@
+{
+    "HAPI": "3.0",
+    "status": {
+        "code": 1406,
+        "message": "HAPI error 1406: unknown id"
+    }
+}
