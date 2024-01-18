@@ -4,13 +4,15 @@
     "id": "/HAPI",
     "description": "HAPI Version",
     "type": "string",
-    "pattern": "^3\\.0$"
+    "pattern": "^3\\.1$"
   },
   "HAPIDateTime": {
     "id": "/HAPIDateTime",
     "description": "Regular expressions to handle some basic allowed HAPI date/time formats (a subset of ISO 8601). All times should pass this basic test. Additional tests for valid DOY and DOM are done in code.",
     "anyOf": [
-      {"$ref": "/RefOrString"},
+      {
+        "$ref": "/RefOrString"
+      },
       {
         "type": "string",
         "pattern": "^[0-9]{4}Z$"
@@ -167,8 +169,12 @@
     "id": "/RefOrString",
     "description": "JSON reference",
     "oneOf": [
-      {"type": "string"},
-      {"$ref": "/Ref"}
+      {
+        "type": "string"
+      },
+      {
+        "$ref": "/Ref"
+      }
     ]
   },
   "Ref": {
@@ -353,18 +359,18 @@
       "format": {
         "description": "Output format",
         "oneOf": [
-                    {
-                    "type": "string",
-                    "enum": [
-                      "csv",
-                      "binary",
-                      "json"
-                    ]
-                  },
-                  {
-                    "$ref": "/Ref"
-                  }
-                ]
+          {
+            "type": "string",
+            "enum": [
+              "csv",
+              "binary",
+              "json"
+            ]
+          },
+          {
+            "$ref": "/Ref"
+          }
+        ]
       },
       "startDate": {
         "description": "start date/time of parameter data (inclusive)",
@@ -376,17 +382,20 @@
       },
       "timeStampLocation": {
         "description": "Indicates the positioning of the time stamp within the measurement window.",
-        "oneOf": [{
-        "type": "string",
-        "enum": [
-          "begin",
-          "center",
-          "end",
-          "other"
-        ]},
-        {
-          "$ref": "/Ref"
-        }]
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "begin",
+              "center",
+              "end",
+              "other"
+            ]
+          },
+          {
+            "$ref": "/Ref"
+          }
+        ]
       },
       "sampleStartDate": {
         "description": "start of a sample time period for a dataset (inclusive), where the time period should contain a manageable, representative example of valid, non-fill data",
@@ -398,6 +407,10 @@
       },
       "cadence": {
         "description": "Time difference between records as an ISO 8601 duration. This is meant as a guide to the nominal cadence of the data and not necessarily a precise statement about the time between measurements.",
+        "$ref": "/RefOrString"
+      },
+      "maxRequestDuration": {
+        "description": "An ISO 8601 duration indicating the maximum duration for a request. This duration should be interpreted by clients as a limit above which a request for all parameters will very likely be rejected with a HAPI 1408 error; requests for fewer parameters and a longer duration may or may not be rejected.",
         "$ref": "/RefOrString"
       },
       "description": {
@@ -439,16 +452,81 @@
       },
       "coordinateSystemSchema": {
         "description": "The name of the schema or convention that contains a list of coordinate system names and definitions. If this keyword is provided, any coordinateSystemName keyword given in a parameter definition should follow this schema.",
-        "type": "string",
-        "enum": [
-          "udunits2",
-          "astropy3",
-          "cdf-cluster"
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "spase2.4.1"
+            ]
+          },
+          {
+            "$ref": "/Ref"
+          }
         ]
       },
       "citation": {
         "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
         "$ref": "/RefOrString"
+      },
+      "additionalMetadata": {
+        "description": "A way to include a block of other (non-HAPI) metadata. See below for a description of the object, which can directly contain the metadata or point to it via a URL.",
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "/Ref"
+          },
+          {
+            "required": [
+              "content"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "description": "the name of the additional metadata",
+                "type": "string"
+              },
+              "content": {
+                "description": "Either a string with the metadata content (for XML), or a JSON object representing the object tree for the additional metadata",
+                "type": [
+                  "object",
+                  "string"
+                ]
+              },
+              "schemaURL": {
+                "description": "A computer-readable schema for the additional metadata",
+                "type": "string"
+              },
+              "aboutURL": {
+                "description": "A human readable explanation for the additional metadata",
+                "type": "string"
+              }
+            }
+          },
+          {
+            "required": [
+              "contentURL"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "description": "the name of the additional metadata",
+                "type": "string"
+              },
+              "contentURL": {
+                "description": "URL pointing to additional metadata",
+                "type": "string"
+              },
+              "schemaURL": {
+                "description": "A computer-readable schema for the additional metadata",
+                "type": "string"
+              },
+              "aboutURL": {
+                "description": "A human readable explanation for the additional metadata",
+                "type": "string"
+              }
+            }
+          }
+        ]
       },
       "definitions": {
         "type": "object"
@@ -545,6 +623,40 @@
             "description": {
               "description": "a brief description of the parameter",
               "$ref": "/RefOrString"
+            },
+            "coordinateSystemName": {
+              "description": "Some data represent directional or position information, such as look direction, spacecraft location, or a measured vector quantity. This keyword specifies the name of the coordinate system for these vector quantities. If a coordinateSystemSchema was given for this dataset, then the coordinateSystemName must come from the schema. See below for more about coordinate systems.",
+              "$ref": "/RefOrString"
+            },
+            "vectorComponents": {
+              "description": "The name or list of names of the vector components present in a directional or positional quanitity. For a scalar parameter, only a single string indicating the component type is allowed. For an array parameter, an array of corresponding component names is expected. If not provided, the default value for vectorComponents is ['x','y','z'], which assumes the parameter is an array of length 3.",
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "/Ref"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "x",
+                      "y",
+                      "z",
+                      "r",
+                      "rho",
+                      "latitude",
+                      "colatitude",
+                      "longitude",
+                      "longitude0",
+                      "other"
+                    ]
+                  },
+                  "minItems": 1
+                }
+              ]
             },
             "bins": {
               "description": "Bins for components of a with a size having at least one element greater than 1",
