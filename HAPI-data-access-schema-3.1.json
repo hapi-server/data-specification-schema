@@ -244,8 +244,7 @@
     "required": [
       "HAPI",
       "status",
-      "outputFormats",
-      "status"
+      "outputFormats"
     ],
     "patternProperties": {
       "x_.*": {}
