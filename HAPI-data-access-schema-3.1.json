@@ -800,26 +800,5 @@
         }
       }
     }
-  },
-  "error": {
-    "title": "error response",
-    "description": "Server error response",
-    "type": "object",
-    "required": [
-      "HAPI",
-      "status"
-    ],
-    "patternProperties": {
-      "x_.*": {}
-    },
-    "additionalProperties": false,
-    "properties": {
-      "HAPI": {
-        "$ref": "/HAPI"
-      },
-      "status": {
-        "$ref": "/HAPIStatus"
-      }
-    }
   }
 }
