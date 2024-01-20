@@ -334,11 +334,7 @@
               "type": "string",
               "uniqueItems": true
             },
-            "info": {
-              "description": "/info response for dataset",
-              "type": "object",
-              "uniqueItems": true
-            }
+            "info": { "$ref": "/info" }
           }
         }
       }
@@ -346,6 +342,7 @@
   },
   "info": {
     "title": "info",
+    "id": "/info",
     "description": "Server /info response",
     "type": "object",
     "required": [
