@@ -1,0 +1,6 @@
+
+TestData3.1-dataset1.json
+  ✓ is.HAPIVersion(): Expect HAPI version in JSON response to be one of ["1.1","2.0","2.1","3.0","3.1","3.2"]
+  Got: 3.1
+  ✓ is.HAPIJSON(): Expect body to be valid HAPI 3.1 'info' schema.
+  Got: JSON is valid with respect to JSON schema.

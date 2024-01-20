@@ -1,0 +1,9 @@
+
+TestData3.2-catalog-all.json
+  ✓ is.HAPIVersion(): Expect HAPI version in JSON response to be one of ["1.1","2.0","2.1","3.0","3.1","3.2"]
+  Got: 3.2
+  ✗ is.HAPIJSON(): Expect body to be valid HAPI 3.2 'catalog' schema.; Warning: HAPI schema version 3.2 is in development. Some errors reported by schema check may not actually be errors and not all features are checked.
+  Got:   [
+           "catalog[0].info requires property 'HAPI'",
+           "catalog[0].info requires property 'status'"
+       ]
