@@ -1,465 +1,465 @@
 {
-   "HAPI" : {
-      "description" : "HAPI Version",
-      "id" : "/HAPI",
-      "pattern" : "^2.0$",
-      "type" : "string"
-   },
-   "HAPIDateTime" : {
-      "anyOf" : [
-         {
-            "pattern" : "^[0-9]{4}Z$",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^[0-9]{4}-([0-2][0-9][0-9]|3[0-5][0-9]|36[0-6])Z$",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^[0-9]{4}-([0-2][0-9][0-9]|3[0-5][0-9]|36[0-6])T([0-1][0-9]|2[0-4])Z$",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^[0-9]{4}-([0-2][0-9][0-9]|3[0-5][0-9]|36[0-6])T(([0-1][0-9]|2[0-3]):([0-5][0-9])|24:00)Z$",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^[0-9]{4}-([0-2][0-9][0-9]|3[0-5][0-9]|36[0-6])T(([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\\.([0-9]{0,9}))?|24:00:00(\\.(0{0,9}))?)Z$",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^[0-9]{4}-(0[1-9]|1[0-2])Z$",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])Z$",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([0-1][0-9]|2[0-4])Z$",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T(([0-1][0-9]|2[0-3]):([0-5][0-9])|24:00)Z$",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T(([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\\.([0-9]{0,9}))?|24:00:00(\\.(0{0,9}))?)Z$",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^(1972|1981|1982|1983|1985|1992|1993|1994|1997|2012|2015)-06-30T23:59:60(\\.[0-9]{0,9})?Z",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^(197[1-9]|1987|1989|1990|1995|1998|2005|2008|2016)-12-31T23:59:60(\\.[0-9]{0,9})?Z",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^(1972|1992|2012)-182T23:59:60(\\.[0-9]{0,9})?Z",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^(1981|1982|1983|1985|1993|1994|1997|2015)-181T23:59:60(\\.[0-9]{0,9})?Z",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^(1972|2008|2016)-366T23:59:60(\\.[0-9]{0,9})?Z",
-            "type" : "string"
-         },
-         {
-            "pattern" : "^(1971|197[3-9]|1987|1989|1990|1995|1998|2005)-365T23:59:60(\\.[0-9]{0,9})?Z",
-            "type" : "string"
-         }
+  "catalog": {
+    "description": "Server /catalog response",
+    "title": "catalog",
+    "type": "object",
+    "required": [
+      "HAPI",
+      "status",
+      "catalog"
+    ],
+    "patternProperties": {
+      "x_.*": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "HAPI": {
+        "$ref": "/HAPI"
+      },
+      "status": {
+        "$ref": "/HAPIStatus"
+      },
+      "catalog": {
+        "description": "Catalog of datasets",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "patternProperties": {
+            "x_.*": {}
+          },
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "description": "Dataset ID",
+              "type": "string",
+              "uniqueItems": true
+            },
+            "title": {
+              "description": "Optional dataset title",
+              "type": "string",
+              "uniqueItems": true
+            }
+          }
+        },
+        "minItems": 1,
+        "additionalItems": true,
+        "uniqueItems": true
+      }
+    }
+  },
+  "info": {
+    "description": "Server /info response",
+    "title": "info",
+    "type": "object",
+    "required": [
+      "HAPI",
+      "status",
+      "startDate",
+      "stopDate",
+      "parameters"
+    ],
+    "patternProperties": {
+      "x_.*": {}
+    },
+    "additionalProperties": false,
+    "dependencies": {
+      "sampleStartDate": [
+        "sampleStopDate"
       ],
-      "description" : "Regular expressions to handle some basic allowed HAPI date/time formats (a subset of ISO 8601). All times should pass this basic test. Additional tests for valid DOY and DOM are done in code.",
-      "id" : "/HAPIDateTime"
-   },
-   "HAPIStatus" : {
-      "description" : "Request status",
-      "id" : "/HAPIStatus",
-      "properties" : {
-         "HAPI" : {
-            "$ref" : "/HAPI"
-         },
-         "status" : {
-            "additionalProperties" : false,
-            "description" : "Request status",
-            "patternProperties" : {
-               "x_.*" : {}
+      "sampleStopDate": [
+        "sampleStartDate"
+      ]
+    },
+    "properties": {
+      "HAPI": {
+        "$ref": "/HAPI"
+      },
+      "status": {
+        "$ref": "/HAPIStatus"
+      },
+      "format": {
+        "type": "string",
+        "enum": [
+          "csv",
+          "binary",
+          "json"
+        ]
+      },
+      "parameters": {
+        "description": "Parameters in dataset",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "name",
+            "type",
+            "units",
+            "fill"
+          ],
+          "patternProperties": {
+            "x_.*": {}
+          },
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "description": "Parameter name",
+              "type": "string"
             },
-            "properties" : {
-               "code" : {
-                  "description" : "HAPI request status code",
-                  "enum" : [
-                     1200,
-                     1400,
-                     1401,
-                     1402,
-                     1403,
-                     1404,
-                     1405,
-                     1406,
-                     1407,
-                     1408,
-                     1409,
-                     1410,
-                     1500,
-                     1501
-                  ],
-                  "type" : "integer"
-               },
-               "message" : {
-                  "description" : "HAPI request status message",
-                  "type" : "string"
-               }
+            "type": {
+              "description": "Parameter type",
+              "type": "string",
+              "enum": [
+                "string",
+                "double",
+                "integer",
+                "isotime"
+              ]
             },
-            "required" : [
-               "code",
-               "message"
-            ],
-            "type" : "object"
-         }
-      },
-      "title" : "info",
-      "type" : "object"
-   },
-   "capabilities" : {
-      "additionalProperties" : false,
-      "description" : "Server /capabilities response",
-      "patternProperties" : {
-         "x_.*" : {}
-      },
-      "properties" : {
-         "HAPI" : {
-            "$ref" : "/HAPI"
-         },
-         "outputFormats" : {
-            "additionalItems" : true,
-            "description" : "Output formats",
-            "items" : {
-               "enum" : [
-                  "csv",
-                  "binary",
-                  "json"
-               ],
-               "type" : "string"
+            "length": {
+              "description": "Number of characters in parameter (isotime and string parameters only)",
+              "type": "integer"
             },
-            "minItems" : 1,
-            "type" : "array",
-            "uniqueItems" : true
-         },
-         "status" : {
-            "$ref" : "/HAPIStatus"
-         }
-      },
-      "required" : [
-         "HAPI",
-         "outputFormats",
-         "status"
-      ],
-      "title" : "capabilities",
-      "type" : "object"
-   },
-   "catalog" : {
-      "additionalProperties" : false,
-      "description" : "Server /catalog response",
-      "patternProperties" : {
-         "x_.*" : {}
-      },
-      "properties" : {
-         "HAPI" : {
-            "$ref" : "/HAPI"
-         },
-         "catalog" : {
-            "additionalItems" : true,
-            "description" : "Catalog of datasets",
-            "items" : {
-               "additionalProperties" : false,
-               "patternProperties" : {
-                  "x_.*" : {}
-               },
-               "properties" : {
-                  "id" : {
-                     "description" : "Dataset ID",
-                     "type" : "string",
-                     "uniqueItems" : true
+            "size": {
+              "description": "Parameter size",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1,
+              "minimum": 1
+            },
+            "units": {
+              "description": "Parameter units",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "fill": {
+              "description": "Parameter fill",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "description": {
+              "description": "a brief description of the parameter",
+              "type": "string"
+            },
+            "bins": {
+              "description": "Bins for components of a with a size having at least one element greater than 1",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "patternProperties": {
+                  "x_.*": {}
+                },
+                "additionalProperties": false,
+                "anyOf": [
+                  {
+                    "required": [
+                      "name",
+                      "units",
+                      "centers"
+                    ]
                   },
-                  "title" : {
-                     "description" : "Optional dataset title",
-                     "type" : "string",
-                     "uniqueItems" : true
+                  {
+                    "required": [
+                      "name",
+                      "units",
+                      "ranges"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "name",
+                      "units",
+                      "centers",
+                      "ranges"
+                    ]
                   }
-               },
-               "required" : [
-                  "id"
-               ],
-               "type" : "object"
-            },
-            "minItems" : 1,
-            "type" : "array",
-            "uniqueItems" : true
-         },
-         "status" : {
-            "$ref" : "/HAPIStatus"
-         }
-      },
-      "required" : [
-         "HAPI",
-         "status",
-         "catalog"
-      ],
-      "title" : "catalog",
-      "type" : "object"
-   },
-   "info" : {
-      "additionalProperties" : false,
-      "dependencies" : {
-         "sampleStartDate" : [
-            "sampleStopDate"
-         ],
-         "sampleStopDate" : [
-            "sampleStartDate"
-         ]
-      },
-      "description" : "Server /info response",
-      "patternProperties" : {
-         "x_.*" : {}
-      },
-      "properties" : {
-         "HAPI" : {
-            "$ref" : "/HAPI"
-         },
-         "cadence" : {
-            "description" : "Time difference between records as an ISO 8601 duration. This is meant as a guide to the nominal cadence of the data and not necessarily a precise statement about the time between measurements.",
-            "type" : "string"
-         },
-         "contact" : {
-            "description" : "the name of a person to contact for more information about the dataset",
-            "type" : "string"
-         },
-         "contactID" : {
-            "description" : "the identifier for the contact person in an external data system",
-            "type" : "string"
-         },
-         "creationDate" : {
-            "$ref" : "/HAPIDateTime",
-            "description" : "the date and time when this dataset was created"
-         },
-         "description" : {
-            "description" : "a brief description of the dataset",
-            "type" : "string"
-         },
-         "format" : {
-            "enum" : [
-               "csv",
-               "binary",
-               "json"
-            ],
-            "type" : "string"
-         },
-         "modificationDate" : {
-            "$ref" : "/HAPIDateTime",
-            "description" : "the date and time when this dataset was last modified"
-         },
-         "parameters" : {
-            "additionalItems" : true,
-            "description" : "Parameters in dataset",
-            "items" : {
-               "additionalProperties" : false,
-               "patternProperties" : {
-                  "x_.*" : {}
-               },
-               "properties" : {
-                  "bins" : {
-                     "description" : "Bins for components of a with a size having at least one element greater than 1",
-                     "items" : {
-                        "additionalProperties" : false,
-                        "anyOf" : [
-                           {
-                              "required" : [
-                                 "name",
-                                 "units",
-                                 "centers"
-                              ]
-                           },
-                           {
-                              "required" : [
-                                 "name",
-                                 "units",
-                                 "ranges"
-                              ]
-                           },
-                           {
-                              "required" : [
-                                 "name",
-                                 "units",
-                                 "centers",
-                                 "ranges"
-                              ]
-                           }
-                        ],
-                        "patternProperties" : {
-                           "x_.*" : {}
+                ],
+                "properties": {
+                  "name": {
+                    "description": "Name for the dimension (e.g., \u0027Frequency\u0027)",
+                    "type": "string"
+                  },
+                  "centers": {
+                    "description": "The centers of each bin",
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 1
+                  },
+                  "ranges": {
+                    "description": "The boundaries for each bin",
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 2
+                    },
+                    "minItems": 1
+                  },
+                  "units": {
+                    "description": "The units for the bins (e.g., \u0027Hz\u0027)",
+                    "oneOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
-                        "properties" : {
-                           "centers" : {
-                              "description" : "The centers of each bin",
-                              "items" : {
-                                 "type" : "number"
-                              },
-                              "minItems" : 1,
-                              "type" : "array"
-                           },
-                           "description" : {
-                              "description" : "A brief comment explaining what the bins represent",
-                              "type" : "string"
-                           },
-                           "name" : {
-                              "description" : "Name for the dimension (e.g., 'Frequency')",
-                              "type" : "string"
-                           },
-                           "ranges" : {
-                              "description" : "The boundaries for each bin",
-                              "items" : {
-                                 "items" : {
-                                    "type" : "number"
-                                 },
-                                 "minItems" : 2,
-                                 "type" : "array"
-                              },
-                              "minItems" : 1,
-                              "type" : "array"
-                           },
-                           "units" : {
-                              "description" : "The units for the bins (e.g., 'Hz')",
-                              "oneOf" : [
-                                 {
-                                    "items" : {
-                                       "type" : [
-                                          "string",
-                                          "null"
-                                       ]
-                                    },
-                                    "minItems" : 1,
-                                    "type" : "array"
-                                 },
-                                 {
-                                    "type" : [
-                                       "string",
-                                       "null"
-                                    ]
-                                 }
-                              ]
-                           }
-                        },
-                        "type" : "object"
-                     },
-                     "type" : "array"
+                        "minItems": 1
+                      },
+                      {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    ]
                   },
-                  "description" : {
-                     "description" : "a brief description of the parameter",
-                     "type" : "string"
-                  },
-                  "fill" : {
-                     "description" : "Parameter fill",
-                     "type" : [
-                        "string",
-                        "null"
-                     ]
-                  },
-                  "length" : {
-                     "description" : "Number of characters in parameter (isotime and string parameters only)",
-                     "type" : "integer"
-                  },
-                  "name" : {
-                     "description" : "Parameter name",
-                     "type" : "string"
-                  },
-                  "size" : {
-                     "description" : "Parameter size",
-                     "items" : {
-                        "type" : "integer"
-                     },
-                     "minItems" : 1,
-                     "minimum" : 1,
-                     "type" : "array"
-                  },
-                  "type" : {
-                     "description" : "Parameter type",
-                     "enum" : [
-                        "string",
-                        "double",
-                        "integer",
-                        "isotime"
-                     ],
-                     "type" : "string"
-                  },
-                  "units" : {
-                     "description" : "Parameter units",
-                     "type" : [
-                        "string",
-                        "null"
-                     ]
+                  "description": {
+                    "description": "A brief comment explaining what the bins represent",
+                    "type": "string"
                   }
-               },
-               "required" : [
-                  "name",
-                  "type",
-                  "units",
-                  "fill"
-               ],
-               "type" : "object"
-            },
-            "minItems" : 1,
-            "type" : "array",
-            "uniqueItems" : true
-         },
-         "resourceID" : {
-            "description" : "an external identifier by which other datasets might know this dataset, such as a DOI or SPASE ID",
-            "type" : "string"
-         },
-         "resourceURL" : {
-            "description" : "a link to more information about the dataset",
-            "type" : "string"
-         },
-         "sampleStartDate" : {
-            "$ref" : "/HAPIDateTime",
-            "description" : "start of a sample time period for a dataset, where the time period should contain a manageable, representative example of valid, non-fill data"
-         },
-         "sampleStopDate" : {
-            "$ref" : "/HAPIDateTime",
-            "description" : "stop date/time associated with sampleStartDate"
-         },
-         "startDate" : {
-            "$ref" : "/HAPIDateTime"
-         },
-         "status" : {
-            "$ref" : "/HAPIStatus"
-         },
-         "stopDate" : {
-            "$ref" : "/HAPIDateTime",
-            "description" : "start date/time of parameter data"
-         },
-         "timeStampLocation" : {
-            "description" : "Indicates the positioning of the time stamp within the measurement window.",
-            "enum" : [
-               "BEGIN",
-               "CENTER",
-               "END",
-               "OTHER"
-            ],
-            "type" : "string"
-         }
+                }
+              }
+            }
+          }
+        },
+        "minItems": 1,
+        "additionalItems": true,
+        "uniqueItems": true
       },
-      "required" : [
-         "HAPI",
-         "status",
-         "startDate",
-         "stopDate",
-         "parameters"
-      ],
-      "title" : "info",
-      "type" : "object"
-   }
+      "startDate": {
+        "$ref": "/HAPIDateTime"
+      },
+      "stopDate": {
+        "description": "start date/time of parameter data",
+        "$ref": "/HAPIDateTime"
+      },
+      "timeStampLocation": {
+        "description": "Indicates the positioning of the time stamp within the measurement window.",
+        "type": "string",
+        "enum": [
+          "BEGIN",
+          "CENTER",
+          "END",
+          "OTHER"
+        ]
+      },
+      "cadence": {
+        "description": "Time difference between records as an ISO 8601 duration. This is meant as a guide to the nominal cadence of the data and not necessarily a precise statement about the time between measurements.",
+        "type": "string"
+      },
+      "sampleStartDate": {
+        "description": "start of a sample time period for a dataset, where the time period should contain a manageable, representative example of valid, non-fill data",
+        "$ref": "/HAPIDateTime"
+      },
+      "sampleStopDate": {
+        "description": "stop date/time associated with sampleStartDate",
+        "$ref": "/HAPIDateTime"
+      },
+      "description": {
+        "description": "a brief description of the dataset",
+        "type": "string"
+      },
+      "resourceURL": {
+        "description": "a link to more information about the dataset",
+        "type": "string"
+      },
+      "resourceID": {
+        "description": "an external identifier by which other datasets might know this dataset, such as a DOI or SPASE ID",
+        "type": "string"
+      },
+      "creationDate": {
+        "description": "the date and time when this dataset was created",
+        "$ref": "/HAPIDateTime"
+      },
+      "modificationDate": {
+        "description": "the date and time when this dataset was last modified",
+        "$ref": "/HAPIDateTime"
+      },
+      "contact": {
+        "description": "the name of a person to contact for more information about the dataset",
+        "type": "string"
+      },
+      "contactID": {
+        "description": "the identifier for the contact person in an external data system",
+        "type": "string"
+      }
+    }
+  },
+  "HAPI": {
+    "description": "HAPI Version",
+    "id": "/HAPI",
+    "pattern": "^2.0$",
+    "type": "string"
+  },
+  "HAPIDateTime": {
+    "description": "Regular expressions to handle some basic allowed HAPI date/time formats (a subset of ISO 8601). All times should pass this basic test. Additional tests for valid DOY and DOM are done in code.",
+    "id": "/HAPIDateTime",
+    "anyOf": [
+      {
+        "pattern": "^[0-9]{4}Z$",
+        "type": "string"
+      },
+      {
+        "pattern": "^[0-9]{4}-([0-2][0-9][0-9]|3[0-5][0-9]|36[0-6])Z$",
+        "type": "string"
+      },
+      {
+        "pattern": "^[0-9]{4}-([0-2][0-9][0-9]|3[0-5][0-9]|36[0-6])T([0-1][0-9]|2[0-4])Z$",
+        "type": "string"
+      },
+      {
+        "pattern": "^[0-9]{4}-([0-2][0-9][0-9]|3[0-5][0-9]|36[0-6])T(([0-1][0-9]|2[0-3]):([0-5][0-9])|24:00)Z$",
+        "type": "string"
+      },
+      {
+        "pattern": "^[0-9]{4}-([0-2][0-9][0-9]|3[0-5][0-9]|36[0-6])T(([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\\.([0-9]{0,9}))?|24:00:00(\\.(0{0,9}))?)Z$",
+        "type": "string"
+      },
+      {
+        "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])Z$",
+        "type": "string"
+      },
+      {
+        "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])Z$",
+        "type": "string"
+      },
+      {
+        "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([0-1][0-9]|2[0-4])Z$",
+        "type": "string"
+      },
+      {
+        "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T(([0-1][0-9]|2[0-3]):([0-5][0-9])|24:00)Z$",
+        "type": "string"
+      },
+      {
+        "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T(([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\\.([0-9]{0,9}))?|24:00:00(\\.(0{0,9}))?)Z$",
+        "type": "string"
+      },
+      {
+        "pattern": "^(1972|1981|1982|1983|1985|1992|1993|1994|1997|2012|2015)-06-30T23:59:60(\\.[0-9]{0,9})?Z",
+        "type": "string"
+      },
+      {
+        "pattern": "^(197[1-9]|1987|1989|1990|1995|1998|2005|2008|2016)-12-31T23:59:60(\\.[0-9]{0,9})?Z",
+        "type": "string"
+      },
+      {
+        "pattern": "^(1972|1992|2012)-182T23:59:60(\\.[0-9]{0,9})?Z",
+        "type": "string"
+      },
+      {
+        "pattern": "^(1981|1982|1983|1985|1993|1994|1997|2015)-181T23:59:60(\\.[0-9]{0,9})?Z",
+        "type": "string"
+      },
+      {
+        "pattern": "^(1972|2008|2016)-366T23:59:60(\\.[0-9]{0,9})?Z",
+        "type": "string"
+      },
+      {
+        "pattern": "^(1971|197[3-9]|1987|1989|1990|1995|1998|2005)-365T23:59:60(\\.[0-9]{0,9})?Z",
+        "type": "string"
+      }
+    ]
+  },
+  "HAPIStatus": {
+    "description": "Request status",
+    "id": "/HAPIStatus",
+    "title": "info",
+    "type": "object",
+    "properties": {
+      "HAPI": {
+        "$ref": "/HAPI"
+      },
+      "status": {
+        "description": "Request status",
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "patternProperties": {
+          "x_.*": {}
+        },
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "description": "HAPI request status code",
+            "type": "integer",
+            "enum": [
+              1200,
+              1400,
+              1401,
+              1402,
+              1403,
+              1404,
+              1405,
+              1406,
+              1407,
+              1408,
+              1409,
+              1410,
+              1500,
+              1501
+            ]
+          },
+          "message": {
+            "description": "HAPI request status message",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "capabilities": {
+    "description": "Server /capabilities response",
+    "title": "capabilities",
+    "type": "object",
+    "required": [
+      "HAPI",
+      "outputFormats",
+      "status"
+    ],
+    "patternProperties": {
+      "x_.*": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "HAPI": {
+        "$ref": "/HAPI"
+      },
+      "status": {
+        "$ref": "/HAPIStatus"
+      },
+      "outputFormats": {
+        "description": "Output formats",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "csv",
+            "binary",
+            "json"
+          ]
+        },
+        "minItems": 1,
+        "additionalItems": true,
+        "uniqueItems": true
+      }
+    }
+  }
 }
