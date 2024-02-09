@@ -234,6 +234,47 @@
       "citation": {
         "description": "How to cite the server. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
         "type": "string"
+      },
+      "dataTest": {
+        "description": "Information that a client can use to check that a server is operational.",
+        "type": "object",
+        "required": ["query"],
+        "patternProperties": {
+          "x_.*": {}
+        },
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "A name for the test",
+            "type": "string"
+          },
+          "query": {
+            "description": "Information that a client can use to check that a server is operational.",
+            "required": ["dataset","start","stop","parameters"],
+            "patternProperties": {
+              "x_.*": {}
+            },
+            "additionalProperties": false,
+            "properties": {
+              "dataset": {
+                "description": "dataset ID for check request",
+                "type": "string"
+              },
+              "start": {
+                "description": "start date/time for check request",
+                "$ref": "/HAPIDateTime"
+              },
+              "stop": {
+                "description": "start date/time for check request",
+                "$ref": "/HAPIDateTime"
+              },
+              "parameters": {
+                "description": "parameters for check request",
+                "type": "string"
+              }
+            }
+          }
+        }
       }
     }
   },

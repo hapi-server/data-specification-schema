@@ -1,0 +1,19 @@
+{
+  "id": "TestData3.2",
+  "title": "Server using HAPI 3.2 additions",
+  "HAPI": "3.2",
+  "contact": "rweigel@gmu.edu",
+  "status": {
+    "code": 1200,
+    "message": "OK"
+  },
+  "dataTest": {
+    "name": "Ping Test",
+    "query": {
+      "dataset": "dataset1",
+      "start": "1970-01-01T00:00:00Z",
+      "stop": "1970-01-01T00:00:10Z",
+      "parameters": "scalar"
+    }
+  }
+}
