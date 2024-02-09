@@ -1,0 +1,61 @@
+{
+  "HAPI": "3.2",
+  "status": {
+    "code": 1200,
+    "message": "OK"
+  },
+  "startDate": "1981-09-16T02:19Z",
+  "stopDate": "1981-09-17T19:24Z",
+  "sampleStartDate": "1981-09-16T02:19Z",
+  "sampleStopDate": "1981-09-17T19:24Z",
+  "cadence": "PT7H",
+  "parameters": [
+    {
+      "name": "Time",
+      "description": "Start time of data in image",
+      "type": "isotime",
+      "units": "UTC",
+      "fill": null,
+      "length": 15
+    },
+    {
+      "name": "TimeEnd",
+      "description": "End time of data in image",
+      "type": "isotime",
+      "units": "UTC",
+      "fill": null,
+      "length": 15
+    },
+    {
+      "name": "B_H_URLs",
+      "type": "string",
+      "stringType": {
+        "type": "uri",
+        "mediaType": "image/png"
+      },
+      "units": null,
+      "size": [
+        1
+      ],
+      "length": 99,
+      "fill": null,
+      "description": "First seven B_H images from https://cdaweb.gsfc.nasa.gov/pub/pre_generated_plots/de/pwi/1981/"
+    },
+    {
+      "name": "B_H_URL_Relative",
+      "type": "string",
+      "stringType": {
+        "type": "uri",
+        "mediaType": "image/png",
+        "base": "https://cdaweb.gsfc.nasa.gov/pub/pre_generated_plots/de/pwi/1981/"
+      },
+      "units": null,
+      "size": [
+        1
+      ],
+      "length": 99,
+      "fill": null,
+      "description": "First seven B_H images from https://cdaweb.gsfc.nasa.gov/pub/pre_generated_plots/de/pwi/1981/"
+    }
+  ]
+}

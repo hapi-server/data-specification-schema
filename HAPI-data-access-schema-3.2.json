@@ -596,6 +596,39 @@
                 }
               ]
             },
+            "stringType": {
+              "description": "stringType describes the use of the string, for example to describe URL locations of images.",
+              "oneOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "uri"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "uri": {
+                      "type": "object",
+                      "properties": {
+                        "base": {
+                          "description": "allows each URI string value to be relative to a base URI",
+                          "type": "string"
+                        },
+                        "mediaType": {
+                          "description": "indicates content type behind the URI (also referred to as MIME type)",
+                          "type": "string"
+                        },
+                        "scheme": {
+                          "description": "the access protocol for the URI (https, etc)",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
             "units": {
               "$ref": "/UnitsAndLabel"
             },
