@@ -128,15 +128,14 @@
       }
     ]
   },
-  "UnitsAndLabel": {
-    "id": "/UnitsAndLabel",
-    "description": "Units or label schema",
+  "UnitsAndLabelCommon": {
+    "id": "/UnitsAndLabelCommon",
+    "description": "Common parts of units and label schema",
     "oneOf": [
       {
-        "type": [
-          "string",
-          "null"
-        ]
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
       },
       {
         "type": [
@@ -144,7 +143,9 @@
         ],
         "items": [
           {
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
           }
         ],
         "minItems": 1
@@ -671,10 +672,17 @@
               ]
             },
             "units": {
-              "$ref": "/UnitsAndLabel"
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "/UnitsAndLabelCommon"
+                }
+              ]
             },
             "label": {
-              "$ref": "/UnitsAndLabel"
+              "$ref": "/UnitsAndLabelCommon"
             },
             "length": {
               "description": "Number of characters in parameter (isotime and string parameters only)",
