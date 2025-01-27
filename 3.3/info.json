@@ -486,6 +486,7 @@
                               "colatitude",
                               "longitude",
                               "longitude0",
+                              "altitude",
                               "other"
                            ],
                            "type" : "string"
