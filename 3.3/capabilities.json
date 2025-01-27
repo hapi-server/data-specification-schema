@@ -1,0 +1,93 @@
+{
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "additionalProperties" : false,
+   "definitions" : {
+      "HAPI" : {
+         "description" : "HAPI Version",
+         "id" : "#/definitions/HAPI",
+         "pattern" : "^3\\.2$",
+         "type" : "string"
+      },
+      "HAPIStatus" : {
+         "additionalProperties" : false,
+         "description" : "Request status",
+         "id" : "#/definitions/HAPIStatus",
+         "patternProperties" : {
+            "x_.*" : {}
+         },
+         "properties" : {
+            "code" : {
+               "description" : "HAPI request status code",
+               "enum" : [
+                  1200,
+                  1201,
+                  1400,
+                  1401,
+                  1402,
+                  1403,
+                  1404,
+                  1405,
+                  1406,
+                  1407,
+                  1408,
+                  1409,
+                  1410,
+                  1411,
+                  1412,
+                  1500,
+                  1501
+               ],
+               "type" : "integer"
+            },
+            "message" : {
+               "description" : "HAPI request status message",
+               "type" : "string"
+            }
+         },
+         "required" : [
+            "code",
+            "message"
+         ],
+         "title" : "",
+         "type" : "object"
+      }
+   },
+   "description" : "Server /capabilities response",
+   "patternProperties" : {
+      "x_.*" : {}
+   },
+   "properties" : {
+      "$schema" : {
+         "description" : "schema declaration is sometimes found in response.",
+         "type" : "string"
+      },
+      "HAPI" : {
+         "$ref" : "#/definitions/HAPI"
+      },
+      "outputFormats" : {
+         "additionalItems" : true,
+         "description" : "Output formats, which must include csv.",
+         "items" : {
+            "enum" : [
+               "csv",
+               "binary",
+               "json"
+            ],
+            "type" : "string"
+         },
+         "minItems" : 1,
+         "type" : "array",
+         "uniqueItems" : true
+      },
+      "status" : {
+         "$ref" : "#/definitions/HAPIStatus"
+      }
+   },
+   "required" : [
+      "HAPI",
+      "outputFormats",
+      "status"
+   ],
+   "title" : "capabilities",
+   "type" : "object"
+}
