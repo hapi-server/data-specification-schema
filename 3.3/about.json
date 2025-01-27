@@ -65,8 +65,34 @@
          "$ref" : "#/definitions/HAPI"
       },
       "citation" : {
-         "description" : "How to cite the server. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
+         "description" : "Deprecated; use serverCitation.",
          "type" : "string"
+      },
+      "serverCitation" : {
+         "description" : "How to cite the HAPI server. An actionable DOI is preferred (e.g., https://doi.org/...). This serverCitation differs from the dataCitation in an /info response. Here the serverCitation is for the entity that maintains the data server.",
+         "type" : "string"
+      },
+      "note": {
+         "description" : "General notes about the server that are not appropriate to include in description. For example, a change log that lists added datasets or parameters in datasets. If an array of strings is used to describe datestamped notes, we recommend prefixing the note with a HAPI restricted ISO 8601 format, e.g., [\"2024-01-01T00: Note on this date time\", \"2024-04-02T00: Note on this date time\"].",
+         "oneOf" : [
+            {
+               "type" : [
+                  "string",
+                  "null"
+               ]
+            },
+            {
+               "items" : [
+                  {
+                     "type" : "string"
+                  }
+               ],
+               "minItems" : 1,
+               "type" : [
+                  "array"
+               ]
+            }
+         ]
       },
       "contact" : {
          "description" : "Contact information or email address for server issues. HAPI clients should show this contact information when it is certain that an error is due to a problem with the server (as opposed to the client).",
