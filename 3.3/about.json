@@ -1,1 +1,104 @@
-
+{
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "additionalProperties" : false,
+   "definitions" : {
+      "HAPI" : {
+         "description" : "HAPI Version",
+         "id" : "#/definitions/HAPI",
+         "pattern" : "^3\\.2$",
+         "type" : "string"
+      },
+      "HAPIStatus" : {
+         "additionalProperties" : false,
+         "description" : "Request status",
+         "id" : "#/definitions/HAPIStatus",
+         "patternProperties" : {
+            "x_.*" : {}
+         },
+         "properties" : {
+            "code" : {
+               "description" : "HAPI request status code",
+               "enum" : [
+                  1200,
+                  1201,
+                  1400,
+                  1401,
+                  1402,
+                  1403,
+                  1404,
+                  1405,
+                  1406,
+                  1407,
+                  1408,
+                  1409,
+                  1410,
+                  1411,
+                  1412,
+                  1500,
+                  1501
+               ],
+               "type" : "integer"
+            },
+            "message" : {
+               "description" : "HAPI request status message",
+               "type" : "string"
+            }
+         },
+         "required" : [
+            "code",
+            "message"
+         ],
+         "title" : "",
+         "type" : "object"
+      }
+   },
+   "description" : "Server /about response",
+   "patternProperties" : {
+      "x_.*" : {}
+   },
+   "properties" : {
+      "$schema" : {
+         "description" : "schema declaration is sometimes found in response.",
+         "type" : "string"
+      },
+      "HAPI" : {
+         "$ref" : "#/definitions/HAPI"
+      },
+      "citation" : {
+         "description" : "How to cite the server. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
+         "type" : "string"
+      },
+      "contact" : {
+         "description" : "Contact information or email address for server issues. HAPI clients should show this contact information when it is certain that an error is due to a problem with the server (as opposed to the client).",
+         "type" : "string"
+      },
+      "contactID" : {
+         "description" : "The identifier in the discovery system for information about the contact. For example, a SPASE ID of a person identified in the contact string.",
+         "type" : "string"
+      },
+      "description" : {
+         "description" : "A brief description of the type of data the server provides.",
+         "type" : "string"
+      },
+      "id" : {
+         "description" : "A unique ID for the server. Ideally, this ID has the organization name in it, e.g., NASA/SPDF/SSCWeb, NASA/SPDF/CDAWeb, INTERMAGNET, UniversityIowa/VanAllen, LASP/TSI, etc.",
+         "type" : "string"
+      },
+      "status" : {
+         "$ref" : "#/definitions/HAPIStatus"
+      },
+      "title" : {
+         "description" : "A short human-readable name for the server. The suggested maximum length is 40 characters.",
+         "type" : "string"
+      }
+   },
+   "required" : [
+      "HAPI",
+      "status",
+      "id",
+      "title",
+      "contact"
+   ],
+   "title" : "about",
+   "type" : "object"
+}
