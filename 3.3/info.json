@@ -5,7 +5,7 @@
       "HAPI" : {
          "description" : "HAPI Version",
          "id" : "#/definitions/HAPI",
-         "pattern" : "^3\\.2$",
+         "pattern" : "^3\\.3$",
          "type" : "string"
       },
       "HAPIDateTime" : {
