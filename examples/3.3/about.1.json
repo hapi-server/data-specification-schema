@@ -1,0 +1,16 @@
+{
+    "HAPI": "3.3",
+    "status": {
+        "code": 1200,
+        "message": "ok"
+    },
+    "$schema": "https://raw.githubusercontent.com/hapi-server/data-specification-schema/jon-jeremy-mess-3.0/3.3/about.json",
+    "id": "INTERMAGNET",
+    "title": "INTERMAGNET HAPI server",
+    "contact": "xxxx@xxxxx.gov",
+    "description": "For more information see intermagnet.org",
+    "serverCitation": "https://intermagnet.org/data_conditions.html",
+    "notes": [
+        "Data providers may embargo data. For details see https://imag-data.bgs.ac.uk/GIN_V1/GINForms2?request=ShowObservatoryDetails"
+    ]
+}

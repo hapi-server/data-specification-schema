@@ -1,0 +1,56 @@
+{
+  "startDate": "1997-08-25T17:48:00.000Z",
+  "stopDate": "2025-02-24T23:48:00.000Z",
+  "cadence": "PT720S",
+  "description": "ACE ephemeris",
+  "resourceURL": "https://sscweb.gsfc.nasa.gov/",
+  "coordinateSystemName": "SM",
+  "parameters": [
+    {
+      "name": "Time",
+      "type": "isotime",
+      "units": "UTC",
+      "fill": null,
+      "length": 18
+    },
+    {
+      "name": "X_SM",
+      "description": "X Position in the Solar Magnetic coordinate system",
+      "units": "R_E",
+      "fill": "1e31",
+      "type": "double",
+      "vectorComponents": "x"
+    },
+    {
+      "name": "Y_SM",
+      "description": "Y Position in the Solar Magnetic coordinate system",
+      "units": "R_E",
+      "fill": "1e31",
+      "type": "double",
+      "vectorComponents": "y"
+    },
+    {
+      "name": "Z_SM",
+      "description": "Z Position in the Solar Magnetic coordinate system",
+      "units": "deg",
+      "fill": "1e31",
+      "type": "double",
+      "vectorComponents": "z"
+    },
+    {
+      "name": "DipL-V",
+      "description": "Dipole L-value at location of spacecraft. Magnetic field model: Internal: IGRF, External Tsyganenko 89C Kp = 3-, 3, 3+.",
+      "units": "dimensionless",
+      "fill": "1e31",
+      "type": "double"
+    }
+  ],
+  "location" : {
+        "parameters" : [ "X_SM", "Y_SM", "Z-SM" ]
+  },
+  "HAPI": "3.3",
+  "status": {
+    "code": 1200,
+    "message": "OK"
+  }
+}

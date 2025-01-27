@@ -1,0 +1,63 @@
+{
+    "HAPI": "3.1",
+    "status": {
+        "code": 1200,
+        "message": "ok"
+    },
+    "parameters": [
+        {
+            "name": "Time",
+            "type": "isotime",
+            "length": 17,
+            "units": "UTC",
+            "fill": null,
+            "description": "The UTC date and time for the data from Addis Ababa, Ethiopia (AAE)",
+            "label": "Date/time"
+        },
+        {
+            "name": "Field_Vector",
+            "type": "double",
+            "size": [
+                3
+            ],
+            "units": [
+                "nT / minutes",
+                "nT / minutes",
+                "nT / minutes"
+            ],
+            "vectorComponents": [
+                "other",
+                "other",
+                "other"
+            ],
+            "fill": "99999.0",
+            "description": "The vector value of the magnetic field at Addis Ababa, Ethiopia (AAE)",
+            "label": [
+                "X/H/D",
+                "Y/D/I",
+                "Z/F"
+            ]
+        },
+        {
+            "name": "Field_Magnitude",
+            "type": "double",
+            "units": "nT",
+            "vectorComponents": "r",
+            "fill": "99999.0",
+            "description": "The scalar value of the magnetic field from an independent instrument at Addis Ababa, Ethiopia (AAE)",
+            "label": "F"
+        }
+    ],
+    "startDate": "1998-01-01T00:00:00Z",
+    "stopDate": "2013-12-31T23:59:00Z",
+    "timeStampLocation": "begin",
+    "cadence": "PT1M",
+    "maxRequestDuration": "P366D",
+    "description": "Definitive minute data in NATIVE orientation from Addis Ababa, Ethiopia (AAE)",
+    "resourceURL": "https://intermagnet.org",
+    "creationDate": "1998-01-01T00:00:00Z",
+    "citation": "https://intermagnet.org/data_conditions.html",
+    "modificationDate": "2023-01-24T20:41:29Z",
+    "contact": "e_ginman@bgs.ac.uk",
+    "geoLocation": [38.77, 9.034999999999997, 2441]
+}
