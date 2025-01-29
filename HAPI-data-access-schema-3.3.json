@@ -568,6 +568,71 @@
           }
         ]
       },
+      "location": {
+        "description": "A way to specify where a dataset's measurements were made. ",
+        "oneOf": [
+          {
+            "$ref": "/Ref"
+          },
+          {
+            "type": "object",
+            "required": [
+              "point",
+              "components",
+              "units",
+              "coordinateSystemName"
+            ],
+            "patternProperties": {
+              "x_.*": {}
+            },
+            "additionalProperties": false,
+            "properties": {
+              "point": {
+                "description": "The location of the measurement",
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 3,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "components": {
+                "description": "the kind of vectorComponents values in the point array",
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 3,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "units": {
+                "description": "units string or strings for the vectorComponents values",
+                "$ref": "/UnitsAndLabelCommon"
+              },
+              "coordinateSystemName": {
+                "description": "The name of the coordinate system for the vectorComponents quantities.",
+                "$ref": "/RefOrString"
+              }
+            }
+          }
+        ]
+      },
+      "geoLocation": {
+        "description": "A simplified, compact way of indicating a fixed location for a dataset in Earth-based coordinates. The array has 2- or 3- elements: [longitude in degrees, latitude in degrees, (optional) altitude in meters].",
+        "oneOf": [
+          {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 3,
+            "items": {
+              "type": "number"
+            }
+          },
+          {
+            "$ref": "/Ref"
+          }
+        ]
+      },
       "citation": {
         "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
         "$ref": "/RefOrString"
