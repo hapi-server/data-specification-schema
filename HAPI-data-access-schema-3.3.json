@@ -560,6 +560,10 @@
         "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
         "$ref": "/RefOrString"
       },
+      "datasetCitation": {
+        "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). Note that there is a serverCitation in an /about response for citing the data server, but datasetCitation is for the dataset citation, which is typically different.",
+        "$ref": "/RefOrString"
+      },
       "additionalMetadata": {
         "description": "A way to include a block of other (non-HAPI) metadata. See below for a description of the object, which can directly contain the metadata or point to it via a URL.",
         "type": "object",
