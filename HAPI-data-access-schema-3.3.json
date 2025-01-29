@@ -206,6 +206,18 @@
       }
     ]
   },
+  "RefOrStringOrArrayOfStrings": {
+    "id": "/RefOrStringOrArrayOfStrings",
+    "description": "String, array of strings, or JSON reference",
+    "oneOf": [
+      {
+        "$ref": "/Ref"
+      },
+      {
+        "$ref": "/StringOrArrayOfStrings"
+      }
+    ]
+  },
   "about": {
     "title": "about",
     "description": "Server /about response",
@@ -626,6 +638,14 @@
       },
       "definitions": {
         "type": "object"
+      },
+      "note": {
+        "description": "General notes about the server that are not appropriate to include in description. For example, a change log that lists added datasets or parameters in datasets. If an array of strings is used to describe datestamped notes, we recommend prefixing the note with a HAPI restricted ISO 8601 format, e.g., ['2024-01-01T00: Note on this date/time', '2024-04-02T00: Note on this date/time'].",
+        "$ref": "/RefOrStringOrArrayOfStrings"
+      },
+      "warning": {
+        "description": "Temporary warnings about the data server, such as scheduled downtime and known general problems. Dataset-specific warnings should be placed in the warning element of the /info response.",
+        "$ref": "/RefOrStringOrArrayOfStrings"
       },
       "parameters": {
         "description": "Parameters in dataset",
