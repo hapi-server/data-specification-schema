@@ -783,6 +783,7 @@
                       "colatitude",
                       "longitude",
                       "longitude0",
+                      "altitude",
                       "other"
                     ]
                   },
