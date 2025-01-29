@@ -227,7 +227,8 @@
       "status",
       "id",
       "title",
-      "contact"
+      "contact",
+      "resourceID"
     ],
     "patternProperties": {
       "x_.*": {}
@@ -254,6 +255,10 @@
       },
       "contactID": {
         "description": "The identifier in the discovery system for information about the contact. For example, a SPASE ID of a person identified in the contact string.",
+        "type": "string"
+      },
+      "resourceID": {
+        "description": "An identifier associated with all datasets.",
         "type": "string"
       },
       "description": {
@@ -519,7 +524,7 @@
         "$ref": "/RefOrString"
       },
       "resourceID": {
-        "description": "an external identifier by which other datasets might know this dataset, such as a DOI or SPASE ID",
+        "description": "An identifier by which this data is known in another setting (e.g., DOI)",
         "$ref": "/RefOrString"
       },
       "creationDate": {
@@ -635,6 +640,14 @@
       },
       "citation": {
         "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
+        "$ref": "/RefOrString"
+      },
+      "license": {
+        "description": "A URL or array of URLs to a license landing page. If the license is in the spdx.org list, provide a link to it. Multiple licenses can be provided by using an array of strings.",
+        "$ref": "/RefOrStringOrArrayOfStrings"
+      },
+      "provenance": {
+        "description": "A description of the provenance of this dataset.",
         "$ref": "/RefOrString"
       },
       "datasetCitation": {
