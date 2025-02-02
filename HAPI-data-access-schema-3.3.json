@@ -166,6 +166,26 @@
       }
     ]
   },
+  "VectorComponentValues": {
+    "id": "/VectorComponentValues",
+    "type": "array",
+    "items": {
+      "type": "string",
+      "enum": [
+        "x",
+        "y",
+        "z",
+        "r",
+        "rho",
+        "latitude",
+        "colatitude",
+        "longitude",
+        "longitude0",
+        "altitude",
+        "other"
+      ]
+    }
+  },
   "RefOrString": {
     "id": "/RefOrString",
     "description": "JSON reference",
@@ -227,8 +247,7 @@
       "status",
       "id",
       "title",
-      "contact",
-      "resourceID"
+      "contact"
     ],
     "patternProperties": {
       "x_.*": {}
@@ -449,7 +468,17 @@
       ],
       "sampleStopDate": [
         "sampleStartDate"
-      ]
+      ],
+      "location": {
+        "not": {
+          "required": ["geoLocation"]
+        }
+      },
+      "geoLocation": {
+        "not": {
+          "required": ["location"]
+        }
+      }
     },
     "properties": {
       "HAPI": {
@@ -603,12 +632,9 @@
               },
               "components": {
                 "description": "the kind of vectorComponents values in the point array",
-                "type": "array",
+                "$ref": "/VectorComponentValues",
                 "minItems": 2,
-                "maxItems": 3,
-                "items": {
-                  "type": "string"
-                }
+                "maxItems": 3
               },
               "units": {
                 "description": "units string or strings for the vectorComponents values",
@@ -872,23 +898,7 @@
                   "$ref": "/Ref"
                 },
                 {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "enum": [
-                      "x",
-                      "y",
-                      "z",
-                      "r",
-                      "rho",
-                      "latitude",
-                      "colatitude",
-                      "longitude",
-                      "longitude0",
-                      "altitude",
-                      "other"
-                    ]
-                  },
+                  "$ref": "/VectorComponentValues",
                   "minItems": 1
                 }
               ]

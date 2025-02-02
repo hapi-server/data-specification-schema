@@ -3,9 +3,15 @@ JSON Schema for HAPI JSON Responses
 # Testing
 
 ```
-cd test
+git clone https://github.com/hapi-server/verify-nodejs
+git clone https://github.com/hapi-server/data-specification-schema
+cd verify-nodejs
 npm install
-npm test
+rm -f data-specification-schema
+ln -s ../data-specification-schema
+cd ../data-specification-schema/test
+npm install glob
+node test.js # or, e.g., node test.js 3.3
 ```
 
 The schema files in this repository (`HAPI-data-access-schema-*`) are used for testing.
