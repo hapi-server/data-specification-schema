@@ -6,7 +6,7 @@
   "cadence": "PT1S",
   "datasetCitation": "DOI",
   "license": ["https://spdx.org/licenses/CC-BY-1.0", "https://spdx.org/licenses/C-UDA-1.0"],
-  "provenance": "Data providers can add free text here. There is no schema for this content right now.",
+  "provenance": "Data providers can add free text here describing where the data came from, upastream sources, etc.",
   "unitsSchema": "udunits2",
   "note": "a note about dataset",
   "warning": "a warning about dataset",
