@@ -668,7 +668,7 @@
         "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
         "$ref": "/RefOrString"
       },
-      "license": {
+      "licenseURL": {
         "description": "A URL or array of URLs to a license landing page. If the license is in the spdx.org list, provide a link to it. Multiple licenses can be provided by using an array of strings.",
         "$ref": "/RefOrStringOrArrayOfStrings"
       },
