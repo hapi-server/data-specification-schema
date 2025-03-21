@@ -507,9 +507,10 @@
           {
             "type": "string",
             "enum": [
-              "udunits2",
               "astropy3",
-              "cdf-cluster"
+              "cdf-cluster",
+              "udunits2",
+              "vounits1.1"
             ]
           }
         ]
