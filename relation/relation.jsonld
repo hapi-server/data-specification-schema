@@ -1,0 +1,356 @@
+[ {
+  "@graph" : [ {
+    "@id" : "http://hapi-server.org/rdf/",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/BGSMc",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+      "@id" : "http://hapi-server.org/rdf/Parameter"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/Dataset",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+      "@language" : "en",
+      "@value" : "Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.w3.org/ns/dcat#Dataset"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/Hapi_server",
+    "http://hapi-server.org/rdf/provides" : [ {
+      "@id" : "http://hapi-server.org/rdf/aae/PT1S/xyz"
+    }, {
+      "@id" : "http://hapi-server.org/rdf/aae/PT1S/hdz"
+    }, {
+      "@id" : "http://hapi-server.org/rdf/aae/PT1S/abc"
+    } ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+      "@id" : "http://hapi-server.org/rdf/Service"
+    } ],
+    "http://www.w3.org/ns/dcat#endpointURL" : [ {
+      "@id" : "https://cdaweb.gsfc.nasa.gov/hapi"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/Magnitude",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+      "@id" : "http://hapi-server.org/rdf/Parameter"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/Parameter",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+      "@language" : "en",
+      "@value" : "Parameter"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.w3.org/2002/07/owl#Thing"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/Service",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+      "@language" : "en",
+      "@value" : "Service"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.w3.org/ns/dcat#DataService"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/aae/PT1M/abc",
+    "http://hapi-server.org/rdf/isDownResampledOfMean" : [ {
+      "@id" : "http://hapi-server.org/rdf/aae/PT1S/abc"
+    } ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/aae/PT1M/hdz",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/aae/PT1M/xyz",
+    "http://hapi-server.org/rdf/isResampledOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/aae/PT1S/xyz"
+    } ],
+    "http://hapi-server.org/rdf/resampledMethod" : [ {
+      "@value" : "mean"
+    } ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/aae/PT1S/abc",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/aae/PT1S/hdz",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/aae/PT1S/xyz",
+    "http://hapi-server.org/rdf/hasParameter" : [ {
+      "@id" : "http://hapi-server.org/rdf/Magnitude"
+    } ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/alsoAvailableFrom",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#SymmetricProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isRelatedTo"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/hasParameter",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Parameter"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isACoordinateTransformedTo",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#SymmetricProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+      "@language" : "en",
+      "@value" : "Indicates that the subject dataset is a coordinate transformation of the object dataset."
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+      "@language" : "en",
+      "@value" : "is coordinate transformed to"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isRelatedTo"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampleOf",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isResampledOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfGeometricMean",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfMax",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfMaxMin",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfMean",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfMedian",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfMin",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfMode",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfStd",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfVar",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfWeightedMean",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isDownResampledOfX_lttb",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isDownResampleOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isFileSourceOf",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isRelatedTo"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isLocationOf",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isRelatedTo"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isRelatedTo",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2002/07/owl#equivalentProperty" : [ {
+      "@id" : "http://purl.org/dc/terms/relation"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isResampledOf",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+      "@language" : "en",
+      "@value" : "Indicates that the subject dataset is a resampled version of the object dataset."
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isRelatedTo"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isUpResampleOf",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isResampledOf"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/isVersionOf",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+      "@id" : "http://hapi-server.org/rdf/isRelatedTo"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/provides",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Service"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ]
+  }, {
+    "@id" : "http://hapi-server.org/rdf/resampledMethod",
+    "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://hapi-server.org/rdf/Dataset"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  }, {
+    "@id" : "http://purl.org/dc/terms/description",
+    "@type" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" ]
+  }, {
+    "@id" : "http://purl.org/dc/terms/relation",
+    "@type" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" ],
+    "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+      "@language" : "en",
+      "@value" : "Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided."
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+      "@language" : "en",
+      "@value" : "Relation"
+    } ]
+  }, {
+    "@id" : "http://www.w3.org/ns/dcat#DataService",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.w3.org/2002/07/owl#Thing"
+    } ]
+  }, {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.w3.org/2002/07/owl#Thing"
+    } ]
+  }, {
+    "@id" : "http://www.w3.org/ns/dcat#endpointURL",
+    "@type" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" ],
+    "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+      "@language" : "en",
+      "@value" : "The root location or primary endpoint of the service (a Web-resolvable IRI)."
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://www.w3.org/ns/dcat#DataService"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+    } ]
+  } ],
+  "@id" : "http://hapi-server.org/rdf/"
+} ]
