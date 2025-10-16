@@ -1,38 +1,21 @@
+@prefix : <http://hapi-server.org/rdf/> .
 
-:Magnitude a :Parameter .
+# Elsa: What is notation for this?
+$base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
 
-:BGSMc a :Parameter .
-
-Usual notation
 <$base/aae/PT1S/xyz> a :Dataset;
-  :hasParameter :Magnitude .
+  :hasParameter :Field_Magnitude .
+  :hasParameter :Field_Vector .
 
-Can be put on same line
-<$base/aae/PT1S/xyz> a :Dataset; :hasParameter :Magnitude .
+# Above can be put on same line
+# <$base/aae/PT1S/xyz> a :Dataset; :hasParameter :Field_Magnitude, :Field_Vector .
 
-Combining 
-<$base/aae/PT1S/xyz> a :Dataset .
-<$base/aae/PT1S/xyz> :hasParameter :Magnitude .
-<$base/aae/PT1S/xyz> :hasParameter :BGSMc .
+<$base/aae/PT1M/xyz> a :Dataset;
+  :hasParameter :Field_Magnitude .
+  :hasParameter :Field_Vector .
 
-Same as
-<$base/aae/PT1S/xyz> a :Dataset; :hasParameter :Magnitude, :BSMc .
-
-"a Dataset" and "a Parameter" are optional, but less readable.
-<$base/aae/PT1S/xyz> should be your product! (Convention)
-<$dataset/aae/PT1M/xyz> a :Dataset;
-  :resampledMethod :mean;
-  :isResampledOf <$dataset/aae/PT1S/xyz> .
-
-<$dataset/aae/PT1M/xyz> ; :resampledMethod "mean"; :isResampledOf <$dataset/aae/PT1S/xyz> .
-
+# Subject should be from the server that provides this file (convention to specify)
 <$dataset/aae/PT1M/xyz/Vector> a :Parameter;
   :resampledMethod "mean";
   :isResampledOf <$dataset/aae/PT1S/xyz/Vector> .
-
-<http://hapi-server.org/rdf/aae/PT1M/hdz> a :Dataset .
-
-<http://hapi-server.org/rdf/aae/PT1M/abc> a :Dataset;
-  :isDownResampledOfMean <http://hapi-server.org/rdf/aae/PT1S/abc> .
-
 
