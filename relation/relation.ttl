@@ -1,161 +1,38 @@
-@prefix : <http://hapi-server.org/rdf/> .
-@prefix grddl: <http://www.w3.org/2003/g/data-view#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
-@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
-@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
-
-<http://hapi-server.org/rdf/> a owl:Ontology .
-
-:Dataset a owl:Class;
-  rdfs:subClassOf dcat:Dataset;
-  rdfs:label "Dataset"@en .
-
-:Service a owl:Class;
-  rdfs:subClassOf dcat:DataService;
-  rdfs:label "Service"@en .
-
-:Parameter a owl:Class;
-  rdfs:subClassOf owl:Thing;
-  rdfs:label "Parameter"@en .
-
-:isRelatedTo a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  owl:equivalentProperty dcterms:relation .
-
-:isACoordinateTransformedTo a owl:ObjectProperty, owl:SymmetricProperty;
-  rdfs:label "is coordinate transformed to"@en;
-  rdfs:comment "Indicates that the subject dataset is a coordinate transformation of the object dataset."@en;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isRelatedTo .
-
-:isVersionOf a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isRelatedTo .
-
-:isLocationOf a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isRelatedTo .
-
-:alsoAvailableFrom a owl:ObjectProperty, owl:SymmetricProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isRelatedTo .
-
-:isFileSourceOf a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isRelatedTo .
-
-:isDownResampleOf a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isResampledOf .
-
-dcat:Dataset a owl:Class;
-  rdfs:subClassOf owl:Thing .
-
-dcat:DataService a owl:Class;
-  rdfs:subClassOf owl:Thing .
-
-dcterms:relation a rdf:Property;
-  rdfs:label "Relation"@en;
-  rdfs:comment "Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided."@en .
-
-dcterms:description a rdf:Property .
-
-:provides a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Service .
-
-:hasParameter a owl:ObjectProperty;
-  rdfs:range :Parameter;
-  rdfs:domain :Dataset .
 
 :Magnitude a :Parameter .
 
 :BGSMc a :Parameter .
 
-<http://hapi-server.org/rdf/aae/PT1S/xyz> a :Dataset;
+Usual notation
+<$base/aae/PT1S/xyz> a :Dataset;
   :hasParameter :Magnitude .
 
-<http://hapi-server.org/rdf/aae/PT1S/hdz> a :Dataset .
+Can be put on same line
+<$base/aae/PT1S/xyz> a :Dataset; :hasParameter :Magnitude .
 
-<http://hapi-server.org/rdf/aae/PT1S/abc> a :Dataset .
+Combining 
+<$base/aae/PT1S/xyz> a :Dataset .
+<$base/aae/PT1S/xyz> :hasParameter :Magnitude .
+<$base/aae/PT1S/xyz> :hasParameter :BGSMc .
 
-<http://hapi-server.org/rdf/aae/PT1M/xyz> a :Dataset;
+Same as
+<$base/aae/PT1S/xyz> a :Dataset; :hasParameter :Magnitude, :BSMc .
+
+"a Dataset" and "a Parameter" are optional, but less readable.
+<$base/aae/PT1S/xyz> should be your product! (Convention)
+<$dataset/aae/PT1M/xyz> a :Dataset;
+  :resampledMethod :mean;
+  :isResampledOf <$dataset/aae/PT1S/xyz> .
+
+<$dataset/aae/PT1M/xyz> ; :resampledMethod "mean"; :isResampledOf <$dataset/aae/PT1S/xyz> .
+
+<$dataset/aae/PT1M/xyz/Vector> a :Parameter;
   :resampledMethod "mean";
-  :isResampledOf <http://hapi-server.org/rdf/aae/PT1S/xyz> .
+  :isResampledOf <$dataset/aae/PT1S/xyz/Vector> .
 
 <http://hapi-server.org/rdf/aae/PT1M/hdz> a :Dataset .
 
 <http://hapi-server.org/rdf/aae/PT1M/abc> a :Dataset;
   :isDownResampledOfMean <http://hapi-server.org/rdf/aae/PT1S/abc> .
 
-:Hapi_server a :Service;
-  :provides <http://hapi-server.org/rdf/aae/PT1S/xyz>, <http://hapi-server.org/rdf/aae/PT1S/hdz>,
-    <http://hapi-server.org/rdf/aae/PT1S/abc>;
-  dcat:endpointURL <https://cdaweb.gsfc.nasa.gov/hapi> .
 
-:isUpResampleOf a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isResampledOf .
-
-:resampledMethod a owl:DatatypeProperty;
-  rdfs:range xsd:string;
-  rdfs:domain :Dataset .
-
-dcat:endpointURL a rdf:Property;
-  rdfs:comment "The root location or primary endpoint of the service (a Web-resolvable IRI)."@en;
-  rdfs:range rdfs:Resource;
-  rdfs:domain dcat:DataService .
-
-:isResampledOf a owl:ObjectProperty;
-  rdfs:comment "Indicates that the subject dataset is a resampled version of the object dataset."@en;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isRelatedTo .
-
-:isDownResampledOfGeometricMean a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMax a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMaxMin a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMean a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMedian a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMin a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMode a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfStd a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfVar a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfWeightedMean a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfX_lttb a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
