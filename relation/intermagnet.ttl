@@ -13,7 +13,7 @@ $base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
   :hasParameter :Field_Magnitude .
   :hasParameter :Field_Vector .
 
-# Above can be put on same line
+# Above can be put on the same line
 # <$base/aae/PT1S/xyz> a :Dataset; :hasParameter :Field_Magnitude, :Field_Vector .
 
 <$base/aae/PT1M/xyz> a :Dataset;
@@ -21,7 +21,11 @@ $base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
   :hasParameter :Field_Vector .
 
 # Subject should be from the server that provides this file (convention to specify)
-<$dataset/aae/PT1M/xyz/Vector> a :Parameter;
+<$dataset/aae/PT1M/xyz/Field_Vector> a :Parameter;
   :resampledMethod "mean";
-  :isResampledOf <$dataset/aae/PT1S/xyz/Vector> .
+  :isResampledOf <$dataset/aae/PT1S/xyz/Field_Vector> .
+
+<$dataset/aae/PT1M/xyz/Field_Magnitude> a :Parameter;
+  :resampledMethod "mean";
+  :isResampledOf <$dataset/aae/PT1S/xyz/Field_Magnitude> .
 
