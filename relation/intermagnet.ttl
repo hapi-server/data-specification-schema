@@ -9,18 +9,27 @@ $base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
       <$base/aae/PT1S/xyz>,
   dcat:endpointURL <$base> .
 
+# Define PT1S datasets
 <$base/aae/PT1S/xyz> a :Dataset;
   :hasParameter :Field_Magnitude .
   :hasParameter :Field_Vector .
 
-# Above can be put on the same line
-# <$base/aae/PT1S/xyz> a :Dataset; :hasParameter :Field_Magnitude, :Field_Vector .
+<$dataset/aae/PT1S/xyz/Field_Vector> a :Parameter
+<$dataset/aae/PT1S/xyz/Field_Magnitude> a :Parameter
 
+# Define PT1M datasets
 <$base/aae/PT1M/xyz> a :Dataset;
   :hasParameter :Field_Magnitude .
   :hasParameter :Field_Vector .
 
+<$dataset/aae/PT1M/xyz/Field_Vector> a :Parameter
+<$dataset/aae/PT1M/xyz/Field_Magnitude> a :Parameter
+
+# Relate PT1S to PT1M parameters
+
 # Subject should be from the server that provides this file (convention to specify)
+# Elsa: Why is the "a :Parameter" needed below, and if it is needed, why is it also not after
+# <$dataset/aae/PT1S/xyz/Field_Vector>?
 <$dataset/aae/PT1M/xyz/Field_Vector> a :Parameter;
   :resampledMethod "mean";
   :isResampledOf <$dataset/aae/PT1S/xyz/Field_Vector> .
