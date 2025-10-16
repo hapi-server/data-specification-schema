@@ -1,7 +1,13 @@
 @prefix : <http://hapi-server.org/rdf/> .
 
-# Elsa: What is notation for this?
+# Elsa: What is the notation for this?
 $base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
+
+:Hapi_server a :Service;
+  :provides
+      <$base/aae/PT1S/xyz>,
+      <$base/aae/PT1S/xyz>,
+  dcat:endpointURL <$base> .
 
 <$base/aae/PT1S/xyz> a :Dataset;
   :hasParameter :Field_Magnitude .
