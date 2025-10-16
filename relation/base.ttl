@@ -82,27 +82,25 @@ dcterms:description a rdf:Property .
   rdfs:range :Parameter;
   rdfs:domain :Dataset .
 
-:Hapi_server a :Service;
-  :provides <http://hapi-server.org/rdf/aae/PT1S/xyz>, <http://hapi-server.org/rdf/aae/PT1S/hdz>,
-    <http://hapi-server.org/rdf/aae/PT1S/abc>;
-  dcat:endpointURL <https://cdaweb.gsfc.nasa.gov/hapi> .
-
 dcat:endpointURL a rdf:Property;
   rdfs:comment "The root location or primary endpoint of the service (a Web-resolvable IRI)."@en;
   rdfs:range rdfs:Resource;
   rdfs:domain dcat:DataService .
 
-# Think about only explicity parameter case; dataset -> dataset creates implicit connections
+:ResampleMethod a rdfs:Class .
 
-:ResamplingMethod a rdfs:Class .
-
-:max a :ResamplingMethod .
-:min a :ResamplingMethod .
-
-:resampledMethod a owl:ObjectProperty ;
-   rdfs:range :ResamplingMethod ;
+:resampleMethod a owl:ObjectProperty ;
+   rdfs:range :ResampleMethod ;
    rdfs:domain :Dataset .
- 
+
+:ave a :ResampleMethod .
+:max a :ResampleMethod .
+:min a :ResampleMethod .
+
+
+
+
+# To update later
 :isUpResampleOf a owl:ObjectProperty;
   rdfs:range :Dataset;
   rdfs:domain :Dataset;
