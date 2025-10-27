@@ -1,6 +1,6 @@
 #this ligne give the prefix for the Hapi Ontology which defines the Classes and Property needed here. 
 #You find this prefix below in front of each Class and Property you used.
-@prefix hapi : <http://hapi-server.org/rdf/> .
+@prefix hapi : <http://hapi.org/rdf/> .
 
 # Elsa: What is the notation for this?
 $base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
@@ -16,6 +16,7 @@ $base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
 :aae/PT1M/xyz/Field_Vector a hapi:Parameter
 :aae/PT1M/xyz/Field_Magnitude a hapi:Parameter
 
+# From here, it coul be an other file with defines relation for a dataset or a service
 # Define PT1S datasets
 :aae/PT1S/xyz a hapi:Dataset;
   hapi:hasParameter :Field_Magnitude .
