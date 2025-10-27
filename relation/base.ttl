@@ -1,4 +1,4 @@
-@prefix : <http://hapi-server.org/rdf/> .
+@prefix : <http://hapi.org/rdf/> .
 @prefix grddl: <http://www.w3.org/2003/g/data-view#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -10,63 +10,61 @@
 @prefix fn: <http://www.w3.org/2005/xpath-functions#> .
 @prefix sesame: <http://www.openrdf.org/schema/sesame#> .
 @prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix schema: <https://schema.org/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/>.
 
-<http://hapi-server.org/rdf/> a owl:Ontology .
+<http://hapi.org/rdf/> a owl:Ontology .
+
+#Class definitions. With equivalent classes from Dcat and Sosa.
 
 :Dataset a owl:Class;
-  rdfs:subClassOf dcat:Dataset;
-  rdfs:label "Dataset"@en .
+  rdfs:subClassOf owl:Thing;
+  rdfs:label "Dataset"@en;
+  owl:equivalentClass dcat:Dataset .
 
 :Service a owl:Class;
-  rdfs:subClassOf dcat:DataService;
-  rdfs:label "Service"@en .
+  rdfs:subClassOf owl:Thing;
+  rdfs:label "Service"@en;
+  owl:equivalentClass dcat:DataService .
 
 :Parameter a owl:Class;
   rdfs:subClassOf owl:Thing;
-  rdfs:label "Parameter"@en .
+  rdfs:label "Parameter"@en ;
+  owl:equivalentClass sosa:ObservableProperty .
+
+#Properties definitions 
 
 :isRelatedTo a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
+  rdfs:range :Dataset, :Parameter;
+  rdfs:domain :Dataset, :Parameter;
   owl:equivalentProperty dcterms:relation .
 
 :isACoordinateTransformedTo a owl:ObjectProperty, owl:SymmetricProperty;
   rdfs:label "is coordinate transformed to"@en;
   rdfs:comment "Indicates that the subject dataset is a coordinate transformation of the object dataset."@en;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
+  rdfs:range :Dataset, :Parameter;
+  rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .
 
 :isVersionOf a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
+  rdfs:range :Dataset, :Parameter;
+  rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .
 
 :isLocationOf a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
+  rdfs:range :Dataset, :Parameter;
+  rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .
 
 :alsoAvailableFrom a owl:ObjectProperty, owl:SymmetricProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
+  rdfs:range :Dataset, :Parameter;
+  rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .
 
 :isFileSourceOf a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
+  rdfs:range :Dataset, :Parameter;
+  rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .
-
-:isDownResampleOf a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isResampledOf .
-
-dcat:Dataset a owl:Class;
-  rdfs:subClassOf owl:Thing .
-
-dcat:DataService a owl:Class;
-  rdfs:subClassOf owl:Thing .
 
 dcterms:relation a rdf:Property;
   rdfs:label "Relation"@en;
@@ -82,21 +80,13 @@ dcterms:description a rdf:Property .
   rdfs:range :Parameter;
   rdfs:domain :Dataset .
 
-dcat:endpointURL a rdf:Property;
-  rdfs:comment "The root location or primary endpoint of the service (a Web-resolvable IRI)."@en;
-  rdfs:range rdfs:Resource;
-  rdfs:domain dcat:DataService .
-
-:ResampleMethod a rdfs:Class .
-
-:resampleMethod a owl:ObjectProperty ;
-   rdfs:range :ResampleMethod ;
-   rdfs:domain :Dataset .
+:resampledMethod a owl:DatatypeProperty;
+  rdfs:range xsd:string;
+  rdfs:domain :Dataset .
 
 :ave a :ResampleMethod .
 :max a :ResampleMethod .
 :min a :ResampleMethod .
-
 
 
 
@@ -111,6 +101,11 @@ dcat:endpointURL a rdf:Property;
   rdfs:range :Dataset;
   rdfs:domain :Dataset;
   rdfs:subPropertyOf :isRelatedTo .
+
+:isDownResampleOf a owl:ObjectProperty;
+  rdfs:range :Dataset, :Parameter;
+  rdfs:domain :Dataset, :Parameter;
+  rdfs:subPropertyOf :isResampledOf .
 
 :isDownResampledOfGeometricMean a owl:ObjectProperty;
   rdfs:subPropertyOf :isDownResampleOf .
