@@ -23,7 +23,7 @@ $base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
   hapi:hasParameter :Field_Vector .
 
 # Define PT1M datasets
-<$base/aae/PT1M/xyz> a hapi:Dataset;
+:aae/PT1M/xyz a hapi:Dataset;
   hapi:hasParameter :Field_Magnitude .
   hapi:hasParameter :Field_Vector .
 
