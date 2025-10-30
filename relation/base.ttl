@@ -23,7 +23,8 @@
 # Omit in first version b/c we may have conflict with what they choose
 # Keep
 #   owl:equivalentClass dcat:...
-# lines as comments for future reference
+# lines as comments for future reference. Can also use rdf seeAlso so as
+# not to make a hard logical relation (instead conveys "probably the same thing")
 
 :Dataset a owl:Class;
   rdfs:subClassOf owl:Thing;
