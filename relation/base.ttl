@@ -11,11 +11,16 @@
 @prefix sesame: <http://www.openrdf.org/schema/sesame#> .
 @prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
 @prefix schema: <https://schema.org/> .
-@prefix sosa: <http://www.w3.org/ns/sosa/>.
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
 
 <http://hapi.org/rdf/> a owl:Ontology .
 
-#Class definitions. With equivalent classes from Dcat and Sosa.
+# Class definitions. With equivalent classes from DCAT and SOSA.
+
+# Think about these:
+#   owl:equivalentClass sosa:ObservableProperty .
+# Rebecca and Andriy are thinking about b/c needed for SPASE
+# May want to omit in first version b/c we may have conflict with what they choose
 
 :Dataset a owl:Class;
   rdfs:subClassOf owl:Thing;
@@ -32,7 +37,7 @@
   rdfs:label "Parameter"@en ;
   owl:equivalentClass sosa:ObservableProperty .
 
-#Properties definitions 
+# Properties definitions 
 
 :isRelatedTo a owl:ObjectProperty;
   rdfs:range :Dataset, :Parameter;
