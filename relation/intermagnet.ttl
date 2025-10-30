@@ -2,41 +2,36 @@
 #You find this prefix below in front of each Class and Property you used.
 @prefix hapi : <http://hapi.org/rdf/> .
 
+
 # Elsa: What is the notation for this?
-$base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
-# Bob : the notation is :
+#   $base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
+# Answer: the notation is:
 @prefix : <https://imag-data.bgs.ac.uk/GIN_V1/hapi/> .
 
-:Hapi_server a hapi:Service;
-  hapi:provides
-      :/aae/PT1S/xyz,
-      :/aae/PT1S/xyz,
-  dcat:endpointURL <https://imag-data.bgs.ac.uk/GIN_V1/hapi/> .
+# TODO: Think about this
+#:Hapi_server a hapi:Service;
+#  hapi:provides
+#      :/aae/PT1S/xyz,
+#      :/aae/PT1S/xyz,
+#  dcat:endpointURL <https://imag-data.bgs.ac.uk/GIN_V1/hapi/> .
 
-:aae/PT1M/xyz/Field_Vector a hapi:Parameter
-:aae/PT1M/xyz/Field_Magnitude a hapi:Parameter
+# Define datasets and parameters (only need those that appear in relations, technically)
+# This part will be auto-generated based on info responses and relations (need relations
+# b/c don't need to include all datasets and parameters here, only ones that appear in
+# relations).
+:aae/PT1M/xyz/Field_Vector a hapi:Parameter .
+:aae/PT1M/xyz/Field_Magnitude a hapi:Parameter .
 
-# From here, it coul be an other file with defines relation for a dataset or a service
-# Define PT1S datasets
 :aae/PT1S/xyz a hapi:Dataset;
   hapi:hasParameter :Field_Magnitude .
   hapi:hasParameter :Field_Vector .
 
-# Define PT1M datasets
 :aae/PT1M/xyz a hapi:Dataset;
   hapi:hasParameter :Field_Magnitude .
   hapi:hasParameter :Field_Vector .
 
 
-
-# Relate PT1S to PT1M parameters
-
-# Subject should be from the server that provides this file (convention to specify)
-# Elsa: Why is the "a :Parameter" needed below, and if it is needed, why is it also not after
-# <$dataset/aae/PT1S/xyz/Field_Vector>?
-# Bob : not it is not needed as you already defined aae/PT1S/xyz/Field_Vector as a Parameter. 
-# and You can put those triplets where you want. 
-
+# Define relations
 :aae/PT1M/xyz/Field_Vector hapi:resampledMethod "mean";
   hapi:isResampledOf :aae/PT1S/xyz/Field_Vector .
 
