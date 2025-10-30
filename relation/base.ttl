@@ -20,7 +20,7 @@
 # Think about these:
 #   owl:equivalentClass sosa:ObservableProperty .
 # Rebecca and Andriy are thinking about b/c needed for SPASE
-# May want to omit in first version b/c we may have conflict with what they choose
+# Omit in first version b/c we may have conflict with what they choose
 
 :Dataset a owl:Class;
   rdfs:subClassOf owl:Thing;
