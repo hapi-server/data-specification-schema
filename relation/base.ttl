@@ -21,6 +21,9 @@
 #   owl:equivalentClass sosa:ObservableProperty .
 # Rebecca and Andriy are thinking about b/c needed for SPASE
 # Omit in first version b/c we may have conflict with what they choose
+# Keep
+#   owl:equivalentClass dcat:...
+# lines for future reference
 
 :Dataset a owl:Class;
   rdfs:subClassOf owl:Thing;
