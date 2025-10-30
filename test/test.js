@@ -1,16 +1,24 @@
+// Usage:
+//   node test.js
+// Runs all tests in subdirectories matching [0-9]*
+//   node test.js <pattern>
+// Runs all tests in subdirectories matching <pattern>
+
 const fs = require('fs')
 const path = require('path')
-const { exec } = require('child_process')
 const glob = require('glob')
+const { exec } = require('child_process')
 
 const VALIDATE = path.resolve(__dirname, '../../verifier-nodejs/validate.js')
-const baseDir = path.resolve(__dirname)
+const DEBUG = false
 
 const args = process.argv.slice(2)
 let pattern = '[0-9]'
 if (args.length !== 0) {
   pattern = args[0]
 }
+
+const baseDir = path.resolve(__dirname)
 const files = glob.sync(`${baseDir}/${pattern}*/*.json`)
 files.sort()
 files.forEach(file => {
@@ -22,6 +30,9 @@ files.forEach(file => {
       // If stderr exists, it's an execution error.
       console.error(`Error executing command for ${file}:`, err)
       return
+    }
+    if (DEBUG) {
+      console.log(`${command} output:`)
     }
     fs.writeFileSync(logFile, stdout)
 
