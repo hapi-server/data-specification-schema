@@ -1,6 +1,6 @@
 
-/Users/weigel/git/hapi/data-specification-schema/test/3.2/TestData3.2-about.json
-  ✓ is.HAPIVersion(): Expect HAPI version in JSON response to be one of ["1.1","2.0","2.1","3.0","3.1","3.2","3.3"]
+./3.2/TestData3.2-about.json
+  ✓ is.HAPIVersion(): Expect HAPI version in JSON response to be one of ["1.1","2.0","2.0-1","2.1","3.0","3.1","3.2"]
   Got: 3.2
-  ✓ is.HAPIJSON(): Expect body to be valid HAPI 3.2 'about' schema.; Warning: HAPI schema version 3.2 is in development. Some errors reported by schema check may not actually be errors and not all features are checked.
+  ✓ is.HAPIJSON(): Expect body to be valid <a href='https://github.com/hapi-server/data-specification-schema/blob/main/HAPI-data-access-schema-3.2.json'>HAPI 3.2 'about' schema</a>.; Warning: HAPI schema version 3.2 is in development. See <a href="https://github.com/hapi-server/verifier-nodejs/issues?q=is%3Aissue+is%3Aopen+label%3A3.2">verifier 3.2 milestone issues</a> and <a href="https://github.com/hapi-server/data-specification-schema/issues?q=is%3Aissue+is%3Aopen+label%3A3.2">schema 3.2 milestone issues</a>
   Got: JSON is valid with respect to JSON schema.
