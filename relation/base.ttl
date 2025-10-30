@@ -23,7 +23,7 @@
 # Omit in first version b/c we may have conflict with what they choose
 # Keep
 #   owl:equivalentClass dcat:...
-# lines for future reference
+# lines as comments for future reference
 
 :Dataset a owl:Class;
   rdfs:subClassOf owl:Thing;
