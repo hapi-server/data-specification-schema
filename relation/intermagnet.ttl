@@ -37,11 +37,6 @@ $base = https://imag-data.bgs.ac.uk/GIN_V1/hapi/
 # Bob : not it is not needed as you already defined aae/PT1S/xyz/Field_Vector as a Parameter. 
 # and You can put those triplets where you want. 
 
-:aae/PT1M/xyz/Field_Vector a hapi:Parameter;
-  hapi:resampledMethod "mean";
-  hapi:isResampledOf :aae/PT1S/xyz/Field_Vector> .
-
-# so it will be : 
 :aae/PT1M/xyz/Field_Vector hapi:resampledMethod "mean";
   hapi:isResampledOf :aae/PT1S/xyz/Field_Vector .
 
