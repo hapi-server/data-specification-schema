@@ -1,5 +1,5 @@
 
-./3.3/TestData3.3-dataset1.json
+./3.3/TestData3.3-dataset2.json
   ✓ is.HAPIVersion(): Expect HAPI version in JSON response to be one of ["1.1","2.0","2.1","3.0","3.1","3.2","3.3"]
   Got: 3.3
   ✓ is.HAPIJSON(): Expect body to be valid <a href='https://github.com/hapi-server/data-specification-schema/blob/main/HAPI-data-access-schema-3.3.json'>HAPI 3.3 'info' schema</a>.; Warning: HAPI schema version 3.3 is in development. See <a href="https://github.com/hapi-server/verifier-nodejs/issues?q=is%3Aissue+is%3Aopen+label%3A3.2">verifier 3.3 milestone issues</a> and <a href="https://github.com/hapi-server/data-specification-schema/issues?q=is%3Aissue+is%3Aopen+label%3A3.2">schema 3.3 milestone issues</a>

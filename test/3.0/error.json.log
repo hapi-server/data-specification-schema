@@ -1,6 +1,6 @@
 
 ./3.0/error.json
-  ✓ is.HAPIVersion(): Expect HAPI version in JSON response to be one of ["1.1","2.0","2.0-1","2.1","3.0","3.1","3.2"]
+  ✓ is.HAPIVersion(): Expect HAPI version in JSON response to be one of ["1.1","2.0","2.1","3.0","3.1","3.2","3.3"]
   Got: 3.0
   ✓ is.HAPIJSON(): Expect body to be valid <a href='https://github.com/hapi-server/data-specification-schema/blob/main/HAPI-data-access-schema-3.0.json'>HAPI 3.0 'error' schema</a>.
   Got: JSON is valid with respect to JSON schema.

@@ -10,12 +10,7 @@
   "unitsSchema": "vounits1.1",
   "note": "a note about dataset",
   "warning": "a warning about dataset",
-  "location": {
-    "point": [0.0, 0.0, 0.0],
-    "units": "m",
-    "vectorComponents": ["x", "y", "z"],
-    "coordinateSystemName": "wgs84"
-  },
+  "geoLocation": [0.0, 0.0, 0.0],
   "parameters": [
     {
       "name": "Time",
