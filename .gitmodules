@@ -1,0 +1,2 @@
+[submodule "data-specification-schema"]
+	update = rebase
