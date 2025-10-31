@@ -376,24 +376,16 @@
               "type": "string",
               "uniqueItems": true
             },
-            "info": { "$ref": "/info" }
+            "info": { "$ref": "/infoInCatalog" }
           }
         }
       }
     }
   },
-  "info": {
-    "title": "info",
-    "id": "/info",
-    "description": "Server /info response",
+  "infoCommon": {
+    "title": "infoCommon",
+    "id": "/infoCommon",
     "type": "object",
-    "required": [
-      "HAPI",
-      "status",
-      "startDate",
-      "stopDate",
-      "parameters"
-    ],
     "patternProperties": {
       "x_.*": {}
     },
@@ -897,6 +889,38 @@
         }
       }
     }
+  },
+  "info": {
+    "title": "info",
+    "id": "/info",
+    "description": "Server /info response",
+    "allOf": [
+      { "$ref": "/infoCommon" },
+      {
+        "required": [
+          "HAPI",
+          "status",
+          "startDate",
+          "stopDate",
+          "parameters"
+        ]
+      }
+    ]
+  },
+  "infoInCatalog": {
+    "title": "infoInCatalog",
+    "id": "/infoInCatalog",
+    "description": "'info' node in /catalog?depth=all response.",
+    "allOf": [
+      { "$ref": "/infoCommon" },
+      {
+        "required": [
+          "startDate",
+          "stopDate",
+          "parameters"
+        ]
+      }
+    ]
   },
   "error": {
     "title": "error response",
