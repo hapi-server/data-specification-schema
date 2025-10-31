@@ -9,7 +9,19 @@ const path = require('path')
 const glob = require('glob')
 const { exec } = require('child_process')
 
-const VALIDATE = path.resolve(__dirname, '../../verifier-nodejs/validate.js')
+// If executing from data-specification-schema repo and verifier-nodejs repo
+// in same directory.
+let VALIDATE = path.resolve(__dirname, '../../verifier-nodejs/validate.js')
+if (!fs.existsSync(VALIDATE)) {
+  // If executing from verifier-nodejs/data-specification-schema/test
+  // data-specification-schema is a subdirectory (submodule) of verifier-nodejs.
+  VALIDATE = path.resolve(__dirname, '../../validate.js')
+  if (!fs.existsSync(VALIDATE)) {
+    console.error('../../validate.js and ../../verifier-nodejs/validate.js not available.')
+    console.error('Do a git clone of verifier-nodejs repo in same dir as this repo (data-specification-schema).')
+    process.exit(1)
+  }
+}
 const DEBUG = false
 
 const args = process.argv.slice(2)
