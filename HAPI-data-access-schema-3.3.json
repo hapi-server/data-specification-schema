@@ -4,7 +4,7 @@
     "id": "/HAPI",
     "description": "HAPI Version",
     "type": "string",
-    "pattern": "^3\\.2$"
+    "pattern": "^3\\.3$"
   },
   "HAPIDateTime": {
     "id": "/HAPIDateTime",
@@ -166,6 +166,26 @@
       }
     ]
   },
+  "VectorComponentValues": {
+    "id": "/VectorComponentValues",
+    "type": "array",
+    "items": {
+      "type": "string",
+      "enum": [
+        "x",
+        "y",
+        "z",
+        "r",
+        "rho",
+        "latitude",
+        "colatitude",
+        "longitude",
+        "longitude0",
+        "altitude",
+        "other"
+      ]
+    }
+  },
   "RefOrString": {
     "id": "/RefOrString",
     "description": "JSON reference",
@@ -189,6 +209,34 @@
         "pattern": "\\#\\/definitions\\/.*"
       }
     }
+  },
+  "StringOrArrayOfStrings": {
+    "id": "/StringOrArrayOfStrings",
+    "description": "String or array of strings",
+    "oneOf": [
+      {
+        "type": "string"
+      },
+      {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      }
+    ]
+  },
+  "RefOrStringOrArrayOfStrings": {
+    "id": "/RefOrStringOrArrayOfStrings",
+    "description": "String, array of strings, or JSON reference",
+    "oneOf": [
+      {
+        "$ref": "/Ref"
+      },
+      {
+        "$ref": "/StringOrArrayOfStrings"
+      }
+    ]
   },
   "about": {
     "title": "about",
@@ -228,13 +276,29 @@
         "description": "The identifier in the discovery system for information about the contact. For example, a SPASE ID of a person identified in the contact string.",
         "type": "string"
       },
+      "resourceID": {
+        "description": "An identifier associated with all datasets.",
+        "type": "string"
+      },
       "description": {
         "description": "A brief description of the type of data the server provides.",
         "type": "string"
       },
       "citation": {
-        "description": "How to cite the server. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
+        "description": "Deprecated; use serverCitation",
         "type": "string"
+      },
+      "serverCitation": {
+        "description": "How to cite the HAPI server. An actionable DOI is preferred (e.g., https://doi.org/...). This serverCitation differs from the dataCitation in an /info response. Here the serverCitation is for the entity that maintains the data server.",
+        "type": "string"
+      },
+      "note": {
+        "description": "General notes about the server that are not appropriate to include in description. For example, a change log that lists added datasets or parameters in datasets. If an array of strings is used to describe datestamped notes, we recommend prefixing the note with a HAPI restricted ISO 8601 format, e.g., ['2024-01-01T00: Note on this date/time', '2024-04-02T00: Note on this date/time'].",
+        "$ref": "/StringOrArrayOfStrings"
+      },
+      "warning": {
+        "description": "Temporary warnings about the data server, such as scheduled downtime and known general problems. Dataset-specific warnings should be placed in the warning element of the /info response.",
+        "$ref": "/StringOrArrayOfStrings"
       },
       "dataTest": {
         "description": "Information that a client can use to check that a server is operational.",
@@ -385,6 +449,7 @@
   "infoCommon": {
     "title": "infoCommon",
     "id": "/infoCommon",
+    "description": "Common parts of info (copy the current info object here but remove the top-level `required` array).",
     "type": "object",
     "patternProperties": {
       "x_.*": {}
@@ -396,7 +461,17 @@
       ],
       "sampleStopDate": [
         "sampleStartDate"
-      ]
+      ],
+      "location": {
+        "not": {
+          "required": ["geoLocation"]
+        }
+      },
+      "geoLocation": {
+        "not": {
+          "required": ["location"]
+        }
+      }
     },
     "properties": {
       "HAPI": {
@@ -471,7 +546,7 @@
         "$ref": "/RefOrString"
       },
       "resourceID": {
-        "description": "an external identifier by which other datasets might know this dataset, such as a DOI or SPASE ID",
+        "description": "An identifier by which this data is known in another setting (e.g., DOI)",
         "$ref": "/RefOrString"
       },
       "creationDate": {
@@ -521,8 +596,82 @@
           }
         ]
       },
+      "location": {
+        "description": "A way to specify where a dataset's measurements were made. ",
+        "oneOf": [
+          {
+            "$ref": "/Ref"
+          },
+          {
+            "type": "object",
+            "required": [
+              "point",
+              "units",
+              "vectorComponents",
+              "coordinateSystemName"
+            ],
+            "patternProperties": {
+              "x_.*": {}
+            },
+            "additionalProperties": false,
+            "properties": {
+              "point": {
+                "description": "The location of the measurement",
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 3,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "vectorComponents": {
+                "description": "the kind of vectorComponents values in the point array",
+                "$ref": "/VectorComponentValues",
+                "minItems": 2,
+                "maxItems": 3
+              },
+              "units": {
+                "description": "units string or strings for the vectorComponents values",
+                "$ref": "/UnitsAndLabelCommon"
+              },
+              "coordinateSystemName": {
+                "description": "The name of the coordinate system for the vectorComponents quantities.",
+                "$ref": "/RefOrString"
+              }
+            }
+          }
+        ]
+      },
+      "geoLocation": {
+        "description": "A simplified, compact way of indicating a fixed location for a dataset in Earth-based coordinates. The array has 2- or 3- elements: [longitude in degrees, latitude in degrees, (optional) altitude in meters].",
+        "oneOf": [
+          {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 3,
+            "items": {
+              "type": "number"
+            }
+          },
+          {
+            "$ref": "/Ref"
+          }
+        ]
+      },
       "citation": {
         "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). This citation differs from the citation in an /info response. Here the citation is for the entity that maintains the data server.",
+        "$ref": "/RefOrString"
+      },
+      "licenseURL": {
+        "description": "A URL or array of URLs to a license landing page. If the license is in the spdx.org list, provide a link to it. Multiple licenses can be provided by using an array of strings.",
+        "$ref": "/RefOrStringOrArrayOfStrings"
+      },
+      "provenance": {
+        "description": "A description of the provenance of this dataset.",
+        "$ref": "/RefOrString"
+      },
+      "datasetCitation": {
+        "description": "How to cite the data set. An actionable DOI is preferred (e.g., https://doi.org/...). Note that there is a serverCitation in an /about response for citing the data server, but datasetCitation is for the dataset citation, which is typically different.",
         "$ref": "/RefOrString"
       },
       "additionalMetadata": {
@@ -587,6 +736,14 @@
       },
       "definitions": {
         "type": "object"
+      },
+      "note": {
+        "description": "General notes about the server that are not appropriate to include in description. For example, a change log that lists added datasets or parameters in datasets. If an array of strings is used to describe datestamped notes, we recommend prefixing the note with a HAPI restricted ISO 8601 format, e.g., ['2024-01-01T00: Note on this date/time', '2024-04-02T00: Note on this date/time'].",
+        "$ref": "/RefOrStringOrArrayOfStrings"
+      },
+      "warning": {
+        "description": "Temporary warnings about the data server, such as scheduled downtime and known general problems. Dataset-specific warnings should be placed in the warning element of the /info response.",
+        "$ref": "/RefOrStringOrArrayOfStrings"
       },
       "parameters": {
         "description": "Parameters in dataset",
@@ -735,22 +892,7 @@
                   "$ref": "/Ref"
                 },
                 {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "enum": [
-                      "x",
-                      "y",
-                      "z",
-                      "r",
-                      "rho",
-                      "latitude",
-                      "colatitude",
-                      "longitude",
-                      "longitude0",
-                      "other"
-                    ]
-                  },
+                  "$ref": "/VectorComponentValues",
                   "minItems": 1
                 }
               ]
@@ -891,16 +1033,13 @@
       }
     }
   },
-  "info": {
-    "title": "info",
-    "id": "/info",
-    "description": "Server /info response",
+  "infoInCatalog": {
+    "title": "infoInCatalog",
+    "id": "/infoInCatalog",
     "allOf": [
       { "$ref": "/infoCommon" },
       {
         "required": [
-          "HAPI",
-          "status",
           "startDate",
           "stopDate",
           "parameters"
@@ -908,14 +1047,15 @@
       }
     ]
   },
-  "infoInCatalog": {
-    "title": "infoInCatalog",
-    "id": "/infoInCatalog",
-    "description": "'info' node in /catalog?depth=all response.",
+  "info": {
+    "title": "info",
+    "id": "/info",
     "allOf": [
       { "$ref": "/infoCommon" },
       {
         "required": [
+          "HAPI",
+          "status",
           "startDate",
           "stopDate",
           "parameters"
