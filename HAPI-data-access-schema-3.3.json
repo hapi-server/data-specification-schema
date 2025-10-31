@@ -440,24 +440,17 @@
               "type": "string",
               "uniqueItems": true
             },
-            "info": { "$ref": "/info" }
+            "info": { "$ref": "/infoInCatalog" }
           }
         }
       }
     }
   },
-  "info": {
-    "title": "info",
-    "id": "/info",
-    "description": "Server /info response",
+  "infoCommon": {
+    "title": "infoCommon",
+    "id": "/infoCommon",
+    "description": "Common parts of info (copy the current info object here but remove the top-level `required` array).",
     "type": "object",
-    "required": [
-      "HAPI",
-      "status",
-      "startDate",
-      "stopDate",
-      "parameters"
-    ],
     "patternProperties": {
       "x_.*": {}
     },
@@ -613,8 +606,8 @@
             "type": "object",
             "required": [
               "point",
-              "vectorComponents",
               "units",
+              "vectorComponents",
               "coordinateSystemName"
             ],
             "patternProperties": {
@@ -1039,6 +1032,36 @@
         }
       }
     }
+  },
+  "infoInCatalog": {
+    "title": "infoInCatalog",
+    "id": "/infoInCatalog",
+    "allOf": [
+      { "$ref": "/infoCommon" },
+      {
+        "required": [
+          "startDate",
+          "stopDate",
+          "parameters"
+        ]
+      }
+    ]
+  },
+  "info": {
+    "title": "info",
+    "id": "/info",
+    "allOf": [
+      { "$ref": "/infoCommon" },
+      {
+        "required": [
+          "HAPI",
+          "status",
+          "startDate",
+          "stopDate",
+          "parameters"
+        ]
+      }
+    ]
   },
   "error": {
     "title": "error response",
