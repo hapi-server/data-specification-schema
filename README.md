@@ -7,10 +7,8 @@ git clone https://github.com/hapi-server/verify-nodejs
 git clone https://github.com/hapi-server/data-specification-schema
 cd verify-nodejs
 npm install
-rm -f data-specification-schema
-ln -s ../data-specification-schema
 cd ../data-specification-schema/test
-npm install glob
+npm install
 node test.js # or, e.g., node test.js 3.3
 ```
 
