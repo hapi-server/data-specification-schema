@@ -1,0 +1,13 @@
+{
+  "$schema": "./HAPI-3.3.json",
+  "id": "TestData3.3",
+  "title": "Server using HAPI 3.3 additions",
+  "HAPI": "3.3",
+  "contact": "rweigel@gmu.edu",
+  "serverCitation": "DOI",
+  "note": ["note 1", "note 2"],
+  "warning": ["warning 1", "warning 2"],
+  "status": {
+    "message": "OK"
+  }
+}
