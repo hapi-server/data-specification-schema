@@ -55,7 +55,13 @@
   rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .
 
+# Following two are in dcat
 :isVersionOf a owl:ObjectProperty;
+  rdfs:range :Dataset, :Parameter;
+  rdfs:domain :Dataset, :Parameter;
+  rdfs:subPropertyOf :isRelatedTo .
+
+:isIdenticalTo a owl:ObjectProperty;
   rdfs:range :Dataset, :Parameter;
   rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .
