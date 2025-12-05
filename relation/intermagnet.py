@@ -66,10 +66,10 @@ def quality_relations():
       for cadence in cadences:
         for frame in frames:
           for parameter in parameters:
-              path = f":{station}/{quality}/{cadence}/{frame} :{parameter}"
-              definition = f'{path} hapi:isVersionOf\n'
-          print("")
-          print(definition)
+              path1 = f":{station}/{quality}/{cadence}/{frame} :{parameter}"
+              path2 = f":{station}/{base_quality}/{cadence}/{frame} :{parameter}"
+              definition = f'{path1} hapi:isVersionOf {path2}\n'
+              print(definition)
 
 
 def frame_relations():
