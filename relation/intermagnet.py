@@ -2,6 +2,7 @@
 
 # Not all stations may have all combinations of qualities, cadences, and frames.
 # Need to determine by reading catalog response.
+# Combine duplicate code in functions.
 
 frames = ['native', 'xyzf', 'hdzf', 'diff']
 stations = ['aae']
@@ -74,8 +75,8 @@ def quality_relations():
 
 
 def frame_relations():
-  base_frame = qualities[0]
-  sub_frames = set(qualities) - set([base_frame])
+  base_frame = frames[0]
+  sub_frames = set(frames) - set([base_frame])
 
   for station in stations:
     for quality in qualities:
