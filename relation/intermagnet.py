@@ -1,5 +1,8 @@
 # Usage: python intermagnet.py > intermagnet.ttl
 
+# Not all stations may have all combinations of qualities, cadences, and frames.
+# Need to determine by reading catalog response.
+
 frames = ['native', 'xyzf', 'hdzf', 'diff']
 stations = ['aae']
 cadences = ['PT1S', 'PT1M']
@@ -11,6 +14,7 @@ def head():
   print("@prefix hapi : <http://hapi.org/rdf/> .")
   print(f"@prefix : <{url}> .")
 
+
 def provides():
 
   print(":INTERMAGNET a hapi:Service;")
@@ -21,7 +25,8 @@ def provides():
         for frame in frames:
           print(f"    :{station}/{quality}/{cadence}/{frame},")
   print(f"  dcat:endpointURL <{url}/info?dataset=> .")
-  
+
+
 def definitions():
   for station in stations:
     for quality in qualities:
