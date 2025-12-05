@@ -49,9 +49,9 @@ def cadence_relations():
       for cadence in sub_cadences:
         for frame in frames:
           for parameter in parameters:
-              path = f":{station}/{quality}/{cadence}/{frame}/{parameter}"
+              path = f":{station}/{quality}/{cadence}/{frame} :{parameter}"
               definition = f'{path} hapi:resampledMethod "mean;"\n'
-              path = f":{station}/{quality}/{base_cadence}/{frame}/{parameter}"
+              path = f":{station}/{quality}/{base_cadence}/{frame} :{parameter}"
               definition += f'  hapi:isResampledOf {path} .'
           print("")
           print(definition)
@@ -66,9 +66,9 @@ def quality_relations():
       for cadence in cadences:
         for frame in frames:
           for parameter in parameters:
-              path = f":{station}/{quality}/{cadence}/{frame}/{parameter}"
+              path = f":{station}/{quality}/{cadence}/{frame} :{parameter}"
               definition = f'{path} hapi:resampledMethod "mean;"\n'
-              path = f":{station}/{base_quality}/{cadence}/{frame}/{parameter}"
+              path = f":{station}/{base_quality}/{cadence}/{frame} :{parameter}"
               definition += f'  hapi:isResampledOf {path} .'
           print("")
           print(definition)
@@ -83,16 +83,17 @@ def frame_relations():
       for cadence in cadences:
         for frame in sub_frames:
           for parameter in parameters:
-              path = f":{station}/{quality}/{cadence}/{frame}/{parameter}"
+              path = f":{station}/{quality}/{cadence}/{frame} :{parameter}"
               definition = f'{path} hapi:resampledMethod "mean;"\n'
-              path = f":{station}/{quality}/{cadence}/{base_frame}/{parameter}"
+              path = f":{station}/{quality}/{cadence}/{base_frame} :{parameter}"
               definition += f'  hapi:isResampledOf {path} .'
           print("")
           print(definition)
 
 
-print("")
+print("# Datasets")
 provides()
+print("")
 
 print("# Definitions")
 definitions()
