@@ -1,0 +1,74 @@
+
+# We cannot capture the fact that lttb parameter was Ne. Should we? Should this
+# be in the description metadata? Add this after line 11? We don't want to
+# include full provenance, but should allow providers to extend. Is this the way?
+# :swarm_efia_lp_lttb_Ne_PT2S :lon knmi:lttbParameter "Ne;"
+
+# Repeat the following by replacing 2S => 8S, 30S, 2M, 6M, 15M
+
+# Convert to jsonld before sending to Eelco
+
+# Ne
+:swarm_efia_lp_lttb_Ne_PT2S :Ne hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :Ne .
+
+:swarm_efia_lp_lttb_Ne_PT2S :lon hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :lon .
+
+:swarm_efia_lp_lttb_Ne_PT2S :lat hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :lat .
+
+:swarm_efia_lp_lttb_Ne_PT2S :height hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :height .
+
+:swarm_efia_lp_lttb_Ne_PT2S :lon_qd hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :lon_qd .
+
+:swarm_efia_lp_lttb_Ne_PT2S :lat_qd hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :lat_qd .
+
+:swarm_efia_lp_lttb_Ne_PT2S :mlt hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :mlt .
+
+# Te
+:swarm_efia_lp_lttb_Te_PT2S :Te hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :Te .
+
+:swarm_efia_lp_lttb_Te_PT2S :lon hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :lon .
+
+:swarm_efia_lp_lttb_Te_PT2S :lat hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :lat .
+
+:swarm_efia_lp_lttb_Te_PT2S :height hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :height .
+
+:swarm_efia_lp_lttb_Te_PT2S :lon_qd hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :lon_qd .
+
+:swarm_efia_lp_lttb_Te_PT2S :lat_qd hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :lat_qd .
+
+:swarm_efia_lp_lttb_Te_PT2S :mlt hapi:resampleMethod "lttb"
+  hapi:isResampledOf :swarm_efia_lp :mlt .
+
+
+
+# Repeat by replacing PT1H30M => PT6H PT1D, PT4D, PT16D, PT64D
+:swarm_efia_lp_aggregate_PT1H30M :Ne_mean hapi:resampleMethod "ave"
+  hapi:isResampledOf :swarm_efia_lp :Ne .
+
+:swarm_efia_lp_aggregate_PT1H30M :Ne_min hapi:resampleMethod "min"
+  hapi:isResampledOf :swarm_efia_lp :Ne .
+
+:swarm_efia_lp_aggregate_PT1H30M :Ne_max hapi:resampleMethod "max"
+  hapi:isResampledOf :swarm_efia_lp :Ne .
+
+:swarm_efia_lp_aggregate_PT1H30M :Te_mean hapi:resampleMethod "ave"
+  hapi:isResampledOf :swarm_efia_lp :Te .
+
+:swarm_efia_lp_aggregate_PT1H30M :Te_min hapi:resampleMethod "min"
+  hapi:isResampledOf :swarm_efia_lp :Te .
+
+:swarm_efia_lp_aggregate_PT1H30M :Te_max hapi:resampleMethod "max"
+  hapi:isResampledOf :swarm_efia_lp :Te .
