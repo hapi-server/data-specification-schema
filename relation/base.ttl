@@ -48,14 +48,15 @@
   rdfs:domain :Dataset, :Parameter;
   owl:equivalentProperty dcterms:relation .
 
-:isACoordinateTransformedTo a owl:ObjectProperty, owl:SymmetricProperty;
+:isReferenceFrameTransformOf a owl:ObjectProperty, owl:SymmetricProperty;
   rdfs:label "is coordinate transformed to"@en;
-  rdfs:comment "Indicates that the subject dataset is a coordinate transformation of the object dataset."@en;
+  rdfs:comment "Indicates that the subject dataset is a reference frame transformation of the object dataset."@en;
   rdfs:range :Dataset, :Parameter;
   rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .
 
 :isVersionOf a owl:ObjectProperty;
+  owl:equivalentProperty dcat:isVersionOf;
   rdfs:range :Dataset, :Parameter;
   rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .

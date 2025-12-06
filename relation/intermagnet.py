@@ -11,38 +11,67 @@ qualities = [ 'reported', 'definitive', 'quasi-def', 'best-avail']
 parameters = ['Field_Magnitude', 'Field_Vector']
 url = "https://imag-data.bgs.ac.uk/GIN_V1/hapi"
 
+
+def write(ttl_str):
+  from rdflib import Graph
+
+  with open("intermagnet.ttl", "w") as f:
+    f.write(ttl_str)
+
+  g = Graph()
+  g.parse("intermagnet.ttl", format="turtle")
+  #g.parse(data=ttl_str, format="turtle")
+  jsonld_data = g.serialize(format='json-ld', indent=2)
+
+  with open("intermagnet.jsonld", "w") as f:
+    f.write(jsonld_data)
+
+  print("Conversion complete. Output written to intermagnet.jsonld")
+
+
 def head():
 
-  print("@prefix hapi : <http://hapi.org/rdf/> .")
-  print(f"@prefix : <{url}> .")
+  ttl_str = "@prefix hapi: <http://hapi.org/rdf/> .\n"
+  ttl_str += "@prefix dcat: <http://www.w3.org/ns/dcat#> .\n"
+  ttl_str += f"@prefix : <{url}> .\n"
 
+  return ttl_str
 
 def provides():
 
-  print(":INTERMAGNET a hapi:Service;")
-  print("  hapi:provides")
+  ttl_str = "# Datasets\n"
+
+  ttl_str += ": a hapi:Service;\n"
+  ttl_str += "  hapi:provides\n"
   for station in stations:
     for quality in qualities:
       for cadence in cadences:
         for frame in frames:
-          print(f"    :{station}/{quality}/{cadence}/{frame},")
-  print(f"  dcat:endpointURL <{url}/info?dataset=> .")
+          ttl_str += f"    <{url}/info?dataset={station}/{quality}/{cadence}/{frame}>,\n"
+  # Replacing last comma with period
+  ttl_str = ttl_str.rstrip(",\n") + " ;\n"
+  ttl_str += f"  dcat:endpointURL <{url}> .\n"
+
+  return ttl_str
 
 
 def definitions():
+  ttl_str = "# Definitions\n"
   for station in stations:
     for quality in qualities:
       for cadence in cadences:
         for frame in frames:
-          path = f":{station}/{quality}/{cadence}/{frame}"
-          definition = f"{path} a hapi:Dataset;"
+          path = f"<{url}/info?={station}/{quality}/{cadence}/{frame}>"
+          ttl_str += f"{path} a hapi:Dataset;\n"
           for parameter in parameters:
-            definition += f"\n  hapi:hasParameter :{parameter} ."
-          print("")
-          print(definition)
+            ttl_str += f"  hapi:hasParameter :{parameter};\n"
+          ttl_str = ttl_str.rstrip(";\n") + " .\n"
+      break
+  return ttl_str
 
 
 def cadence_relations():
+  ttl_str = "# Cadence Relations\n"
   base_cadence = cadences[0]
   sub_cadences = set(cadences) - set([base_cadence])
   for station in stations:
@@ -50,15 +79,17 @@ def cadence_relations():
       for cadence in sub_cadences:
         for frame in frames:
           for parameter in parameters:
-            path = f":{station}/{quality}/{cadence}/{frame} :{parameter}"
-            definition = f'{path} hapi:resampledMethod "ave"\n'
-            path = f":{station}/{quality}/{base_cadence}/{frame} :{parameter}"
-            definition += f'  hapi:isResampledOf {path} .'
-            print("")
-            print(definition)
+            path = f"<{url}/info?dataset={station}/{quality}/{cadence}/{frame}>"
+            ttl_str += f'{path} hapi:resampledMethod "ave" .\n'
+            path = f"<{url}/info?dataset={station}/{quality}/{base_cadence}/{frame}>"
+            ttl_str += f'<{url}/info?dataset={station}/{quality}/{base_cadence}/{frame}> hapi:isResampledOf {path} .\n'
+            ttl_str += "\n"
+
+  return ttl_str
 
 
 def quality_relations():
+  ttl_str = "# Quality Relations\n"
   base_quality = qualities[0]
   sub_qualities = set(qualities) - set([base_quality])
 
@@ -66,14 +97,15 @@ def quality_relations():
     for quality in sub_qualities:
       for cadence in cadences:
         for frame in frames:
-          for parameter in parameters:
-              path1 = f":{station}/{quality}/{cadence}/{frame} :{parameter}"
-              path2 = f":{station}/{base_quality}/{cadence}/{frame} :{parameter}"
-              definition = f'{path1} hapi:isVersionOf {path2}\n'
-              print(definition)
+          path1 = f"<{url}/info?dataset={station}/{quality}/{cadence}/{frame}>"
+          path2 = f"<{url}/info?dataset={station}/{base_quality}/{cadence}/{frame}>"
+          ttl_str += f'{path1} hapi:isVersionOf {path2} .\n'
+
+  return ttl_str
 
 
 def frame_relations():
+  ttl_str = "# Frame Relations\n"
   base_frame = frames[0]
   sub_frames = set(frames) - set([base_frame])
 
@@ -81,27 +113,17 @@ def frame_relations():
     for quality in qualities:
       for cadence in cadences:
         for frame in sub_frames:
-          for parameter in parameters:
-              path = f":{station}/{quality}/{cadence}/{frame} :{parameter}"
-              definition = f'{path} hapi:resampledMethod "mean;"\n'
-              path = f":{station}/{quality}/{cadence}/{base_frame} :{parameter}"
-              definition += f'  hapi:isResampledOf {path} .'
-          print("")
-          print(definition)
+          path1 = f"<{url}/info?dataset={station}/{quality}/{cadence}/{frame}>"
+          path2 = f"<{url}/info?dataset={station}/{quality}/{cadence}/{base_frame}>"
+          ttl_str += f'{path1} hapi:isReferenceFrameTransformOf {path2} .\n'
 
+  return ttl_str
 
-print("# Datasets")
-provides()
-print("")
+ttl_str = head()
+ttl_str += "\n" + provides()
+ttl_str += "\n" + definitions()
+ttl_str += "\n" + cadence_relations()
+ttl_str += "\n" + quality_relations()
+ttl_str += "\n" + frame_relations()
 
-print("# Definitions")
-definitions()
-
-print("\n# Cadence Relations")
-cadence_relations()
-
-print("\n# Quality Relations")
-quality_relations()
-
-print("\n# Frame Relations")
-frame_relations()
+write(ttl_str)

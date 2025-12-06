@@ -1,436 +1,216 @@
+@prefix hapi: <http://hapi.org/rdf/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix : <https://imag-data.bgs.ac.uk/GIN_V1/hapi> .
+
 # Datasets
-:INTERMAGNET a hapi:Service;
+: a hapi:Service;
   hapi:provides
-    :aae/reported/PT1S/native,
-    :aae/reported/PT1S/xyzf,
-    :aae/reported/PT1S/hdzf,
-    :aae/reported/PT1S/diff,
-    :aae/reported/PT1M/native,
-    :aae/reported/PT1M/xyzf,
-    :aae/reported/PT1M/hdzf,
-    :aae/reported/PT1M/diff,
-    :aae/definitive/PT1S/native,
-    :aae/definitive/PT1S/xyzf,
-    :aae/definitive/PT1S/hdzf,
-    :aae/definitive/PT1S/diff,
-    :aae/definitive/PT1M/native,
-    :aae/definitive/PT1M/xyzf,
-    :aae/definitive/PT1M/hdzf,
-    :aae/definitive/PT1M/diff,
-    :aae/quasi-def/PT1S/native,
-    :aae/quasi-def/PT1S/xyzf,
-    :aae/quasi-def/PT1S/hdzf,
-    :aae/quasi-def/PT1S/diff,
-    :aae/quasi-def/PT1M/native,
-    :aae/quasi-def/PT1M/xyzf,
-    :aae/quasi-def/PT1M/hdzf,
-    :aae/quasi-def/PT1M/diff,
-    :aae/best-avail/PT1S/native,
-    :aae/best-avail/PT1S/xyzf,
-    :aae/best-avail/PT1S/hdzf,
-    :aae/best-avail/PT1S/diff,
-    :aae/best-avail/PT1M/native,
-    :aae/best-avail/PT1M/xyzf,
-    :aae/best-avail/PT1M/hdzf,
-    :aae/best-avail/PT1M/diff,
-  dcat:endpointURL <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=> .
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/hdzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/xyzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/hdzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/diff>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/xyzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/hdzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/diff>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/xyzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/hdzf>,
+    <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/diff> ;
+  dcat:endpointURL <https://imag-data.bgs.ac.uk/GIN_V1/hapi> .
 
 # Definitions
-
-:aae/reported/PT1S/native a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/native> a hapi:Dataset;
+  hapi:hasParameter :Field_Magnitude;
   hapi:hasParameter :Field_Vector .
-
-:aae/reported/PT1S/xyzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/xyzf> a hapi:Dataset;
+  hapi:hasParameter :Field_Magnitude;
   hapi:hasParameter :Field_Vector .
-
-:aae/reported/PT1S/hdzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/hdzf> a hapi:Dataset;
+  hapi:hasParameter :Field_Magnitude;
   hapi:hasParameter :Field_Vector .
-
-:aae/reported/PT1S/diff a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/diff> a hapi:Dataset;
+  hapi:hasParameter :Field_Magnitude;
   hapi:hasParameter :Field_Vector .
-
-:aae/reported/PT1M/native a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1M/native> a hapi:Dataset;
+  hapi:hasParameter :Field_Magnitude;
   hapi:hasParameter :Field_Vector .
-
-:aae/reported/PT1M/xyzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1M/xyzf> a hapi:Dataset;
+  hapi:hasParameter :Field_Magnitude;
   hapi:hasParameter :Field_Vector .
-
-:aae/reported/PT1M/hdzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1M/hdzf> a hapi:Dataset;
+  hapi:hasParameter :Field_Magnitude;
   hapi:hasParameter :Field_Vector .
-
-:aae/reported/PT1M/diff a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/definitive/PT1S/native a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/definitive/PT1S/xyzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/definitive/PT1S/hdzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/definitive/PT1S/diff a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/definitive/PT1M/native a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/definitive/PT1M/xyzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/definitive/PT1M/hdzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/definitive/PT1M/diff a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/quasi-def/PT1S/native a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/quasi-def/PT1S/xyzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/quasi-def/PT1S/hdzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/quasi-def/PT1S/diff a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/quasi-def/PT1M/native a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/quasi-def/PT1M/xyzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/quasi-def/PT1M/hdzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/quasi-def/PT1M/diff a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/best-avail/PT1S/native a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/best-avail/PT1S/xyzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/best-avail/PT1S/hdzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/best-avail/PT1S/diff a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/best-avail/PT1M/native a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/best-avail/PT1M/xyzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/best-avail/PT1M/hdzf a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
-  hapi:hasParameter :Field_Vector .
-
-:aae/best-avail/PT1M/diff a hapi:Dataset;
-  hapi:hasParameter :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1M/diff> a hapi:Dataset;
+  hapi:hasParameter :Field_Magnitude;
   hapi:hasParameter :Field_Vector .
 
 # Cadence Relations
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native> .
 
-:aae/reported/PT1M/native :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/reported/PT1S/native :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native> .
 
-:aae/reported/PT1M/native :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/reported/PT1S/native :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf> .
 
-:aae/reported/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/reported/PT1S/xyzf :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf> .
 
-:aae/reported/PT1M/xyzf :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/reported/PT1S/xyzf :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf> .
 
-:aae/reported/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/reported/PT1S/hdzf :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf> .
 
-:aae/reported/PT1M/hdzf :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/reported/PT1S/hdzf :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff> .
 
-:aae/reported/PT1M/diff :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/reported/PT1S/diff :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff> .
 
-:aae/reported/PT1M/diff :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/reported/PT1S/diff :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native> .
 
-:aae/definitive/PT1M/native :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/definitive/PT1S/native :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native> .
 
-:aae/definitive/PT1M/native :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/definitive/PT1S/native :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/xyzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf> .
 
-:aae/definitive/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/definitive/PT1S/xyzf :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/xyzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf> .
 
-:aae/definitive/PT1M/xyzf :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/definitive/PT1S/xyzf :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/hdzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/hdzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/hdzf> .
 
-:aae/definitive/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/definitive/PT1S/hdzf :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/hdzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/hdzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/hdzf> .
 
-:aae/definitive/PT1M/hdzf :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/definitive/PT1S/hdzf :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/diff> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff> .
 
-:aae/definitive/PT1M/diff :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/definitive/PT1S/diff :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/diff> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff> .
 
-:aae/definitive/PT1M/diff :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/definitive/PT1S/diff :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native> .
 
-:aae/quasi-def/PT1M/native :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native> .
 
-:aae/quasi-def/PT1M/native :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/xyzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf> .
 
-:aae/quasi-def/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/quasi-def/PT1S/xyzf :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/xyzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf> .
 
-:aae/quasi-def/PT1M/xyzf :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/quasi-def/PT1S/xyzf :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/hdzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf> .
 
-:aae/quasi-def/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/quasi-def/PT1S/hdzf :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/hdzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf> .
 
-:aae/quasi-def/PT1M/hdzf :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/quasi-def/PT1S/hdzf :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/diff> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff> .
 
-:aae/quasi-def/PT1M/diff :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/quasi-def/PT1S/diff :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/diff> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff> .
 
-:aae/quasi-def/PT1M/diff :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/quasi-def/PT1S/diff :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native> .
 
-:aae/best-avail/PT1M/native :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native> .
 
-:aae/best-avail/PT1M/native :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/xyzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf> .
 
-:aae/best-avail/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/best-avail/PT1S/xyzf :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/xyzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf> .
 
-:aae/best-avail/PT1M/xyzf :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/best-avail/PT1S/xyzf :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/hdzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf> .
 
-:aae/best-avail/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/best-avail/PT1S/hdzf :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/hdzf> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf> .
 
-:aae/best-avail/PT1M/hdzf :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/best-avail/PT1S/hdzf :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/diff> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff> .
 
-:aae/best-avail/PT1M/diff :Field_Magnitude hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/best-avail/PT1S/diff :Field_Magnitude .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/diff> hapi:resampledMethod "ave" .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff> hapi:isResampledOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff> .
 
-:aae/best-avail/PT1M/diff :Field_Vector hapi:resampledMethod "ave"
-  hapi:isResampledOf :aae/best-avail/PT1S/diff :Field_Vector .
 
 # Quality Relations
-:aae/best-avail/PT1S/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/native :Field_Magnitude
-
-:aae/best-avail/PT1S/native :Field_Vector hapi:isVersionOf :aae/reported/PT1S/native :Field_Vector
-
-:aae/best-avail/PT1S/xyzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/xyzf :Field_Magnitude
-
-:aae/best-avail/PT1S/xyzf :Field_Vector hapi:isVersionOf :aae/reported/PT1S/xyzf :Field_Vector
-
-:aae/best-avail/PT1S/hdzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/hdzf :Field_Magnitude
-
-:aae/best-avail/PT1S/hdzf :Field_Vector hapi:isVersionOf :aae/reported/PT1S/hdzf :Field_Vector
-
-:aae/best-avail/PT1S/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/diff :Field_Magnitude
-
-:aae/best-avail/PT1S/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1S/diff :Field_Vector
-
-:aae/best-avail/PT1M/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/native :Field_Magnitude
-
-:aae/best-avail/PT1M/native :Field_Vector hapi:isVersionOf :aae/reported/PT1M/native :Field_Vector
-
-:aae/best-avail/PT1M/xyzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/xyzf :Field_Magnitude
-
-:aae/best-avail/PT1M/xyzf :Field_Vector hapi:isVersionOf :aae/reported/PT1M/xyzf :Field_Vector
-
-:aae/best-avail/PT1M/hdzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/hdzf :Field_Magnitude
-
-:aae/best-avail/PT1M/hdzf :Field_Vector hapi:isVersionOf :aae/reported/PT1M/hdzf :Field_Vector
-
-:aae/best-avail/PT1M/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/diff :Field_Magnitude
-
-:aae/best-avail/PT1M/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1M/diff :Field_Vector
-
-:aae/quasi-def/PT1S/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/native :Field_Magnitude
-
-:aae/quasi-def/PT1S/native :Field_Vector hapi:isVersionOf :aae/reported/PT1S/native :Field_Vector
-
-:aae/quasi-def/PT1S/xyzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/xyzf :Field_Magnitude
-
-:aae/quasi-def/PT1S/xyzf :Field_Vector hapi:isVersionOf :aae/reported/PT1S/xyzf :Field_Vector
-
-:aae/quasi-def/PT1S/hdzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/hdzf :Field_Magnitude
-
-:aae/quasi-def/PT1S/hdzf :Field_Vector hapi:isVersionOf :aae/reported/PT1S/hdzf :Field_Vector
-
-:aae/quasi-def/PT1S/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/diff :Field_Magnitude
-
-:aae/quasi-def/PT1S/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1S/diff :Field_Vector
-
-:aae/quasi-def/PT1M/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/native :Field_Magnitude
-
-:aae/quasi-def/PT1M/native :Field_Vector hapi:isVersionOf :aae/reported/PT1M/native :Field_Vector
-
-:aae/quasi-def/PT1M/xyzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/xyzf :Field_Magnitude
-
-:aae/quasi-def/PT1M/xyzf :Field_Vector hapi:isVersionOf :aae/reported/PT1M/xyzf :Field_Vector
-
-:aae/quasi-def/PT1M/hdzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/hdzf :Field_Magnitude
-
-:aae/quasi-def/PT1M/hdzf :Field_Vector hapi:isVersionOf :aae/reported/PT1M/hdzf :Field_Vector
-
-:aae/quasi-def/PT1M/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/diff :Field_Magnitude
-
-:aae/quasi-def/PT1M/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1M/diff :Field_Vector
-
-:aae/definitive/PT1S/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/native :Field_Magnitude
-
-:aae/definitive/PT1S/native :Field_Vector hapi:isVersionOf :aae/reported/PT1S/native :Field_Vector
-
-:aae/definitive/PT1S/xyzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/xyzf :Field_Magnitude
-
-:aae/definitive/PT1S/xyzf :Field_Vector hapi:isVersionOf :aae/reported/PT1S/xyzf :Field_Vector
-
-:aae/definitive/PT1S/hdzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/hdzf :Field_Magnitude
-
-:aae/definitive/PT1S/hdzf :Field_Vector hapi:isVersionOf :aae/reported/PT1S/hdzf :Field_Vector
-
-:aae/definitive/PT1S/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/diff :Field_Magnitude
-
-:aae/definitive/PT1S/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1S/diff :Field_Vector
-
-:aae/definitive/PT1M/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/native :Field_Magnitude
-
-:aae/definitive/PT1M/native :Field_Vector hapi:isVersionOf :aae/reported/PT1M/native :Field_Vector
-
-:aae/definitive/PT1M/xyzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/xyzf :Field_Magnitude
-
-:aae/definitive/PT1M/xyzf :Field_Vector hapi:isVersionOf :aae/reported/PT1M/xyzf :Field_Vector
-
-:aae/definitive/PT1M/hdzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/hdzf :Field_Magnitude
-
-:aae/definitive/PT1M/hdzf :Field_Vector hapi:isVersionOf :aae/reported/PT1M/hdzf :Field_Vector
-
-:aae/definitive/PT1M/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/diff :Field_Magnitude
-
-:aae/definitive/PT1M/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1M/diff :Field_Vector
-
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/hdzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/xyzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/hdzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/diff> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/xyzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/hdzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/diff> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/xyzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/hdzf> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/diff> hapi:isVersionOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff> .
 
 # Frame Relations
-
-:aae/reported/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/reported/PT1S/native :Field_Vector .
-
-:aae/reported/PT1S/diff :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/reported/PT1S/native :Field_Vector .
-
-:aae/reported/PT1S/hdzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/reported/PT1S/native :Field_Vector .
-
-:aae/reported/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/reported/PT1M/native :Field_Vector .
-
-:aae/reported/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/reported/PT1M/native :Field_Vector .
-
-:aae/reported/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/reported/PT1M/native :Field_Vector .
-
-:aae/definitive/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/definitive/PT1S/native :Field_Vector .
-
-:aae/definitive/PT1S/diff :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/definitive/PT1S/native :Field_Vector .
-
-:aae/definitive/PT1S/hdzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/definitive/PT1S/native :Field_Vector .
-
-:aae/definitive/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/definitive/PT1M/native :Field_Vector .
-
-:aae/definitive/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/definitive/PT1M/native :Field_Vector .
-
-:aae/definitive/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/definitive/PT1M/native :Field_Vector .
-
-:aae/quasi-def/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Vector .
-
-:aae/quasi-def/PT1S/diff :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Vector .
-
-:aae/quasi-def/PT1S/hdzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Vector .
-
-:aae/quasi-def/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/quasi-def/PT1M/native :Field_Vector .
-
-:aae/quasi-def/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/quasi-def/PT1M/native :Field_Vector .
-
-:aae/quasi-def/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/quasi-def/PT1M/native :Field_Vector .
-
-:aae/best-avail/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Vector .
-
-:aae/best-avail/PT1S/diff :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Vector .
-
-:aae/best-avail/PT1S/hdzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Vector .
-
-:aae/best-avail/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/best-avail/PT1M/native :Field_Vector .
-
-:aae/best-avail/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/best-avail/PT1M/native :Field_Vector .
-
-:aae/best-avail/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/best-avail/PT1M/native :Field_Vector .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/hdzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/xyzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/diff> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/hdzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/xyzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/diff> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/hdzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/xyzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/diff> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native> .
+<https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/hdzf> hapi:isReferenceFrameTransformOf <https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native> .
