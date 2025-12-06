@@ -96,6 +96,7 @@ dcterms:description a rdf:Property .
 :ave a :ResampleMethod .
 :max a :ResampleMethod .
 :min a :ResampleMethod .
+:lttb a :ResampleMethod .
 
 
 

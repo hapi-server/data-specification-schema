@@ -10,6 +10,7 @@ cadences = ['PT1S', 'PT1M']
 qualities = [ 'reported', 'definitive', 'quasi-def', 'best-avail']
 parameters = ['Field_Magnitude', 'Field_Vector']
 url = "https://imag-data.bgs.ac.uk/GIN_V1/hapi"
+
 def head():
 
   print("@prefix hapi : <http://hapi.org/rdf/> .")
@@ -50,7 +51,7 @@ def cadence_relations():
         for frame in frames:
           for parameter in parameters:
             path = f":{station}/{quality}/{cadence}/{frame} :{parameter}"
-            definition = f'{path} hapi:resampledMethod "mean;"\n'
+            definition = f'{path} hapi:resampledMethod "ave"\n'
             path = f":{station}/{quality}/{base_cadence}/{frame} :{parameter}"
             definition += f'  hapi:isResampledOf {path} .'
             print("")

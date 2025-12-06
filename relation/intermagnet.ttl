@@ -167,135 +167,103 @@
 
 # Cadence Relations
 
-:aae/reported/PT1M/native :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/reported/PT1M/native :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/reported/PT1S/native :Field_Magnitude .
 
-:aae/reported/PT1M/native :Field_Vector hapi:resampledMethod "mean;"
+:aae/reported/PT1M/native :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/reported/PT1S/native :Field_Vector .
 
-:aae/reported/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/reported/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/reported/PT1S/xyzf :Field_Magnitude .
 
-:aae/reported/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
+:aae/reported/PT1M/xyzf :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/reported/PT1S/xyzf :Field_Vector .
 
-:aae/reported/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/reported/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/reported/PT1S/hdzf :Field_Magnitude .
 
-:aae/reported/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
+:aae/reported/PT1M/hdzf :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/reported/PT1S/hdzf :Field_Vector .
 
-:aae/reported/PT1M/diff :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/reported/PT1M/diff :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/reported/PT1S/diff :Field_Magnitude .
 
-:aae/reported/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
+:aae/reported/PT1M/diff :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/reported/PT1S/diff :Field_Vector .
 
-:aae/definitive/PT1M/native :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/definitive/PT1M/native :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/definitive/PT1S/native :Field_Magnitude .
 
-:aae/definitive/PT1M/native :Field_Vector hapi:resampledMethod "mean;"
+:aae/definitive/PT1M/native :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/definitive/PT1S/native :Field_Vector .
 
-:aae/definitive/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/definitive/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/definitive/PT1S/xyzf :Field_Magnitude .
 
-:aae/definitive/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
+:aae/definitive/PT1M/xyzf :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/definitive/PT1S/xyzf :Field_Vector .
 
-:aae/definitive/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/definitive/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/definitive/PT1S/hdzf :Field_Magnitude .
 
-:aae/definitive/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
+:aae/definitive/PT1M/hdzf :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/definitive/PT1S/hdzf :Field_Vector .
 
-:aae/definitive/PT1M/diff :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/definitive/PT1M/diff :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/definitive/PT1S/diff :Field_Magnitude .
 
-:aae/definitive/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
+:aae/definitive/PT1M/diff :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/definitive/PT1S/diff :Field_Vector .
 
-:aae/quasi-def/PT1M/native :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/quasi-def/PT1M/native :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Magnitude .
 
-:aae/quasi-def/PT1M/native :Field_Vector hapi:resampledMethod "mean;"
+:aae/quasi-def/PT1M/native :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Vector .
 
-:aae/quasi-def/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/quasi-def/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/quasi-def/PT1S/xyzf :Field_Magnitude .
 
-:aae/quasi-def/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
+:aae/quasi-def/PT1M/xyzf :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/quasi-def/PT1S/xyzf :Field_Vector .
 
-:aae/quasi-def/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/quasi-def/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/quasi-def/PT1S/hdzf :Field_Magnitude .
 
-:aae/quasi-def/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
+:aae/quasi-def/PT1M/hdzf :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/quasi-def/PT1S/hdzf :Field_Vector .
 
-:aae/quasi-def/PT1M/diff :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/quasi-def/PT1M/diff :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/quasi-def/PT1S/diff :Field_Magnitude .
 
-:aae/quasi-def/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
+:aae/quasi-def/PT1M/diff :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/quasi-def/PT1S/diff :Field_Vector .
 
-:aae/best-avail/PT1M/native :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/best-avail/PT1M/native :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Magnitude .
 
-:aae/best-avail/PT1M/native :Field_Vector hapi:resampledMethod "mean;"
+:aae/best-avail/PT1M/native :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Vector .
 
-:aae/best-avail/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/best-avail/PT1M/xyzf :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/best-avail/PT1S/xyzf :Field_Magnitude .
 
-:aae/best-avail/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
+:aae/best-avail/PT1M/xyzf :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/best-avail/PT1S/xyzf :Field_Vector .
 
-:aae/best-avail/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/best-avail/PT1M/hdzf :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/best-avail/PT1S/hdzf :Field_Magnitude .
 
-:aae/best-avail/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
+:aae/best-avail/PT1M/hdzf :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/best-avail/PT1S/hdzf :Field_Vector .
 
-:aae/best-avail/PT1M/diff :Field_Magnitude hapi:resampledMethod "mean;"
+:aae/best-avail/PT1M/diff :Field_Magnitude hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/best-avail/PT1S/diff :Field_Magnitude .
 
-:aae/best-avail/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
+:aae/best-avail/PT1M/diff :Field_Vector hapi:resampledMethod "ave"
   hapi:isResampledOf :aae/best-avail/PT1S/diff :Field_Vector .
 
 # Quality Relations
-:aae/quasi-def/PT1S/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/native :Field_Magnitude
-
-:aae/quasi-def/PT1S/native :Field_Vector hapi:isVersionOf :aae/reported/PT1S/native :Field_Vector
-
-:aae/quasi-def/PT1S/xyzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/xyzf :Field_Magnitude
-
-:aae/quasi-def/PT1S/xyzf :Field_Vector hapi:isVersionOf :aae/reported/PT1S/xyzf :Field_Vector
-
-:aae/quasi-def/PT1S/hdzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/hdzf :Field_Magnitude
-
-:aae/quasi-def/PT1S/hdzf :Field_Vector hapi:isVersionOf :aae/reported/PT1S/hdzf :Field_Vector
-
-:aae/quasi-def/PT1S/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/diff :Field_Magnitude
-
-:aae/quasi-def/PT1S/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1S/diff :Field_Vector
-
-:aae/quasi-def/PT1M/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/native :Field_Magnitude
-
-:aae/quasi-def/PT1M/native :Field_Vector hapi:isVersionOf :aae/reported/PT1M/native :Field_Vector
-
-:aae/quasi-def/PT1M/xyzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/xyzf :Field_Magnitude
-
-:aae/quasi-def/PT1M/xyzf :Field_Vector hapi:isVersionOf :aae/reported/PT1M/xyzf :Field_Vector
-
-:aae/quasi-def/PT1M/hdzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/hdzf :Field_Magnitude
-
-:aae/quasi-def/PT1M/hdzf :Field_Vector hapi:isVersionOf :aae/reported/PT1M/hdzf :Field_Vector
-
-:aae/quasi-def/PT1M/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/diff :Field_Magnitude
-
-:aae/quasi-def/PT1M/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1M/diff :Field_Vector
-
 :aae/best-avail/PT1S/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/native :Field_Magnitude
 
 :aae/best-avail/PT1S/native :Field_Vector hapi:isVersionOf :aae/reported/PT1S/native :Field_Vector
@@ -327,6 +295,38 @@
 :aae/best-avail/PT1M/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/diff :Field_Magnitude
 
 :aae/best-avail/PT1M/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1M/diff :Field_Vector
+
+:aae/quasi-def/PT1S/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/native :Field_Magnitude
+
+:aae/quasi-def/PT1S/native :Field_Vector hapi:isVersionOf :aae/reported/PT1S/native :Field_Vector
+
+:aae/quasi-def/PT1S/xyzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/xyzf :Field_Magnitude
+
+:aae/quasi-def/PT1S/xyzf :Field_Vector hapi:isVersionOf :aae/reported/PT1S/xyzf :Field_Vector
+
+:aae/quasi-def/PT1S/hdzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/hdzf :Field_Magnitude
+
+:aae/quasi-def/PT1S/hdzf :Field_Vector hapi:isVersionOf :aae/reported/PT1S/hdzf :Field_Vector
+
+:aae/quasi-def/PT1S/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/diff :Field_Magnitude
+
+:aae/quasi-def/PT1S/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1S/diff :Field_Vector
+
+:aae/quasi-def/PT1M/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/native :Field_Magnitude
+
+:aae/quasi-def/PT1M/native :Field_Vector hapi:isVersionOf :aae/reported/PT1M/native :Field_Vector
+
+:aae/quasi-def/PT1M/xyzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/xyzf :Field_Magnitude
+
+:aae/quasi-def/PT1M/xyzf :Field_Vector hapi:isVersionOf :aae/reported/PT1M/xyzf :Field_Vector
+
+:aae/quasi-def/PT1M/hdzf :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/hdzf :Field_Magnitude
+
+:aae/quasi-def/PT1M/hdzf :Field_Vector hapi:isVersionOf :aae/reported/PT1M/hdzf :Field_Vector
+
+:aae/quasi-def/PT1M/diff :Field_Magnitude hapi:isVersionOf :aae/reported/PT1M/diff :Field_Magnitude
+
+:aae/quasi-def/PT1M/diff :Field_Vector hapi:isVersionOf :aae/reported/PT1M/diff :Field_Vector
 
 :aae/definitive/PT1S/native :Field_Magnitude hapi:isVersionOf :aae/reported/PT1S/native :Field_Magnitude
 
@@ -363,14 +363,17 @@
 
 # Frame Relations
 
+:aae/reported/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
+  hapi:isResampledOf :aae/reported/PT1S/native :Field_Vector .
+
 :aae/reported/PT1S/diff :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/reported/PT1S/native :Field_Vector .
 
 :aae/reported/PT1S/hdzf :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/reported/PT1S/native :Field_Vector .
 
-:aae/reported/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/reported/PT1S/native :Field_Vector .
+:aae/reported/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
+  hapi:isResampledOf :aae/reported/PT1M/native :Field_Vector .
 
 :aae/reported/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/reported/PT1M/native :Field_Vector .
@@ -378,8 +381,8 @@
 :aae/reported/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/reported/PT1M/native :Field_Vector .
 
-:aae/reported/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/reported/PT1M/native :Field_Vector .
+:aae/definitive/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
+  hapi:isResampledOf :aae/definitive/PT1S/native :Field_Vector .
 
 :aae/definitive/PT1S/diff :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/definitive/PT1S/native :Field_Vector .
@@ -387,8 +390,8 @@
 :aae/definitive/PT1S/hdzf :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/definitive/PT1S/native :Field_Vector .
 
-:aae/definitive/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/definitive/PT1S/native :Field_Vector .
+:aae/definitive/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
+  hapi:isResampledOf :aae/definitive/PT1M/native :Field_Vector .
 
 :aae/definitive/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/definitive/PT1M/native :Field_Vector .
@@ -396,8 +399,8 @@
 :aae/definitive/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/definitive/PT1M/native :Field_Vector .
 
-:aae/definitive/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/definitive/PT1M/native :Field_Vector .
+:aae/quasi-def/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
+  hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Vector .
 
 :aae/quasi-def/PT1S/diff :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Vector .
@@ -405,8 +408,8 @@
 :aae/quasi-def/PT1S/hdzf :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Vector .
 
-:aae/quasi-def/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/quasi-def/PT1S/native :Field_Vector .
+:aae/quasi-def/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
+  hapi:isResampledOf :aae/quasi-def/PT1M/native :Field_Vector .
 
 :aae/quasi-def/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/quasi-def/PT1M/native :Field_Vector .
@@ -414,8 +417,8 @@
 :aae/quasi-def/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/quasi-def/PT1M/native :Field_Vector .
 
-:aae/quasi-def/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/quasi-def/PT1M/native :Field_Vector .
+:aae/best-avail/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
+  hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Vector .
 
 :aae/best-avail/PT1S/diff :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Vector .
@@ -423,14 +426,11 @@
 :aae/best-avail/PT1S/hdzf :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Vector .
 
-:aae/best-avail/PT1S/xyzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/best-avail/PT1S/native :Field_Vector .
+:aae/best-avail/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
+  hapi:isResampledOf :aae/best-avail/PT1M/native :Field_Vector .
 
 :aae/best-avail/PT1M/diff :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/best-avail/PT1M/native :Field_Vector .
 
 :aae/best-avail/PT1M/hdzf :Field_Vector hapi:resampledMethod "mean;"
-  hapi:isResampledOf :aae/best-avail/PT1M/native :Field_Vector .
-
-:aae/best-avail/PT1M/xyzf :Field_Vector hapi:resampledMethod "mean;"
   hapi:isResampledOf :aae/best-avail/PT1M/native :Field_Vector .
