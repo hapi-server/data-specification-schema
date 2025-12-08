@@ -101,6 +101,7 @@ dcterms:description a rdf:Property .
   rdfs:domain :Dataset .
 
 :ave a :ResampleMethod .
+:mean a :ResampleMethod . # Need to state as equiv. to ave? Use "average" "maximum", etc?
 :max a :ResampleMethod .
 :min a :ResampleMethod .
 :lttb a :ResampleMethod .

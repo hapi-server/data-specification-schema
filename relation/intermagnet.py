@@ -81,8 +81,8 @@ def cadence_relations():
           for parameter in parameters:
             path = f"<{url}/info?dataset={station}/{quality}/{cadence}/{frame}>"
             ttl_str += f'{path} hapi:resampledMethod "ave" .\n'
-            path = f"<{url}/info?dataset={station}/{quality}/{base_cadence}/{frame}>"
-            ttl_str += f'<{url}/info?dataset={station}/{quality}/{base_cadence}/{frame}> hapi:isResampledOf {path} .\n'
+            path = f"<{url}/info?dataset={station}/{quality}/{cadence}/{frame}>"
+            ttl_str += f'{path} hapi:isResampledOf <{url}/info?dataset={station}/{quality}/{base_cadence}/{frame}> .\n'
             ttl_str += "\n"
 
   return ttl_str

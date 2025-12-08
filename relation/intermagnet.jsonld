@@ -1,37 +1,6 @@
 [
   {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/xyzf",
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/hdzf",
     "@type": [
       "http://hapi.org/rdf/Dataset"
     ],
@@ -41,127 +10,6 @@
       },
       {
         "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/xyzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native",
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/hdzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/diff",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/diff",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
       }
     ]
   },
@@ -172,11 +20,6 @@
         "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native"
       }
     ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/hdzf"
-      }
-    ],
     "http://hapi.org/rdf/isVersionOf": [
       {
         "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf"
@@ -184,29 +27,10 @@
     ]
   },
   {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1M/hdzf",
-    "@type": [
-      "http://hapi.org/rdf/Dataset"
-    ],
-    "http://hapi.org/rdf/hasParameter": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Magnitude"
-      },
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf",
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf",
     "http://hapi.org/rdf/isReferenceFrameTransformOf": [
       {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf"
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native"
       }
     ],
     "http://hapi.org/rdf/isVersionOf": [
@@ -216,28 +40,10 @@
     ]
   },
   {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native",
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff",
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff",
     "http://hapi.org/rdf/isReferenceFrameTransformOf": [
       {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff"
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native"
       }
     ],
     "http://hapi.org/rdf/isVersionOf": [
@@ -247,38 +53,26 @@
     ]
   },
   {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1M/diff",
-    "@type": [
-      "http://hapi.org/rdf/Dataset"
-    ],
-    "http://hapi.org/rdf/hasParameter": [
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native",
+    "http://hapi.org/rdf/isVersionOf": [
       {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Magnitude"
-      },
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
       }
     ]
   },
   {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/native",
-    "@type": [
-      "http://hapi.org/rdf/Dataset"
-    ],
-    "http://hapi.org/rdf/hasParameter": [
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native",
+    "http://hapi.org/rdf/isVersionOf": [
       {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Magnitude"
-      },
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
       }
     ]
   },
   {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native",
-    "http://hapi.org/rdf/resampledMethod": [
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
       {
-        "@value": "ave"
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
       }
     ]
   },
@@ -297,187 +91,15 @@
     ]
   },
   {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/hdzf",
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/diff",
     "http://hapi.org/rdf/isReferenceFrameTransformOf": [
       {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native",
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native"
       }
     ],
     "http://hapi.org/rdf/isResampledOf": [
       {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/xyzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native",
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/diff",
-    "@type": [
-      "http://hapi.org/rdf/Dataset"
-    ],
-    "http://hapi.org/rdf/hasParameter": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Magnitude"
-      },
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/xyzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native",
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
-      }
-    ],
-    "http://hapi.org/rdf/resampledMethod": [
-      {
-        "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/diff",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native"
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff"
       }
     ],
     "http://hapi.org/rdf/isVersionOf": [
@@ -492,86 +114,20 @@
     ]
   },
   {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native",
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1M/xyzf",
-    "@type": [
-      "http://hapi.org/rdf/Dataset"
-    ],
-    "http://hapi.org/rdf/hasParameter": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Magnitude"
-      },
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
-      }
-    ]
-  },
-  {
     "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf",
     "http://hapi.org/rdf/isReferenceFrameTransformOf": [
       {
         "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
       }
     ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf"
+      }
+    ],
     "http://hapi.org/rdf/resampledMethod": [
       {
         "@value": "ave"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff",
-    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native"
-      }
-    ],
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff"
-      }
-    ],
-    "http://hapi.org/rdf/isVersionOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff"
-      }
-    ]
-  },
-  {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native",
-    "http://hapi.org/rdf/isResampledOf": [
-      {
-        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
       }
     ]
   },
@@ -685,7 +241,48 @@
     ]
   },
   {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/hdzf",
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native",
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/hdzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/xyzf",
     "@type": [
       "http://hapi.org/rdf/Dataset"
     ],
@@ -699,10 +296,204 @@
     ]
   },
   {
-    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/hdzf",
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/xyzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/xyzf"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native",
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/native",
+    "@type": [
+      "http://hapi.org/rdf/Dataset"
+    ],
+    "http://hapi.org/rdf/hasParameter": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Magnitude"
+      },
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native",
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/xyzf",
     "http://hapi.org/rdf/isReferenceFrameTransformOf": [
       {
         "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native",
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/native"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/diff",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/diff",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/diff"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/hdzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/definitive/PT1S/hdzf"
       }
     ],
     "http://hapi.org/rdf/isVersionOf": [
@@ -713,6 +504,212 @@
     "http://hapi.org/rdf/resampledMethod": [
       {
         "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/hdzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/hdzf"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/hdzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/diff",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/xyzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/xyzf"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/xyzf"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/hdzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/hdzf"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/xyzf",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/xyzf"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1M/diff",
+    "@type": [
+      "http://hapi.org/rdf/Dataset"
+    ],
+    "http://hapi.org/rdf/hasParameter": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Magnitude"
+      },
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1S/diff",
+    "@type": [
+      "http://hapi.org/rdf/Dataset"
+    ],
+    "http://hapi.org/rdf/hasParameter": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Magnitude"
+      },
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1M/xyzf",
+    "@type": [
+      "http://hapi.org/rdf/Dataset"
+    ],
+    "http://hapi.org/rdf/hasParameter": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Magnitude"
+      },
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/diff",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/quasi-def/PT1S/native"
+      }
+    ],
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?=aae/reported/PT1M/hdzf",
+    "@type": [
+      "http://hapi.org/rdf/Dataset"
+    ],
+    "http://hapi.org/rdf/hasParameter": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Magnitude"
+      },
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapiField_Vector"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/diff",
+    "http://hapi.org/rdf/isReferenceFrameTransformOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1M/native"
+      }
+    ],
+    "http://hapi.org/rdf/isResampledOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/diff"
+      }
+    ],
+    "http://hapi.org/rdf/resampledMethod": [
+      {
+        "@value": "ave"
+      }
+    ]
+  },
+  {
+    "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/best-avail/PT1S/native",
+    "http://hapi.org/rdf/isVersionOf": [
+      {
+        "@id": "https://imag-data.bgs.ac.uk/GIN_V1/hapi/info?dataset=aae/reported/PT1S/native"
       }
     ]
   }
