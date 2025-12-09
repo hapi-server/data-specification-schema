@@ -12,6 +12,7 @@
 @prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
 @prefix schema: <https://schema.org/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix prov: <http://www.w3.org/ns/prov#>.
 
 <http://hapi.org/rdf/> a owl:Ontology .
 
@@ -99,12 +100,14 @@ dcterms:description a rdf:Property .
 # https://www.w3.org/TR/2013/REC-prov-o-20130430/#starting-points-figure
 # Elsa: Make subproperty of prov:wasDerivedFrom
 :isResampledOf a owl:ObjectProperty;
+  rdfs:subPropertyOf prov:wasDerivedFrom;
+  rdfs:subPropertyOf :isRelatedTo;
   rdfs:comment "Indicates that the subject dataset is a resampled version of the object dataset."@en;
   rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isRelatedTo .
+  rdfs:domain :Dataset.
+  
 
-:resampleMethod a owl:DatatypeProperty;
+:resampleMethod a owl:ObjectProperty;
   rdfs:range :ResampleMethod;
   rdfs:domain :Dataset, :Parameter .
 
