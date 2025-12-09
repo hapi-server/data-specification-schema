@@ -4,6 +4,11 @@
 # Need to determine by reading catalog response.
 # Combine duplicate code in functions.
 
+# TODO: See
+# https://github.com/rweigel/stct/blob/main/lists/toRDF/SPASE_2023_csv_to_rdf.py
+# for examples of generating RDF using rdflib.Graph directly rather than
+# writing Turtle strings manually.
+
 frames = ['native', 'xyzf', 'hdzf', 'diff']
 stations = ['aae']
 cadences = ['PT1S', 'PT1M']
@@ -80,7 +85,7 @@ def cadence_relations():
         for frame in frames:
           for parameter in parameters:
             path = f"<{url}/info?dataset={station}/{quality}/{cadence}/{frame}>"
-            ttl_str += f'{path} hapi:resampledMethod "ave" .\n'
+            ttl_str += f'{path} hapi:resampledMethod :average .\n'
             path = f"<{url}/info?dataset={station}/{quality}/{cadence}/{frame}>"
             ttl_str += f'{path} hapi:isResampledOf <{url}/info?dataset={station}/{quality}/{base_cadence}/{frame}> .\n'
             ttl_str += "\n"
