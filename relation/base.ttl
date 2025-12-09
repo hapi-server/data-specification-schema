@@ -96,64 +96,18 @@ dcterms:description a rdf:Property .
   rdfs:range :Parameter;
   rdfs:domain :Dataset .
 
-:resampledMethod a owl:DatatypeProperty;
-  rdfs:range xsd:string;
-  rdfs:domain :Dataset .
-
-:ave a :ResampleMethod .
-:mean a :ResampleMethod . # Need to state as equiv. to ave? Use "average" "maximum", etc?
-:max a :ResampleMethod .
-:min a :ResampleMethod .
-:lttb a :ResampleMethod .
-
-
-
-# To update later
-:isUpResampleOf a owl:ObjectProperty;
-  rdfs:range :Dataset;
-  rdfs:domain :Dataset;
-  rdfs:subPropertyOf :isResampledOf .
-
 :isResampledOf a owl:ObjectProperty;
   rdfs:comment "Indicates that the subject dataset is a resampled version of the object dataset."@en;
   rdfs:range :Dataset;
   rdfs:domain :Dataset;
   rdfs:subPropertyOf :isRelatedTo .
 
-:isDownResampleOf a owl:ObjectProperty;
-  rdfs:range :Dataset, :Parameter;
-  rdfs:domain :Dataset, :Parameter;
-  rdfs:subPropertyOf :isResampledOf .
+:resampleMethod a owl:DatatypeProperty;
+  rdfs:range :ResampleMethod;
+  rdfs:domain :Dataset, :Parameter .
 
-:isDownResampledOfGeometricMean a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMax a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMaxMin a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMean a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMedian a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMin a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfMode a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfStd a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfVar a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfWeightedMean a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
-
-:isDownResampledOfX_lttb a owl:ObjectProperty;
-  rdfs:subPropertyOf :isDownResampleOf .
+:average a :ResampleMethod .
+:mean a :ResampleMethod . # Need to state as equiv. to average? Use "average" "maximum", etc?
+:maximum a :ResampleMethod .
+:minimum a :ResampleMethod .
+:lttb a :ResampleMethod .
