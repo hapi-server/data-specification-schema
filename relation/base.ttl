@@ -96,6 +96,8 @@ dcterms:description a rdf:Property .
   rdfs:range :Parameter;
   rdfs:domain :Dataset .
 
+# https://www.w3.org/TR/2013/REC-prov-o-20130430/#starting-points-figure
+# Elsa: Make subproperty of prov:wasDerivedFrom
 :isResampledOf a owl:ObjectProperty;
   rdfs:comment "Indicates that the subject dataset is a resampled version of the object dataset."@en;
   rdfs:range :Dataset;
