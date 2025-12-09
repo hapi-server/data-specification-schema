@@ -9,7 +9,7 @@
 # Convert to jsonld before sending to Eelco
 
 # Ne
-:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Ne_PT2S&parameters=Ne> hapi:resampleMethod "lttb"
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Ne_PT2S&parameters=Ne> hapi:resampleMethod hapi:lttb
   hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp_lttb&parameters=Ne> .
 
 :swarm_efia_lp_lttb_Ne_PT2S :lon hapi:resampleMethod "lttb"
@@ -55,7 +55,7 @@
 
 
 # Repeat by replacing PT1H30M => PT6H PT1D, PT4D, PT16D, PT64D
-<https://server.org/hapi/info?dataset=swarm_efia_lp_aggregate_PT1H30M&parameters=Ne_mean> hapi:resampleMethod "ave"
+<https://server.org/hapi/info?dataset=swarm_efia_lp_aggregate_PT1H30M&parameters=Ne_mean> hapi:resampleMethod hapi:lttb
   hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp_lttb&parameters=Ne> .
 
 :swarm_efia_lp_aggregate_PT1H30M :Ne_min hapi:resampleMethod "min"
