@@ -107,6 +107,7 @@ def definitions(g):
 
 def cadence_relations(g):
     # Include the cadence information for each Dataset
+    # NB: use new property name of hapi:resamplingMethod (see base.ttl)
 
     # ttl_str = "# Cadence Relations\n"
     base_cadence = cadences[0]
