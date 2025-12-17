@@ -1,20 +1,34 @@
-@prefix : <http://hapi.org/rdf/> .
-@prefix grddl: <http://www.w3.org/2003/g/data-view#> .
+@base <http://hapi.org/rdf/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
-@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
-@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
 @prefix schema: <https://schema.org/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
-@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix : <> .
 
-<http://hapi.org/rdf/> a owl:Ontology .
+
+: a owl:Ontology ;
+    dcterms:created "2025-12-11";
+    dcterms:creator [ foaf:name "Weigel, R." ],
+    [ foaf:name "Cecconi, B." ];
+    dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/>;
+    rdfs:label "HAPI Relation Ontology"@en;
+    dcterms:title "HAPI Relation Ontology"@en;
+    dcterms:description """This schema defines the classes, properties and entities
+    to be used for defining relation between HAPI datasets and parameters.""" .
+
+dcterms:created a owl:AnnotationProperty.
+rdfs:label a owl:AnnotationProperty .
+foaf:name a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty.
+dcterms:title a owl:AnnotationProperty.
+dcterms:description a owl:AnnotationProperty.
 
 # Class definitions. With equivalent classes from DCAT and SOSA.
 
@@ -27,19 +41,16 @@
 # lines as comments for future reference. Can also use rdf seeAlso so as
 # not to make a hard logical relation (instead conveys "probably the same thing")
 
-:Dataset a owl:Class;
-  rdfs:subClassOf owl:Thing;
-  rdfs:label "Dataset"@en;
+:Dataset a owl:Class, prov:Entity ;
+  rdfs:label "HAPI Dataset"@en;
   owl:equivalentClass dcat:Dataset .
 
-:Service a owl:Class;
-  rdfs:subClassOf owl:Thing;
-  rdfs:label "Service"@en;
+:Service a owl:Class, prov:Entity ;
+  rdfs:label "HAPI Service"@en;
   owl:equivalentClass dcat:DataService .
 
-:Parameter a owl:Class;
-  rdfs:subClassOf owl:Thing;
-  rdfs:label "Parameter"@en ;
+:Parameter a owl:Class, prov:Entity ;
+  rdfs:label "HAPI Parameter"@en ;
   owl:equivalentClass sosa:ObservableProperty .
 
 # Properties definitions 
@@ -54,11 +65,11 @@
   rdfs:comment "Indicates that the subject dataset is a reference frame transformation of the object dataset."@en;
   rdfs:range :Dataset, :Parameter;
   rdfs:domain :Dataset, :Parameter;
-  rdfs:subPropertyOf :isRelatedTo .
+  rdfs:subPropertyOf :isRelatedTo, prov:wasDerivedFrom .
 
 # Following two are in dcat
 :isVersionOf a owl:ObjectProperty;
-  owl:equivalentProperty dcat:isVersionOf;
+  owl:equivalentProperty dcterms:isVersionOf;
   rdfs:range :Dataset, :Parameter;
   rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .
@@ -100,19 +111,33 @@ dcterms:description a rdf:Property .
 # https://www.w3.org/TR/2013/REC-prov-o-20130430/#starting-points-figure
 # Elsa: Make subproperty of prov:wasDerivedFrom
 :isResampledOf a owl:ObjectProperty;
-  rdfs:subPropertyOf prov:wasDerivedFrom;
-  rdfs:subPropertyOf :isRelatedTo;
+  rdfs:subPropertyOf :isRelatedTo, prov:wasDerivedFrom;
   rdfs:comment "Indicates that the subject dataset is a resampled version of the object dataset."@en;
   rdfs:range :Dataset;
   rdfs:domain :Dataset.
-  
 
-:resampleMethod a owl:ObjectProperty;
+# Baptiste: rename property and make subProperty of prov:wasGeneratedBy
+:resamplingMethod a owl:ObjectProperty;
   rdfs:range :ResampleMethod;
-  rdfs:domain :Dataset, :Parameter .
+  rdfs:domain :Dataset, :Parameter ;
+  rdfs:subPropertyOf prov:wasGeneratedBy.
 
-:average a :ResampleMethod .
-:mean a :ResampleMethod . # Need to state as equiv. to average? Use "average" "maximum", etc?
-:maximum a :ResampleMethod .
-:minimum a :ResampleMethod .
-:lttb a :ResampleMethod .
+# Baptiste: define as a subClass of prov:Activity
+:ResampleMethod rdfs:subClassOf prov:Activity .
+
+# define instance of ResampleMethods:
+:average a :resamplingMethod ;
+  rdfs:label "Average" .
+
+:mean a :resamplingMethod ; # Need to state as equiv. to average? Use "average" "maximum", etc?
+  rdfs:label "Mean" .
+
+:maximum a :resamplingMethod ;
+  rdfs:label "Maximum" .
+
+:minimum a :resamplingMethod ;
+  rdfs:label "Minimum" .
+
+:lttb a :resamplingMethod ;
+  rdfs:label "LTTB" ;
+  rdfs:comment "Steinarsson’s Largest-Triangle-Three-Buckets algorithm for downsampling time series–like data while retaining the overall shape and variability in the data" .
