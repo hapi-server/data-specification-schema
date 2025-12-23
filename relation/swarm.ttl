@@ -10,46 +10,46 @@
 
 # Ne
 :<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Ne_PT2S&parameters=Ne> hapi:resampleMethod hapi:lttb
-  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp_lttb&parameters=Ne> .
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=Ne> .
 
-:swarm_efia_lp_lttb_Ne_PT2S :lon hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :lon .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Ne_PT2S&parameters=lon> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=lon> .
 
-:swarm_efia_lp_lttb_Ne_PT2S :lat hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :lat .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Ne_PT2S&parameters=lat> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=lat> .
 
-:swarm_efia_lp_lttb_Ne_PT2S :height hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :height .
+<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Ne_PT2S&parameters=height> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=height> .
 
-:swarm_efia_lp_lttb_Ne_PT2S :lon_qd hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :lon_qd .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Ne_PT2S&parameters=lon_qd> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=lon_qd> .
 
-:swarm_efia_lp_lttb_Ne_PT2S :lat_qd hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :lat_qd .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Ne_PT2S&parameters=lat_qd> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=lat_qd> .
 
-:swarm_efia_lp_lttb_Ne_PT2S :mlt hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :mlt .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Ne_PT2S&parameters=mlt> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=mlt> .
 
 # Te
-:swarm_efia_lp_lttb_Te_PT2S :Te hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :Te .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Te_PT2S&parameters=Te> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=Te> .
 
-:swarm_efia_lp_lttb_Te_PT2S :lon hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :lon .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Te_PT2S&parameters=lon> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=lon> .
 
-:swarm_efia_lp_lttb_Te_PT2S :lat hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :lat .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Te_PT2S&parameters=lat> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=lat> .
 
-:swarm_efia_lp_lttb_Te_PT2S :height hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :height .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Te_PT2S&parameters=height> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=height> .
 
-:swarm_efia_lp_lttb_Te_PT2S :lon_qd hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :lon_qd .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Te_PT2S&parameters=lon_qd> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=lon_qd> .
 
-:swarm_efia_lp_lttb_Te_PT2S :lat_qd hapi:resampleMethod "lttb"
-  hapi:isResampledOf :swarm_efia_lp :lat_qd .
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Te_PT2S&parameters=lat_qd> hapi:resampleMethod hapi:lttb
+  hapi:isResampledOf <https://server.org/hapi/info?dataset=swarm_efia_lp&parameters=lat_qd> .
 
-:swarm_efia_lp_lttb_Te_PT2S :mlt hapi:resampleMethod "lttb"
+:<https://server.org/hapi/info?dataset=swarm_efia_lp_lttb_Te_PT2S&parameters=mlt> hapi:resampleMethod hapi:lttb
   hapi:isResampledOf :swarm_efia_lp :mlt .
 
 
