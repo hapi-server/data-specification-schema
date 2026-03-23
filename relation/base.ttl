@@ -1,4 +1,4 @@
-@base <http://hapi.org/rdf/> .
+@base <http://hapi.org/rdf#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -52,6 +52,10 @@ dcterms:description a owl:AnnotationProperty.
 :Parameter a owl:Class, prov:Entity ;
   rdfs:label "HAPI Parameter"@en ;
   owl:equivalentClass sosa:ObservableProperty .
+
+:Time a owl:Class ;
+  rdfs:label "HAPI Primary Time Parameter"@en ;
+  rdfs:subClassOf :Parameter .
 
 # Properties definitions 
 
