@@ -1,5 +1,63 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "AdditionalMetadataItem": {
+    "id": "/AdditionalMetadataItem",
+    "description": "A single additionalMetadata entry that either embeds content directly or points to it via a URL.",
+    "type": "object",
+    "oneOf": [
+      {
+        "required": [
+          "content"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "the name of the additional metadata",
+            "type": "string"
+          },
+          "content": {
+            "description": "Either a string with the metadata content (for XML), or a JSON object representing the object tree for the additional metadata",
+            "type": [
+              "object",
+              "string"
+            ]
+          },
+          "schemaURL": {
+            "description": "A computer-readable schema for the additional metadata",
+            "type": "string"
+          },
+          "aboutURL": {
+            "description": "A human readable explanation for the additional metadata",
+            "type": "string"
+          }
+        }
+      },
+      {
+        "required": [
+          "contentURL"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "the name of the additional metadata",
+            "type": "string"
+          },
+          "contentURL": {
+            "description": "URL pointing to additional metadata",
+            "type": "string"
+          },
+          "schemaURL": {
+            "description": "A computer-readable schema for the additional metadata",
+            "type": "string"
+          },
+          "aboutURL": {
+            "description": "A human readable explanation for the additional metadata",
+            "type": "string"
+          }
+        }
+      }
+    ]
+  },
   "HAPI": {
     "id": "/HAPI",
     "description": "HAPI Version",
@@ -527,60 +585,18 @@
       },
       "additionalMetadata": {
         "description": "A way to include a block of other (non-HAPI) metadata. See below for a description of the object, which can directly contain the metadata or point to it via a URL.",
-        "type": "object",
         "oneOf": [
           {
             "$ref": "/Ref"
           },
           {
-            "required": [
-              "content"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "name": {
-                "description": "the name of the additional metadata",
-                "type": "string"
-              },
-              "content": {
-                "description": "Either a string with the metadata content (for XML), or a JSON object representing the object tree for the additional metadata",
-                "type": [
-                  "object",
-                  "string"
-                ]
-              },
-              "schemaURL": {
-                "description": "A computer-readable schema for the additional metadata",
-                "type": "string"
-              },
-              "aboutURL": {
-                "description": "A human readable explanation for the additional metadata",
-                "type": "string"
-              }
-            }
+            "$ref": "/AdditionalMetadataItem"
           },
           {
-            "required": [
-              "contentURL"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "name": {
-                "description": "the name of the additional metadata",
-                "type": "string"
-              },
-              "contentURL": {
-                "description": "URL pointing to additional metadata",
-                "type": "string"
-              },
-              "schemaURL": {
-                "description": "A computer-readable schema for the additional metadata",
-                "type": "string"
-              },
-              "aboutURL": {
-                "description": "A human readable explanation for the additional metadata",
-                "type": "string"
-              }
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "/AdditionalMetadataItem"
             }
           }
         ]
