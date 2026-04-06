@@ -19,8 +19,10 @@ The schema files in this repository (`HAPI-data-access-schema-*`) are used for t
 Prior to committing, execute
 
 ```
-node util/reformat.js FILENAME.js
+node util/reformat.js FILENAME.json
 ```
+
+so that all JSON files have the same formatting style.
 
 # Pull Requests
 
