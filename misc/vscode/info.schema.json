@@ -1,0 +1,4 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "../../HAPI-data-access-schema-3.4.json#/info"
+}
