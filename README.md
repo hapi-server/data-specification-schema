@@ -4,15 +4,18 @@ JSON Schema for HAPI JSON Responses
 
 ```
 git clone https://github.com/hapi-server/verify-nodejs
-git clone https://github.com/hapi-server/data-specification-schema
-cd verify-nodejs
-npm install
-cd ../data-specification-schema/test
-npm install
+# Above will result in a dir verify-nodejs/data-specification-schema
+# because data-specification-schema repo is git submodule
+
+cd verify-nodejs/data-specification-schema/test
 node test.js # or, e.g., node test.js 3.3
 ```
 
 The schema files in this repository (`HAPI-data-access-schema-*`) are used for testing.
+
+# VS Code
+
+To test JSON files against the HAPI schema in VS Code
 
 # Formatting
 
