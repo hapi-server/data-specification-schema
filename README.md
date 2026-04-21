@@ -15,7 +15,7 @@ The schema files in this repository (`HAPI-data-access-schema-*`) are used for t
 
 # VS Code
 
-To test JSON files against the HAPI schema in VS Code
+To test JSON files against the HAPI schema in VS Code, see misc/vscode.
 
 # Formatting
 
