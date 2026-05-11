@@ -57,6 +57,14 @@ dcterms:description a owl:AnnotationProperty.
   rdfs:label "HAPI Primary Time Parameter"@en ;
   rdfs:subClassOf :Parameter .
 
+# Need advie from Elsa on how to establish sub-classes of dataset so we can use relations to indicatre:
+#    MMS_FileListing isFileListingOf  MMS_Data
+# B igger question: do we need this?  The fact that it will be a FileListing will be encoded in the info responses already,
+# but the dataset whose files are being listed will only be present int he relations.
+:FileListing a owl:Class ;
+  rdfs:label "HAPI File Lsting Dataset"@en ;
+  rdfs:subClassOf :Dataset .
+
 # Properties definitions 
 
 :isRelatedTo a owl:ObjectProperty;
@@ -93,9 +101,9 @@ dcterms:description a owl:AnnotationProperty.
   rdfs:domain :Dataset, :Parameter;
   rdfs:subPropertyOf :isRelatedTo .
 
-:isFileSourceOf a owl:ObjectProperty;
-  rdfs:range :Dataset, :Parameter;
-  rdfs:domain :Dataset, :Parameter;
+:isFileListingOf a owl:ObjectProperty;
+  rdfs:range :Dataset;
+  rdfs:domain :Dataset;
   rdfs:subPropertyOf :isRelatedTo .
 
 dcterms:relation a rdf:Property;
