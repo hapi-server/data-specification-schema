@@ -53,9 +53,19 @@ dcterms:description a owl:AnnotationProperty.
   rdfs:label "HAPI Parameter"@en ;
   owl:equivalentClass sosa:ObservableProperty .
 
+# Why do we need this?
 :Time a owl:Class ;
   rdfs:label "HAPI Primary Time Parameter"@en ;
   rdfs:subClassOf :Parameter .
+
+# Why do we have the hapi:hasParameter here? Error?
+#</info?dataset=aae/P1Y/original> a hapi:Dataset ;
+#    hapi:hasParameter </info?dataset=aae/P1Y/original#Data_Source>,
+#        </info?dataset=aae/P1Y/original#Field_Magntiude>,
+#        </info?dataset=aae/P1Y/original#Field_Vector>,
+#        </info?dataset=aae/P1Y/original#Time> ;
+#    hapi:isResampledOf </info?dataset=aae/PT1M/original> ;
+#    hapi:resamplingMethod hapi:average .
 
 # Need advie from Elsa on how to establish sub-classes of dataset so we can use relations to indicatre:
 #    MMS_FileListing isFileListingOf  MMS_Data
