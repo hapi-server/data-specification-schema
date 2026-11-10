@@ -20,11 +20,16 @@ def validate(source, stage, args):
         # One directory above this script.
         base = Path(__file__).resolve().parent
 
-        schema_path = (
-            base.parent / f"HAPI-data-access-schema-{args.schema}.json"
-            if re.fullmatch(r"[0-9]+(?:\.[0-9]+)*", args.schema)
-            else Path(args.schema)
-        )
+        version = args.version
+        if version is None:
+            version = source.get("HAPI") if isinstance(source, dict) else None
+        if version is None:
+            raise ValueError("HAPI version not found in source; provide --version")
+        if not isinstance(version, str) or not re.fullmatch(
+            r"[0-9]+\.[0-9]+(?:\.[0-9]+)*", version
+        ):
+            raise ValueError("HAPI version must be a version string such as '3.4'")
+        schema_path = base.parent / f"HAPI-data-access-schema-{version}.json"
         fragment = (
             args.endpoint if args.endpoint.startswith("#")
             else "#/" + args.endpoint.lstrip("/")
@@ -145,9 +150,8 @@ def cli():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", help="Source JSON file or HTTP(S) URL to validate.")
     parser.add_argument(
-        "--schema",
-        required=True,
-        help="HAPI version (e.g. 3.4) or path to a HAPI schema",
+        "--version",
+        help="override the source's HAPI schema version (e.g. 3.4)",
     )
     parser.add_argument(
         "--endpoint",

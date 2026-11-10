@@ -24,7 +24,7 @@ class ValidateTests(unittest.TestCase):
         self.addCleanup(self.directory.cleanup)
         self.root = Path(self.directory.name)
         self.source = self.root / "source.json"
-        self.schema = self.root / "main.json"
+        self.schema = self.root / "HAPI-data-access-schema-3.4.json"
         self.schema.write_text(json.dumps({
             "$schema": "http://json-schema.org/draft-07/schema#",
             "definitions": {"string": {"type": "string"}},
@@ -35,6 +35,7 @@ class ValidateTests(unittest.TestCase):
             },
         }))
         self.data = {
+            "HAPI": "3.4",
             "value": "ok",
             "datasetSchema": {
                 "schemaName": "resourceListing",
@@ -44,16 +45,20 @@ class ValidateTests(unittest.TestCase):
         self.source.write_text(json.dumps(self.data))
         self.secondary = {"required": ["value"], "properties": {"value": {"const": "ok"}}}
 
-    def run_cli(self, *extra, schema=None, endpoint="info", source=None):
+    def run_cli(self, *extra, version="3.4", endpoint="info", source=None,
+                use_hapi_schema=False):
         args = [
             "validate.py", str(self.source if source is None else source),
-            "--schema", str(schema or self.schema),
         ]
+        if version is not None:
+            args += ["--version", version]
         if endpoint is not None:
             args += ["--endpoint", endpoint]
         args += list(extra)
         output, errors = io.StringIO(), io.StringIO()
-        with patch("sys.argv", args), patch.object(Path, "cwd", return_value=self.root):
+        script = validate.__file__ if use_hapi_schema else str(self.root / "python/validate.py")
+        with patch("sys.argv", args), patch.object(Path, "cwd", return_value=self.root), \
+                patch.object(validate, "__file__", script):
             with contextlib.redirect_stdout(output), contextlib.redirect_stderr(errors):
                 try:
                     code = validate.main()
@@ -69,6 +74,61 @@ class ValidateTests(unittest.TestCase):
 
     def test_endpoint_required(self):
         self.assertEqual(self.run_cli(endpoint=None)[0], 2)
+
+    def test_cli_version_is_optional(self):
+        with patch("sys.argv", ["validate.py", "source.json", "--endpoint", "info"]):
+            self.assertIsNone(validate.cli().version)
+
+    def test_detected_version_with_secondary_validation(self):
+        self.local_schema()
+        code, output, errors = self.run_cli("--local", version=None)
+        self.assertEqual(code, 0, errors)
+        self.assertIn(str(self.schema), output)
+        self.assertIn(str(self.root / "resourceListing/resourceListing.json"), output)
+
+    def test_missing_source_version_aborts(self):
+        del self.data["HAPI"]
+        self.source.write_text(json.dumps(self.data))
+        with patch.object(validate, "urlopen") as download:
+            code, _, errors = self.run_cli(version=None)
+        self.assertEqual(code, 2)
+        self.assertIn("HAPI version not found", errors)
+        download.assert_not_called()
+
+    def test_invalid_source_version_aborts(self):
+        for value in (None, "", 3.4, [], {}, "latest", "../3.4"):
+            with self.subTest(value=value):
+                self.data["HAPI"] = value
+                self.source.write_text(json.dumps(self.data))
+                with patch.object(validate, "urlopen") as download:
+                    code, _, errors = self.run_cli(version=None)
+                self.assertEqual(code, 2)
+                self.assertIn("HAPI version", errors)
+                download.assert_not_called()
+
+    def test_version_override_selects_schema_without_changing_source(self):
+        override = self.root / "HAPI-data-access-schema-3.2.json"
+        override.write_text('{"info": {"required": ["override"]}}')
+        for data in ({"HAPI": "3.4"}, {}, {"HAPI": "invalid"}):
+            with self.subTest(data=data):
+                data["override"] = True
+                self.source.write_text(json.dumps(data))
+                code, output, errors = self.run_cli(version="3.2")
+                self.assertEqual(code, 0, errors)
+                self.assertIn(str(override), output)
+                self.assertEqual(json.loads(self.source.read_text()), data)
+
+    def test_invalid_override_aborts(self):
+        code, _, errors = self.run_cli(version="../3.4")
+        self.assertEqual(code, 2)
+        self.assertIn("HAPI version must be", errors)
+
+    def test_missing_version_schema_aborts(self):
+        self.data["HAPI"] = "9.9"
+        self.source.write_text(json.dumps(self.data))
+        code, _, errors = self.run_cli(version=None)
+        self.assertEqual(code, 2)
+        self.assertIn("HAPI-data-access-schema-9.9.json", errors)
 
     def test_endpoint_selection(self):
         self.schema.write_text(json.dumps({
@@ -90,14 +150,14 @@ class ValidateTests(unittest.TestCase):
             with self.subTest(local=local):
                 args = [
                     "validate.py", "source.json",
-                    "--schema", "3.2", "--endpoint", "info",
+                    "--version", "3.2", "--endpoint", "info",
                 ]
                 if local:
                     args.append("--local")
                 with patch("sys.argv", args):
                     parsed = validate.cli()
                 self.assertEqual(parsed.source, "source.json")
-                self.assertEqual(parsed.schema, "3.2")
+                self.assertEqual(parsed.version, "3.2")
                 self.assertEqual(parsed.endpoint, "info")
                 self.assertEqual(parsed.local, local)
 
@@ -110,19 +170,20 @@ class ValidateTests(unittest.TestCase):
         download.assert_not_called()
 
     def test_validate_hapi_call(self):
-        args = Namespace(schema=str(self.schema), endpoint="info", local=False)
-        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+        args = Namespace(version=None, endpoint="info", local=False)
+        with patch.object(validate, "__file__", str(self.root / "python/validate.py")), \
+                contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             self.assertTrue(validate.validate(
                 self.data, "HAPI", args
             ))
             args.endpoint = "#/info"
             self.assertFalse(validate.validate(
-                {"value": 1}, "HAPI", args
+                {"HAPI": "3.4", "value": 1}, "HAPI", args
             ))
 
     def test_validate_dataset_schema_call(self):
         self.local_schema()
-        args = Namespace(schema=str(self.schema), endpoint="info", local=True)
+        args = Namespace(version=None, endpoint="info", local=True)
         with patch.object(Path, "cwd", return_value=self.root):
             with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
                 self.assertTrue(validate.validate(
@@ -142,7 +203,7 @@ class ValidateTests(unittest.TestCase):
         self.source.write_text(json.dumps(sample))
         with patch.object(validate, "urlopen") as download:
             download.return_value.__enter__.return_value.read.return_value = b"true"
-            code, _, errors = self.run_cli(schema="3.4")
+            code, _, errors = self.run_cli(version="3.4", use_hapi_schema=True)
         self.assertEqual(code, 1, errors)
         self.assertIn("datasetSchema", errors)
         download.assert_called_once_with(sample["datasetSchema"]["schemaURI"], timeout=30)
@@ -151,7 +212,7 @@ class ValidateTests(unittest.TestCase):
         sample = json.loads((BASE / "resourceListing/example1.json").read_text())
         del sample["datasetSchema"]
         self.source.write_text(json.dumps(sample))
-        self.assertEqual(self.run_cli(schema="3.4")[0], 0)
+        self.assertEqual(self.run_cli(version=None, use_hapi_schema=True)[0], 0)
 
     def test_versioned_schemas_resolve_references_and_enforce_constraints(self):
         for version in ("3.0", "3.1", "3.2", "3.3", "3.4"):
@@ -169,11 +230,11 @@ class ValidateTests(unittest.TestCase):
                     ],
                 }
                 self.source.write_text(json.dumps(source))
-                code, _, errors = self.run_cli(schema=version)
+                code, _, errors = self.run_cli(version=None, use_hapi_schema=True)
                 self.assertEqual(code, 0, errors)
                 source["parameters"][1]["type"] = "invalid"
                 self.source.write_text(json.dumps(source))
-                code, _, errors = self.run_cli(schema=version)
+                code, _, errors = self.run_cli(version=version, use_hapi_schema=True)
                 self.assertEqual(code, 1, errors)
                 self.assertIn("  Error: $.parameters[1].type", errors)
 
