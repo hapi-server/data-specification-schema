@@ -15,7 +15,7 @@ from referencing.exceptions import Unresolvable
 from referencing.jsonschema import DRAFT7
 
 
-def validate(response, stage, args):
+def validate(source, stage, args):
     if stage == "HAPI":
         # One directory above this script.
         base = Path(__file__).resolve().parent
@@ -25,17 +25,21 @@ def validate(response, stage, args):
             if re.fullmatch(r"[0-9]+(?:\.[0-9]+)*", args.schema)
             else Path(args.schema)
         )
+        fragment = (
+            args.endpoint if args.endpoint.startswith("#")
+            else "#/" + args.endpoint.lstrip("/")
+        )
         print(f"\nValidating {stage}")
-        return validate_schema(response, schema_path, args.fragment, stage)
+        return validate_schema(source, schema_path, fragment, stage)
     if stage != "datasetSchema":
         raise ValueError(f"Unknown validation stage: {stage}")
 
-    if isinstance(response, dict):
+    if isinstance(source, dict):
         for key in ("datasetSchema", "x_datasetSchema"):
-            if key not in response:
+            if key not in source:
                 continue
             print(f"\nValidating {stage}")
-            nodes = response[key]
+            nodes = source[key]
             is_array = isinstance(nodes, list)
             if not is_array:
                 nodes = [nodes]
@@ -44,12 +48,12 @@ def validate(response, stage, args):
             for index, node in enumerate(nodes):
                 path, secondary_fragment = dataset_schema_path(node, args.local)
                 schema_stage = f"{key}[{index}]" if is_array else key
-                if not validate_schema(response, path, secondary_fragment, schema_stage):
+                if not validate_schema(source, path, secondary_fragment, schema_stage):
                     return False
     return True
 
 
-def validate_schema(response, schema_path, fragment, stage):
+def validate_schema(source, schema_path, fragment, stage):
 
     schema_path = Path(schema_path)
     if not fragment.startswith("#"):
@@ -77,15 +81,16 @@ def validate_schema(response, schema_path, fragment, stage):
 
     validator = Draft7Validator({"$ref": uri + fragment}, registry=registry)
 
-    errors = list(validator.iter_errors(response))
+    errors = list(validator.iter_errors(source))
 
+    print("  Validation Result:")
     for error in errors:
-        print(f"  Error: {error.json_path}: {error.message}", file=sys.stderr)
+        print(f"    Error: {error.json_path}: {error.message}", file=sys.stderr)
 
     if errors:
         return False
 
-    print("  Valid")
+    print("    Valid")
 
     return True
 
@@ -102,9 +107,11 @@ def dataset_schema_path(node, local):
             or any(character in name for character in ("/", "\\", "\0"))
         ):
             raise ValueError("dataset schemaName must be a nonempty directory name")
+
         uri = node.get("schemaURI", "")
         if not isinstance(uri, str):
             raise ValueError("dataset schemaURI must be a string when provided")
+
         _, fragment = urldefrag(uri)
         path = Path.cwd() / name / f"{name}.json"
         return path, "#" + fragment if fragment else "#"
@@ -123,8 +130,8 @@ def dataset_schema_path(node, local):
         raise ValueError("schemaURI must end in a .json filename")
 
     path = Path.cwd() / "tmp" / filename
-    with urlopen(download_uri, timeout=30) as response:
-        content = response.read()
+    with urlopen(download_uri, timeout=30) as stream:
+        content = stream.read()
 
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(content)
@@ -136,16 +143,16 @@ def dataset_schema_path(node, local):
 
 def cli():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("response", help="response JSON file or HTTP(S) URL")
+    parser.add_argument("source", help="Source JSON file or HTTP(S) URL to validate.")
     parser.add_argument(
         "--schema",
         required=True,
         help="HAPI version (e.g. 3.4) or path to a HAPI schema",
     )
     parser.add_argument(
-        "--fragment",
+        "--endpoint",
         required=True,
-        help="schema fragment, e.g. /info or #/info; use # for the root",
+        help="HAPI schema part, e.g. 'about', 'catalog', 'info'",
     )
     parser.add_argument(
         "--local",
@@ -157,16 +164,16 @@ def cli():
 
 
 def _read_source(args):
-    source = urlsplit(args.response)
-    if source.scheme in ("http", "https"):
-        if not source.netloc:
-            raise ValueError("response URL must include a host")
-        with urlopen(args.response, timeout=10) as stream:
-            response = json.load(stream)
+    location = urlsplit(args.source)
+    if location.scheme in ("http", "https"):
+        if not location.netloc:
+            raise ValueError("source URL must include a host")
+        with urlopen(args.source, timeout=10) as stream:
+            source = json.load(stream)
     else:
-        with Path(args.response).open(encoding="utf-8") as stream:
-            response = json.load(stream)
-    return response
+        with Path(args.source).open(encoding="utf-8") as stream:
+            source = json.load(stream)
+    return source
 
 
 def main():
