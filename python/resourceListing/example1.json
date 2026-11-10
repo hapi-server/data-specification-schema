@@ -1,0 +1,79 @@
+{
+  "HAPI": "3.4",
+  "status": {
+    "code": 1200,
+    "message": "OK"
+  },
+  "startDate": "2026-01-01T00:00:00Z",
+  "stopDate": "2026-02-01T00:00:00Z",
+  "parameters": [
+    {
+      "name": "startDate",
+      "type": "isotime",
+      "units": "UTC",
+      "fill": null,
+      "length": 20
+    },
+    {
+      "name": "uri",
+      "type": "string",
+      "stringType": {
+        "uri": {
+          "base": "https://example.org/resources/",
+          "mediaType": "application/octet-stream"
+        }
+      },
+      "units": null,
+      "fill": null,
+      "length": 256
+    },
+    {
+      "name": "modificationDate",
+      "type": "isotime",
+      "units": "UTC",
+      "fill": null,
+      "length": 20
+    },
+    {
+      "name": "size",
+      "type": "integer",
+      "units": "B",
+      "fill": null
+    },
+    {
+      "name": "checksum",
+      "type": "string",
+      "units": null,
+      "fill": null,
+      "length": 64
+    },
+    {
+      "name": "creationDate",
+      "type": "isotime",
+      "units": "UTC",
+      "fill": null,
+      "length": 20
+    },
+    {
+      "name": "accessDate",
+      "type": "isotime",
+      "units": "UTC",
+      "fill": null,
+      "length": 20
+    },
+    {
+      "name": "stopDate",
+      "type": "isotime",
+      "units": "UTC",
+      "fill": null,
+      "length": 20
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "units": null,
+      "fill": null,
+      "length": 64
+    }
+  ]
+}

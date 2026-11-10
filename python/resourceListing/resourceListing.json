@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Resource listing parameter constraints",
+  "description": "Additional parameter metadata constraints to apply after validation against the appropriate HAPI response schema. Recommended parameters are not required. Unlisted parameters are allowed.",
+  "type": "object",
+  "required": [
+    "parameters"
+  ],
+  "properties": {
+    "parameters": {
+      "type": "array",
+      "minItems": 2,
+      "allOf": [
+        {
+          "items": [
+            {
+              "properties": {
+                "name": {
+                  "const": "startDate"
+                }
+              }
+            },
+            {
+              "properties": {
+                "name": {
+                  "const": "uri"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "type"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "name": {
+                  "enum": [
+                    "startDate",
+                    "modificationDate",
+                    "creationDate",
+                    "accessDate",
+                    "stopDate"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "type": {
+                  "const": "isotime"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "name": {
+                  "const": "uri"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "stringType"
+              ],
+              "properties": {
+                "type": {
+                  "const": "string"
+                },
+                "stringType": {
+                  "oneOf": [
+                    {
+                      "const": "uri"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "uri"
+                      ],
+                      "properties": {
+                        "uri": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "name": {
+                  "const": "size"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "units"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "integer",
+                    "double"
+                  ]
+                },
+                "units": {
+                  "const": "B"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "name": {
+                  "enum": [
+                    "checksum",
+                    "version"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "type": {
+                  "const": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
