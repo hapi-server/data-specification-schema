@@ -6,6 +6,10 @@
   },
   "startDate": "2026-01-01T00:00:00Z",
   "stopDate": "2026-02-01T00:00:00Z",
+  "datasetSchema": {
+    "schemaName": "fileListing",
+    "schemaURI": "https://raw.githubusercontent.com/hapi-server/data-specification-schema/refs/heads/main/python/resourceListing/resourceListing.json"
+  },
   "parameters": [
     {
       "name": "startDate",
