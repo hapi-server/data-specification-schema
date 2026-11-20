@@ -23,7 +23,7 @@ The other parameters in the table below are optional and may appear in any order
 | `startDate` | `isotime` | **Required** | Beginning of the data coverage interval of the resource. |
 | `uri` | `string` with `stringType` of `uri` | **Required** | URI identifying the resource (for example, a data file, image, or data endpoint). |
 | `modificationDate` | `isotime` | **Recommended** | Time the resource was last modified. |
-| `size` | `double` | **Recommended** | Size of the resource in bytes (`units`: `B`), when applicable and known. |
+| `contentLength` | `double` | **Recommended** | Size of the resource in bytes (required: `units`: `B`), when applicable and known. See the additional discussion below regarding formatting. |
 | `checksum` | `string` with `stringType` of `checksum` | Optional | Checksum digest for the resource; the algorithm is specified in `stringType`. |
 | `creationDate` | `isotime` | Optional | Time the resource was created. |
 | `accessDate` | `isotime` | Optional | Time the resource was last accessed. |
@@ -138,8 +138,9 @@ Recommendations:
 * The best solution is to have the file listing report exact start and stop times for the content of each file.
 * Ok solutions are to report nominal times for files, as long as the main use case is met (all files with data in given time range are returned).
 
-# About the `size` 
-Units must be in `B` and values formatted as an integer, unless the `size` is greater than `9,007,199,254,740,991` (~9 PB), in which case scientific notation should be used. Note that with this approach, a `size` is greater than ~9 PB cannot be represented with an exact number of bytes.
+# About the `contentLength` 
+
+Units must be in `B` and type `double`. Servers should format values in CSV as integers, unless the `contentLength` is greater than `9,007,199,254,740,991` (~9 PB), in which case scientific notation should be used. Note that with this approach, a `contentLength` greater than ~9 PB cannot be represented with an exact number of bytes.
 
 # About Version Numbers
 
