@@ -100,7 +100,7 @@
             "if": {
               "properties": {
                 "name": {
-                  "const": "size"
+                  "const": "contentLength"
                 }
               }
             },
@@ -111,7 +111,6 @@
               "properties": {
                 "type": {
                   "enum": [
-                    "integer",
                     "double"
                   ]
                 },
